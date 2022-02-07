@@ -1,0 +1,8 @@
+<ishobject ishref="GUID-5566F394-B0BF-4B0E-9562-7AB8646E4F1C" ishtype="ISHModule">
+  <ishfields>
+    <ishfield name="FTITLE" level="logical" xml:space="preserve">LC_DBG_STAT4</ishfield>
+    <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en-US</ishfield>
+    <ishfield name="FAUTHOR" level="lng" ishvaluetype="element" xml:space="preserve">VUSERJEFFHOOKER</ishfield>
+    <ishfield name="FSTATUS" level="lng" ishvaluetype="element" xml:space="preserve">VSTATUSTOBETRANSLATED</ishfield>
+  </ishfields>
+</ishobject>

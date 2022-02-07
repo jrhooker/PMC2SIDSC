@@ -1,0 +1,8 @@
+<ishobject ishref="GUID-8B94DE29-2043-48B1-9C4B-CD0431B059BB" ishtype="ISHModule">
+  <ishfields>
+    <ishfield name="FTITLE" level="logical" xml:space="preserve">ILECCUCERRSTS1</ishfield>
+    <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en-US</ishfield>
+    <ishfield name="FAUTHOR" level="lng" ishvaluetype="element" xml:space="preserve">VUSERJEFFHOOKER</ishfield>
+    <ishfield name="FSTATUS" level="lng" ishvaluetype="element" xml:space="preserve">VSTATUSTOBETRANSLATED</ishfield>
+  </ishfields>
+</ishobject>

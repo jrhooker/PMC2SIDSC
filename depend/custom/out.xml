@@ -1,0 +1,1791 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic>
+   <topic xmlns:ditaarch="http://dita.oasis-open.org/architecture/2005/"
+          base="base"
+          id="cqm_csrs"
+          xml:lang="en-US"
+          ditaarch:DITAArchVersion="1.2"
+          domains="(topic hi-d)                             (topic ut-d)                             (topic indexing-d)                            (topic hazard-d)                            (topic abbrev-d)                            (topic pr-d)                             (topic sw-d)                            (topic ui-d)    "
+          class="- topic/topic ">
+      <title class="- topic/title ">Completion Queue Manager Registers</title>
+
+      <body class="- topic/body ">
+         <p class="- topic/p ">The following tables describe the Completion Queue Manager
+    registers.</p>
+
+         <register>
+            <registerName>CQMCTL</registerName>
+            <registerNameMore>Completion Queue Manager Control</registerNameMore>
+            <registerBriefDescription>Completion Queue Manager Control</registerBriefDescription>
+            <registerBody>
+               <registerDescription>Completion Queue Manager Control</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>64 : 61</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>MTIMEOUT</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Queue Manager Operational State Timeout Period</b>
+                        </p>
+
+                        <p class="- topic/p ">If the operational state transition exceeds (2 ^ MTIMEOUT)
+              time_signal cycles, the queue manager is autodisabled.</p>
+
+                        <p class="- topic/p ">Valid range is 1 to 20. Other values are disable
+              timeouts.</p>
+
+                        <p class="- topic/p ">This field should only be modified with the queue manager
+              disabled. Otherwise, the results are undefined.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>1</bitWidth>
+                        <bitOffset>61</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>ETIMEOUT</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Queue Engine/Vector Operational State Timeout
+              Period</b>
+                        </p>
+
+                        <p class="- topic/p ">If the operational state transition exceeds (1 ^ ETIMEOUT)
+              time_signal cycles, the queue engine/vector is autodisabled.</p>
+
+                        <p class="- topic/p ">Valid range is 1 to 20. Other values are disable
+              timeouts.</p>
+
+                        <p class="- topic/p ">This field should only be modified with the queue manager
+              disabled. Otherwise, the results are undefined.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>5</bitWidth>
+                        <bitOffset>22</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>RESERVED</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">Reserved</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>10</bitWidth>
+                        <bitOffset>12</bitOffset>
+                        <bitFieldAccess>RO</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>CQBPSHL</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Completion Queue Back Pressure Shift Left</b>
+                        </p>
+
+                        <p class="- topic/p ">This field is used to calculate the Completion Queue
+              Backpressure Threshold. See Completion Queue Engine BPTHRESH
+              field for the calculation.</p>
+
+                        <p class="- topic/p ">This field should only be modified with the completion queue
+              manager disabled. Otherwise, the results are undefined.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>4</bitWidth>
+                        <bitOffset>8</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>RESERVED</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">Reserved</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>6</bitWidth>
+                        <bitOffset>2</bitOffset>
+                        <bitFieldAccess>RO</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>EN</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Enable</b>
+                        </p>
+
+                        <p class="- topic/p ">Allows firmware to control the operational state of the
+              completion queue manager. Modifying the value of this field
+              causes the completion queue manager to transition to the
+              specified operational state. A transition does not complete
+              until the new operational state is reflected in the State
+              (STATE) field in the corresponding Completion Queue Manager
+              Status (CQMSTS) register.</p>
+
+                        <p class="- topic/p ">Firmware must comprehend the possibility of an autonomous
+              state transition to disabled due to an error.</p>
+
+                        <p class="- topic/p ">Only permitted transitions are allowed. Others result in
+              undefined operation.</p>
+
+                        <p class="- topic/p ">See section Operational State Control and Status.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>2</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CQMSTS</registerName>
+            <registerNameMore>Completion Queue Manager Status</registerNameMore>
+            <registerBriefDescription>Completion Queue Manager Status</registerBriefDescription>
+            <registerBody>
+               <registerDescription>Completion Queue Manager Status</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>RESERVED</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">Reserved</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>29</bitWidth>
+                        <bitOffset>3</bitOffset>
+                        <bitFieldAccess>RO</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>AUTDIS</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Autonomous Disable</b>
+                        </p>
+
+                        <p class="- topic/p ">This bit is set by hardware when the completion queue manager
+              is disabled due to an error. See CQMUCERRSTS for the reason.</p>
+
+                        <p class="- topic/p ">See <xref href="../arch_principles/operational_states/operational_state_control_and_status.xml"
+                                 class="- topic/xref "/>
+              for more information.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>1</bitWidth>
+                        <bitOffset>2</bitOffset>
+                        <bitFieldAccess>RW1C</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>STATE</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">State</b>
+                        </p>
+
+                        <p class="- topic/p ">Contains the current operational state of the completion
+              queue manager.</p>
+
+                        <p class="- topic/p ">See the Operational State Control and Status section.</p>
+
+                        <p class="- topic/p ">0: Disabled</p>
+
+                        <p class="- topic/p ">1: Enabled</p>
+
+                        <p class="- topic/p ">2: Quiesced</p>
+
+                        <p class="- topic/p ">3: Paused</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>2</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RO</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CQMUCERRSTS</registerName>
+            <registerNameMore>Completion Queue Manager Uncorrected Error
+      Status</registerNameMore>
+            <registerBriefDescription>Completion Queue Manager Uncorrected Error
+      Status</registerBriefDescription>
+            <registerBody>
+               <registerDescription>Completion Queue Manager Uncorrected Error
+      Status</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>BITS</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Bits</b>
+                        </p>
+
+                        <p class="- topic/p ">Each bit is set when its corresponding error is detected.</p>
+
+                        <p class="- topic/p ">31:10 Reserved</p>
+
+                        <p class="- topic/p ">9: CIV Autodisabled due to operational state transition
+              timeout. See the CIVSTS register.</p>
+
+                        <p class="- topic/p ">8: CQE Autodisabled due to operational state transition
+              timeout. See the registers CQESTS.</p>
+
+                        <p class="- topic/p ">7: CQM Autodisabled due to operational state transition
+              timeout.</p>
+
+                        <p class="- topic/p ">6: CQE Autodisabled due to doorbell error. See the register
+              CQESTS.</p>
+
+                        <p class="- topic/p ">5: CQM MIF corrected error.</p>
+
+                        <p class="- topic/p ">4: CQM MIF is autodisabled.</p>
+
+                        <p class="- topic/p ">3: CQM told to Autodisable by SQM because SQM went
+              autodisabled.</p>
+
+                        <p class="- topic/p ">2: CQM told to Autodisable due to AI global autodisable.</p>
+
+                        <p class="- topic/p ">1: RAM double bit error.</p>
+
+                        <p class="- topic/p ">0: RAM single bit error.</p>
+
+                        <p class="- topic/p ">For information about CQM MIF, see <xref href="mif_registers.xml" class="- topic/xref "/>.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>32</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW1C</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CQMAUTDISMSK</registerName>
+            <registerNameMore>Completion Queue Manager Autonomous Disable
+      Control</registerNameMore>
+            <registerBriefDescription>Completion Queue Manager Autonomous Disable
+      Control</registerBriefDescription>
+            <registerBody>
+               <registerDescription>Completion Queue Manager Autonomous Disable
+      Control</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>BITS</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Bits</b>
+                        </p>
+
+                        <p class="- topic/p ">When a bit is written to 1, the corresponding error in the
+              CQMUCERRSTS register is masked from causing autonomous
+              disable.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>32</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0xffffff61</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CQMTOPAUTDISMSK</registerName>
+            <registerNameMore>Completion Queue Manager Top Autonomous Disable
+      Control</registerNameMore>
+            <registerBriefDescription>Completion Queue Manager Top Autonomous Disable
+      Control</registerBriefDescription>
+            <registerBody>
+               <registerDescription>Completion Queue Manager Top Autonomous Disable
+      Control</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>BITS</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Bits</b>
+                        </p>
+
+                        <p class="- topic/p ">When a bit is written to 1, the corresponding error in the
+              CQMUCERRSTS register is masked from causing the whole AI to go
+              to autonomous disable.</p>
+
+                        <p class="- topic/p ">To clear a whole AI autonomous disable:</p>
+
+                        <p class="- topic/p ">1. For each manager (also known as engine), set all bits of
+              AI*TOPAUTDISMSK.</p>
+
+                        <p class="- topic/p ">2. For each manager, cleanup and clear all bits of
+              AI*UCERRSTS.</p>
+
+                        <p class="- topic/p ">3. For each manager, clear bits of AI*TOPAUTDISMSK as
+              desired.</p>
+
+                        <p class="- topic/p ">4. Return to normal operation.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>32</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0xffffffff</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CQMUCERRMSK</registerName>
+            <registerNameMore>Completion Queue Manager Uncorrected Error
+      Mask</registerNameMore>
+            <registerBriefDescription>Completion Queue Manager Uncorrected Error
+      Mask</registerBriefDescription>
+            <registerBody>
+               <registerDescription>Completion Queue Manager Uncorrected Error
+      Mask</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>BITS</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Bits</b>
+                        </p>
+
+                        <p class="- topic/p ">When a bit is written to 1, the corresponding error in the
+              CQMUCERRSTS register is masked from causing an interrupt.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>32</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0xfffffc21</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CQMUCERRSWTGR</registerName>
+            <registerNameMore>Completion Queue Manager Uncorrected Error Software
+      Trigger</registerNameMore>
+            <registerBriefDescription>Completion Queue Manager Uncorrected Error Software
+      Trigger</registerBriefDescription>
+            <registerBody>
+               <registerDescription>Completion Queue Manager Uncorrected Error Software
+      Trigger</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>BITS</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Bits</b>
+                        </p>
+
+                        <p class="- topic/p ">When a bit is written to 1, the corresponding bit is set in
+              the CQMUCERRSTS register.</p>
+
+                        <p class="- topic/p ">This bit must be written to 0 before clearing the
+              corresponding CQMUCERRSTS bit.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>32</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CQMCERRSTS</registerName>
+            <registerNameMore>Completion Queue Manager Corrected Error
+      Status</registerNameMore>
+            <registerBriefDescription>Completion Queue Manager Corrected Error
+      Status</registerBriefDescription>
+            <registerBody>
+               <registerDescription>Completion Queue Manager Corrected Error
+      Status</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>BITS</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Bits</b>
+                        </p>
+
+                        <p class="- topic/p ">Each bit is set when its corresponding error is detected.</p>
+
+                        <p class="- topic/p ">The same errors are reported in CQMUCERRSTS. See CQMUCERRSTS
+              for bit mapping. This allows errors to be configured as either
+              corrected or uncorrected.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>32</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW1C</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CQMCERRMSK</registerName>
+            <registerNameMore>Completion Queue Manager Corrected Error
+      Mask</registerNameMore>
+            <registerBriefDescription>Completion Queue Manager Corrected Error
+      Mask</registerBriefDescription>
+            <registerBody>
+               <registerDescription>Completion Queue Manager Corrected Error
+      Mask</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>BITS</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Bits</b>
+                        </p>
+
+                        <p class="- topic/p ">When a bit is written to 1, the corresponding error in the
+              CQMCERRSTS register is masked from causing an interrupt.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>32</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0xffffffff</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CQMCERRSWTGR</registerName>
+            <registerNameMore>Completion Queue Manager Corrected Error Software
+      Trigger</registerNameMore>
+            <registerBriefDescription>Completion Queue Manager Corrected Error Software
+      Trigger</registerBriefDescription>
+            <registerBody>
+               <registerDescription>Completion Queue Manager Corrected Error Software
+      Trigger</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>BITS</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Bits</b>
+                        </p>
+
+                        <p class="- topic/p ">When a bit is written to 1, the corresponding bit is set in
+              the CQMCERRSTS register.</p>
+
+                        <p class="- topic/p ">This bit must be written to 0 before clearing the
+              corresponding CQMCERRSTS bit.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>32</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CQMRAMECTL</registerName>
+            <registerNameMore>CQM Embedded RAM Error Control</registerNameMore>
+            <registerBriefDescription>CQM Embedded RAM Error Control</registerBriefDescription>
+            <registerBody>
+               <registerDescription>CQM Embedded RAM Error Control</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>RESERVED</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">Reserved</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>16</bitWidth>
+                        <bitOffset>16</bitOffset>
+                        <bitFieldAccess>RO</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>INDEX</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">RAM Index </b>
+                        </p>
+
+                        <p class="- topic/p ">Contains the index of the embedded RAM on which the command
+              written to the CMD field is performed. The index also
+              corresponds to the bit index for CQMRAMSBESTS and
+              CQMRAMDBESTS.</p>
+
+                        <p class="- topic/p ">0: CQECTL</p>
+
+                        <p class="- topic/p ">1: CQEBPCTL</p>
+
+                        <p class="- topic/p ">2: CQEPCIEPRE</p>
+
+                        <p class="- topic/p ">3: CQEPCIECTL</p>
+
+                        <p class="- topic/p ">4: CQEUBASE</p>
+
+                        <p class="- topic/p ">5: CQELBASE</p>
+
+                        <p class="- topic/p ">6: CQETIME</p>
+
+                        <p class="- topic/p ">7: CIVPCIEPRE</p>
+
+                        <p class="- topic/p ">8: CIVPCIECTL</p>
+
+                        <p class="- topic/p ">9: CIVUADDR</p>
+
+                        <p class="- topic/p ">10: CIVLADDR</p>
+
+                        <p class="- topic/p ">11: CIVDATA</p>
+
+                        <p class="- topic/p ">12: CIVTIME</p>
+
+                        <p class="- topic/p ">13:20: CIVCTL [0:7]</p>
+
+                        <p class="- topic/p ">21:28: CIVINFO [0:7]</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>8</bitWidth>
+                        <bitOffset>8</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>RESERVED</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">Reserved</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>5</bitWidth>
+                        <bitOffset>3</bitOffset>
+                        <bitFieldAccess>RO</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>CMD</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">RAM Command </b>
+                        </p>
+
+                        <p class="- topic/p ">When a value is written to this field, the corresponding
+              operation is performed on the embedded RAM selected in the INDEX
+              field. Selecting an unimplemented RAM index or command causes a
+              NOP to be executed.</p>
+
+                        <p class="- topic/p ">0: (NOP) No Operation</p>
+
+                        <p class="- topic/p ">1: (SBE) Set corresponding single bit error status bit</p>
+
+                        <p class="- topic/p ">2: (DBE) Set corresponding double bit error status bit</p>
+
+                        <p class="- topic/p ">3: (ISBE) Inject true single bit error in the next value read
+              from RAM</p>
+
+                        <p class="- topic/p ">4: (IDBE) Inject true double bit error in the next value read
+              from RAM</p>
+
+                        <p class="- topic/p ">Others are Reserved</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>3</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CQMRAMSBESTS</registerName>
+            <registerNameMore>CQM
+      Embedded RAM Single Bit Error Status</registerNameMore>
+            <registerBriefDescription>CQM
+      Embedded RAM Single Bit Error Status</registerBriefDescription>
+            <registerBody>
+               <registerDescription>CQM
+      Embedded RAM Single Bit Error Status</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>STS</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">RAM Single Bit Error Status </b>
+                        </p>
+
+                        <p class="- topic/p ">Associated with each embedded RAM is a status bit. A status
+              bit is set whenever a single bit error is detected in that RAM.
+              See CQMRAMECTL.INDEX for embedded RAM indices. Bits
+              corresponding to unused indices are hardwired to zero.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>32</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW1C</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CQMRAMDBESTS</registerName>
+            <registerNameMore>CQM
+      Embedded RAM Double Bit Error Status</registerNameMore>
+            <registerBriefDescription>CQM
+      Embedded RAM Double Bit Error Status</registerBriefDescription>
+            <registerBody>
+               <registerDescription>CQM
+      Embedded RAM Double Bit Error Status</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>STS</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">RAM Double Bit Error Status </b>
+                        </p>
+
+                        <p class="- topic/p ">Associated with each embedded RAM is a status bit. A status
+              bit is set whenever a double bit error is detected in that RAM.
+              See CQMRAMECTL.INDEX for embedded RAM indices. Bits
+              corresponding to unused indices are hardwired to zero.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>32</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW1C</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CICFG</registerName>
+            <registerNameMore>Completion Interrupt Vector Configuration</registerNameMore>
+            <registerBriefDescription>Completion Interrupt Vector Configuration</registerBriefDescription>
+            <registerBody>
+               <registerDescription>Completion Interrupt Vector Configuration</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>ATU</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Aggregation Time Unit Scale Factor</b>
+                        </p>
+
+                        <p class="- topic/p ">Specifies the PCIe completion interrupt aggregation time unit
+              scale factor in units of 2x time_signal (internal) clock periods
+              (nominally 2uS using a 650 MHz host interface clock). For
+              example, if this field is 10, then the aggregation time unit
+              will be 20 uS (that is, 2 * 1uS * 10).</p>
+
+                        <p class="- topic/p ">A value of zero indicates a zero time period and thus
+              disables time based aggregation.</p>
+
+                        <p class="- topic/p ">This field should only be modified with the completion queue
+              manager is disabled. Otherwise, the results are undefined.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>16</bitWidth>
+                        <bitOffset>16</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>RESERVED</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">Reserved</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>5</bitWidth>
+                        <bitOffset>11</bitOffset>
+                        <bitFieldAccess>RO</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>INTMSCMSIX</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">INTMS/INTMC and/or MSI-X Masking Mechanism</b>
+                        </p>
+
+                        <p class="- topic/p ">This field configures the NVMe INTMS/INTMC masking mechanism
+              to mask the first 32 completion interrupt vectors as appropriate
+              in the following ways:</p>
+
+                        <p class="- topic/p ">0 Mask when either the CICFG.INTMSC[0:31] (MSI) or
+              CIVCTL[0:31].MASK (MSI-X) bits are set</p>
+
+                        <p class="- topic/p ">1 Mask only when CICFG.INTMSC[0:31] (MSI) bits are set</p>
+
+                        <p class="- topic/p ">2 Mask only when (MSI-X) bits are set</p>
+
+                        <p class="- topic/p ">3 RESERVED</p>
+
+                        <p class="- topic/p ">This field only affects the first 32 (for MSI mode) out of a
+              possible 1025 (in MSI-X mode) completion interrupt vectors.</p>
+
+                        <p class="- topic/p ">This field should only be modified with the completion queue
+              manager disabled. Otherwise, the results are undefined.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>2</bitWidth>
+                        <bitOffset>9</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>VECTORS</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Vectors</b>
+                        </p>
+
+                        <p class="- topic/p ">Indicates the number of completion interrupt vectors included
+              in the vector search. It affects CIVCTL[*], CIVSTS[*],
+              CIVEVENT[*] and CIVINVFO[*]. The shorter search range results in
+              higher throughput, but less vectors supported.</p>
+
+                        <p class="- topic/p ">1 1025 range is i=0 to 1024: CIV*[i]</p>
+
+                        <p class="- topic/p ">0 258 range is i=0 to 6: CIV*[(i*128):(i*128+31)] and i=7
+              CIV*[(i*128):(i*128+33)]</p>
+
+                        <p class="- topic/p ">This field should only be modified with the completion queue
+              manager disabled. Otherwise, the results are undefined.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>1</bitWidth>
+                        <bitOffset>8</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x1</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>RESERVED</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">Reserved</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>4</bitWidth>
+                        <bitOffset>4</bitOffset>
+                        <bitFieldAccess>RO</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>INTMODE</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">PCIe Completion Interrupt Mode</b>
+                        </p>
+
+                        <p class="- topic/p ">Configures the PCIe Completion Interrupt mode.</p>
+
+                        <p class="- topic/p ">0; MSI/MSI-X</p>
+
+                        <p class="- topic/p ">1: INTX - only completion interrupt vector 0 is used in this
+              mode.</p>
+
+                        <p class="- topic/p ">This field should only be modified with the completion queue
+              manager disabled. Otherwise, the results are undefined.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>1</bitWidth>
+                        <bitOffset>3</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>INTX</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">IntX A/B/C/D Select</b>
+                        </p>
+
+                        <p class="- topic/p ">Configures the PCIe INTX mode. It is only used when INTMODE
+              field is set to INTX.</p>
+
+                        <p class="- topic/p ">0: INTA</p>
+
+                        <p class="- topic/p ">1: INTB</p>
+
+                        <p class="- topic/p ">2: INTC</p>
+
+                        <p class="- topic/p ">3: INTD</p>
+
+                        <p class="- topic/p ">This field should only be modified with the completion queue
+              manager disabled. Otherwise, the results are undefined.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>2</bitWidth>
+                        <bitOffset>1</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+            <bitField>
+               <bitFieldName>MSK</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">Mask</b>
+                        </p>
+
+                        <p class="- topic/p ">When this bit is set, PCIe completion interrupts are masked,
+              starting with the next vector to be evaluated. PCIe completion
+              interrupts already selected and in the output pipeline will be
+              output.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>1</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <register>
+            <registerName>CIINTMSC</registerName>
+            <registerNameMore>Completion Interrupt INTMS/INTMC</registerNameMore>
+            <registerBriefDescription>Completion Interrupt INTMS/INTMC</registerBriefDescription>
+            <registerBody>
+               <registerDescription>Completion Interrupt INTMS/INTMC</registerDescription>
+               <registerProperties>
+                  <addressOffset/>
+                  <registerSize>32 : 31</registerSize>
+                  <registerAccess/>
+                  <registerResetValue/>
+                  <bitOrder/>
+                  <resetTrig/>
+                  <dimension>
+                     <dimensionValue/>
+                     <dimensionIncrement/>
+                     <unitQualifier/>
+                     <namePattern/>
+                  </dimension>
+               </registerProperties>
+            </registerBody>
+            <bitField>
+               <bitFieldName>INTMSC</bitFieldName>
+               <bitFieldBriefDescription/>
+               <bitFieldBody>
+                  <bitFieldDescription>
+                     <field-desc>
+                        <p class="- topic/p ">
+                           <b class="+ topic/ph hi-d/b ">NVMe Completion Interrupt Vector Mask Set/Clear</b>
+                        </p>
+
+                        <p class="- topic/p ">This register is used to mask completion interrupts when
+              using pin-based completion interrupts, single message MSI, or
+              multiple message MSI. When using MSI-X, the completion interrupt
+              mask table (CIVCTL[0:31].MASK) should be used to mask completion
+              interrupts.</p>
+
+                        <p class="- topic/p ">When read, this field returns the current completion
+              interrupt mask value within the controller. If a bit has a value
+              of a '1', then the corresponding completion interrupt vector is
+              masked. If a bit has a value of '0', then the corresponding
+              completion interrupt vector is not masked.</p>
+
+                        <p class="- topic/p ">Host software shall not access this register when configured
+              for MSI-X; any accesses when configured for MSI-X is
+              undefined.</p>
+                     </field-desc>
+                  </bitFieldDescription>
+                  <bitFieldProperties>
+                     <bitFieldPropset>
+                        <bitWidth>32</bitWidth>
+                        <bitOffset>0</bitOffset>
+                        <bitFieldAccess>RW</bitFieldAccess>
+                        <bitFieldReset>
+                           <bitFieldResetValue>0x0</bitFieldResetValue>
+                        </bitFieldReset>
+                     </bitFieldPropset>
+                  </bitFieldProperties>
+                  <bitFieldValues>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                     <bitFieldValueGroup>
+                        <bitFieldValue/>
+                        <bitFieldValueName/>
+                        <bitFieldValueDescription/>
+                     </bitFieldValueGroup>
+                  </bitFieldValues>
+               </bitFieldBody>
+            </bitField>
+         </register>
+
+         <p class="- topic/p "/>
+      </body>
+   </topic>
+</topic>
