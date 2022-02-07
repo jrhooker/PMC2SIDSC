@@ -1,8 +1,0 @@
-<ishobject ishref="GUID-1D06EFE8-1A0E-4A90-B7CA-8D45451CF8AF" ishtype="ISHModule">
-  <ishfields>
-    <ishfield name="FTITLE" level="logical" xml:space="preserve">CGENCALL</ishfield>
-    <ishfield name="DOC-LANGUAGE" level="lng" xml:space="preserve">en-US</ishfield>
-    <ishfield name="FAUTHOR" level="lng" ishvaluetype="element" xml:space="preserve">VUSERJEFFHOOKER</ishfield>
-    <ishfield name="FSTATUS" level="lng" ishvaluetype="element" xml:space="preserve">VSTATUSTOBETRANSLATED</ishfield>
-  </ishfields>
-</ishobject>
