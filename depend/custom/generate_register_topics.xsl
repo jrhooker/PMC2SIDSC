@@ -9,6 +9,10 @@
   xmlns:date="http://exslt.org/dates-and-times">
 
   <xsl:import href="process-address-maps.xsl"/>
+  
+  <xsl:import href="conversionFunctions.xsl"/>
+  
+  <xsl:import href="calculateReset.xsl"/>
 
   <xsl:param name="STARTING-DIR"/>
 
@@ -144,7 +148,7 @@
     <xsl:for-each select="$document//table[descendant::reg-def]">
       <xsl:variable name="ids" select="$document//@id"/>
       <xsl:variable name="reg-file-name" select="concat('/', @id, '_', $topicref-id)"/>
-      <xsl:message>REG-DEF: <xsl:value-of select="@id"/>
+      <xsl:message>REG-DEF1: <xsl:value-of select="@id"/>
       </xsl:message>
       <xsl:result-document href="{concat($OUTPUT-DIR-VAR, $path-out, $reg-file-name)}">
         <xsl:element name="register">
@@ -167,8 +171,7 @@
                 <xsl:element name="addressOffset">0x0</xsl:element>
                 <xsl:element name="registerSize">32</xsl:element>
                 <xsl:element name="registerAccess">RW/RO/ETC. how to calculate?</xsl:element>
-                <xsl:element name="registerResetValue">I think adding all the default values should
-                  do this.</xsl:element>
+                <xsl:element name="registerResetValue"><xsl:call-template name="calc-reset-value"/></xsl:element>
                 <xsl:element name="bitOrder">little endian/big endian</xsl:element>
                 <xsl:element name="resetTrig"/>
               </xsl:element>
@@ -272,7 +275,7 @@
     <xsl:for-each select="$document//table[descendant::reg-def]">
       <xsl:variable name="ids" select="$document//@id"/>
       <xsl:variable name="reg-file-name" select="concat('/', @id, '_', $topicref-id)"/>
-      <xsl:message>REG-DEF: <xsl:value-of select="@id"/>
+      <xsl:message>REG-DEF2: <xsl:value-of select="@id"/>
       </xsl:message>
       <xsl:result-document href="{concat($OUTPUT-DIR-VAR, $path-out, $reg-file-name)}">
         <xsl:element name="topic">
@@ -282,7 +285,7 @@
               <xsl:otherwise><xsl:value-of select="generate-id()"/></xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
-          <xsl:element name="title">REG-DEF: <xsl:value-of select="title"/>
+          <xsl:element name="title">REG-DEF3: <xsl:value-of select="title"/>
           </xsl:element>
           <xsl:element name="body">
             <xsl:copy>
@@ -356,7 +359,7 @@
     </xsl:variable>
     <xsl:for-each select="$document//table[descendant::reg-def]">
       <xsl:variable name="reg-file-name" select="concat('/', @id, '.xml')"/>
-      <xsl:message>REG-DEF: <xsl:value-of select="@id"/>
+      <xsl:message>REG-DEF4: <xsl:value-of select="@id"/>
       </xsl:message>
       <xsl:result-document href="{concat($OUTPUT-DIR-VAR, $path-out, $reg-file-name)}">
         <xsl:element name="topic">

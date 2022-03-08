@@ -58,6 +58,9 @@
 
   <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
     doctype-public="-//Atmel//DTD DITA SIDSC Register//EN" doctype-system="atmel-sidsc-register.dtd"/>
+  
+  <!--<xsl:output method="xml" media-type="text/xml" indent="no" encoding="UTF-8"
+    doctype-public="-//OASIS//DTD DITA 1.2 Topic//EN" doctype-system="topic.dtd"/>-->
 
   <xsl:template match="/">
     <!-- We're going to be processing the linked resources separately, so pull them into variables -->

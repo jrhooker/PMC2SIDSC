@@ -164,8 +164,7 @@
                 <xsl:element name="addressOffset">0x0</xsl:element>
                 <xsl:element name="registerSize">32</xsl:element>
                 <xsl:element name="registerAccess">RW/RO/ETC. how to calculate?</xsl:element>
-                <xsl:element name="registerResetValue">I think adding all the default values should
-                  do this.</xsl:element>
+                <xsl:element name="registerResetValue"><xsl:call-template name="calc-reset-value"/></xsl:element>
                 <xsl:element name="bitOrder">little endian/big endian</xsl:element>
                 <xsl:element name="resetTrig"/>
               </xsl:element>

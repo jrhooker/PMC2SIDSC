@@ -92,9 +92,7 @@
   
   <xsl:template match="topicref | chapter | appendix | topichead" name="topicref">
     <xsl:param name="href-prefix"></xsl:param>    
-    <xsl:element name="topichead">
-     <xsl:attribute name="navtitle"><xsl:value-of select="generate-id()"/></xsl:attribute>
-      <xsl:choose>
+       <xsl:choose>
         <xsl:when test="contains(@href, '.ditamap')">
           <xsl:message>Found a ditamap</xsl:message>
           <xsl:call-template name="process-ditamap">
@@ -121,7 +119,6 @@
         </xsl:otherwise>
       </xsl:choose>
       <xsl:apply-templates/>
-    </xsl:element>
   </xsl:template>
   
   <xsl:template name="create-topicrefs">
