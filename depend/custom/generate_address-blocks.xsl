@@ -56,8 +56,11 @@
 
   <xsl:param name="FILENAME"/>
 
+<!--  <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
+    doctype-public="-//Atmel//DTD DITA SIDSC Address Block//EN" doctype-system="atmel-sidsc-addressBlock.dtd"/>  -->
+
   <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
-    doctype-public="-//Atmel//DTD DITA SIDSC Address Block//EN" doctype-system="atmel-sidsc-addressBlock.dtd"/>
+    doctype-public="-//Atmel//DTD DITA Mathml Topic//EN" doctype-system="AtmelTopic.dtd"/>
 
   <xsl:template match="/">
     <!-- We're going to be processing the linked resources separately, so pull them into variables -->

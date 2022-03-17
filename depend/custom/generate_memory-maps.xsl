@@ -70,12 +70,12 @@
 
   <xsl:param name="FILENAME"/>
 
-  <!--<xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
+  <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
     doctype-public="-//Atmel//DTD DITA SIDSC Memory Map//EN"
-    doctype-system="atmel-sidsc-memoryMap.dtd"/>-->
+    doctype-system="atmel-sidsc-memoryMap.dtd"/>
 
-  <xsl:output method="xml" media-type="text/xml" indent="no" encoding="UTF-8"
-    doctype-public="-//OASIS//DTD DITA 1.2 Topic//EN" doctype-system="topic.dtd"/>
+ <!-- <xsl:output method="xml" media-type="text/xml" indent="no" encoding="UTF-8"
+    doctype-public="-//OASIS//DTD DITA 1.2 Topic//EN" doctype-system="topic.dtd"/> -->
 
   <xsl:template match="/">
     <!-- We're going to be processing the linked resources separately, so pull them into variables -->
@@ -242,7 +242,7 @@
               </xsl:element>
               <xsl:element name="body">
                 <xsl:element name="table">
-                  <xsl:attribute name="outputclass"> ADDRESS_TABLE </xsl:attribute>
+                  <xsl:attribute name="otherprops">register=ADDRESS_TABLE</xsl:attribute>
                   <xsl:element name="title">
                     <xsl:value-of select="title"/>
                   </xsl:element>
@@ -278,13 +278,13 @@
                               <xsl:choose>
                                 <xsl:when test="addr-element/address-prefix"> Prefix: <xsl:element
                                     name="ph">
-                                    <xsl:attribute name="outputclass"> PREFIX </xsl:attribute>
+                                    <xsl:attribute name="otherprops"> register=PREFIX </xsl:attribute>
                                     <xsl:value-of select="addr-element/address-prefix"/>
                                   </xsl:element>
                                 </xsl:when>
                                 <xsl:when test="addr-element/addr-mnemonic"> Mnemonic: <xsl:element
                                     name="ph">
-                                    <xsl:attribute name="outputclass"> MNEMONIC </xsl:attribute>
+                                  <xsl:attribute name="otherprops"> register=MNEMONIC </xsl:attribute>
                                     <xsl:value-of select="addr-element/addr-mnemonic"/>
                                   </xsl:element>
                                 </xsl:when>
@@ -293,12 +293,12 @@
 
                             <xsl:for-each select="addr-element/instances/instance">
                               <xsl:element name="p">START: <xsl:element name="ph">
-                                  <xsl:attribute name="outputclass"> START </xsl:attribute>
+                                <xsl:attribute name="otherprops"> register=START </xsl:attribute>
                                   <xsl:value-of select="instance-start"/>
                                 </xsl:element>
                               </xsl:element>
                               <xsl:element name="p">STOP: <xsl:element name="ph">
-                                  <xsl:attribute name="outputclass"> STOP </xsl:attribute>
+                                <xsl:attribute name="otherprops"> register=STOP </xsl:attribute>
                                   <xsl:value-of select="instance-stop"/>
                                 </xsl:element>
                               </xsl:element>

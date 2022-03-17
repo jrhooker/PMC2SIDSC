@@ -55,9 +55,7 @@
                                 <xsl:with-param name="string" select="$default-value"></xsl:with-param>
                             </xsl:call-template>
                         </xsl:otherwise>
-                    </xsl:choose>
-                    
-                   
+                    </xsl:choose>                   
                 </xsl:variable>     
               
                 

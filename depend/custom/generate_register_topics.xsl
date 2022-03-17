@@ -9,9 +9,9 @@
   xmlns:date="http://exslt.org/dates-and-times">
 
   <xsl:import href="process-address-maps.xsl"/>
-  
+
   <xsl:import href="conversionFunctions.xsl"/>
-  
+
   <xsl:import href="calculateReset.xsl"/>
 
   <xsl:param name="STARTING-DIR"/>
@@ -35,9 +35,9 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  
+
   <xsl:param name="OUTPUT-DIR"/>
-  
+
   <xsl:variable name="OUTPUT-DIR-VAR">
     <xsl:choose>
       <xsl:when test="contains($OUTPUT-DIR, 'c:')">
@@ -59,8 +59,8 @@
   </xsl:variable>
 
   <xsl:param name="FILENAME"/>
- 
- <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
+
+  <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
     doctype-public="-//Atmel//DTD DITA SIDSC Register//EN" doctype-system="atmel-sidsc-register.dtd"/>
 
   <!--  <xsl:output method="xml" media-type="text/xml" indent="no" encoding="UTF-8"
@@ -68,11 +68,11 @@
 
 
   <xsl:template match="/">
-  
+
     <!-- now process the current map itself -->
     <xsl:message>Path to project: <xsl:value-of select="$STARTING-DIR-VAR"/></xsl:message>
     <xsl:message>Path to output: <xsl:value-of select="$OUTPUT-DIR-VAR"/></xsl:message>
-    <xsl:message>FILENAME: <xsl:value-of select="$FILENAME"/></xsl:message> 
+    <xsl:message>FILENAME: <xsl:value-of select="$FILENAME"/></xsl:message>
 
     <xsl:apply-templates/>
 
@@ -101,9 +101,9 @@
               <xsl:value-of select="$href-prefix"/>
             </xsl:with-param>
           </xsl:call-template>
-        </xsl:when>      
+        </xsl:when>
         <xsl:when test="contains(@href, '.ditamap')">
-          <xsl:message>Found a ditamap</xsl:message> 
+          <xsl:message>Found a ditamap</xsl:message>
           <xsl:call-template name="process-ditamap">
             <xsl:with-param name="href">
               <xsl:value-of select="@href"/>
@@ -153,6 +153,11 @@
       <xsl:result-document href="{concat($OUTPUT-DIR-VAR, $path-out, $reg-file-name)}">
         <xsl:element name="register">
           <xsl:attribute name="id" select="@id"/>
+          <xsl:if test="title/reg-name-main/@verilog">
+            <xsl:attribute name="otherprops">
+              <xsl:value-of select="concat('register-verilog=', title/reg-name-main/@verilog)"/>
+            </xsl:attribute>
+          </xsl:if>
           <xsl:element name="registerName">
             <xsl:value-of select="title/reg-name-main"/>
           </xsl:element>
@@ -161,53 +166,87 @@
               <xsl:value-of select="title/reg-name-main"/>
             </xsl:element>
             <xsl:element name="registerBriefDescription">
-              <xsl:value-of select="title/reg-name-desc"/>
+              <xsl:value-of select="title/reg-desc"/>
             </xsl:element>
           </xsl:element>
           <xsl:element name="registerBody">
-            <xsl:element name="registerDescription">[registerDescription]</xsl:element>
+            <xsl:element name="registerDescription">
+              <xsl:value-of select="title/reg-desc"/>
+            </xsl:element>
             <xsl:element name="registerProperties">
               <xsl:element name="registerPropset">
                 <xsl:element name="addressOffset">0x0</xsl:element>
-                <xsl:element name="registerSize">32</xsl:element>
-                <xsl:element name="registerAccess">RW/RO/ETC. how to calculate?</xsl:element>
-                <xsl:element name="registerResetValue"><xsl:call-template name="calc-reset-value"/></xsl:element>
-                <xsl:element name="bitOrder">little endian/big endian</xsl:element>
+                <xsl:element name="registerSize">
+                  <xsl:call-template name="calc-reg-size"/>
+                </xsl:element>
+                <xsl:element name="registerResetValue">
+                  <xsl:call-template name="calc-reset-value"/>
+                </xsl:element>
+                <xsl:element name="bitOrder">
+                  <xsl:call-template name="find-bitorder"/>
+                </xsl:element>
                 <xsl:element name="resetTrig"/>
               </xsl:element>
             </xsl:element>
           </xsl:element>
           <xsl:for-each select="tgroup/reg-def/field">
-          <xsl:element name="bitField">
-            <xsl:attribute name="id" select="generate-id()"/>
-           <xsl:element name="bitFieldName"><xsl:value-of select="field-name"/></xsl:element>
-            <xsl:element name="bitFieldBriefDescription"><xsl:value-of select="field-desc/p[1]"/></xsl:element>
-            <xsl:element name="bitFieldBody">
-              <xsl:element name="bitFieldDescription"><xsl:apply-templates select="field-desc" mode="field-desc"/></xsl:element>
-              <xsl:element name="bitFieldProperties">
-                <xsl:element name="bitFieldPropset">
-                  <xsl:element name="bitWidth"><xsl:call-template name="calc-bitwidth"></xsl:call-template></xsl:element>
-                  <xsl:element name="bitFieldAccess"><xsl:value-of select="field-type"/><xsl:if test="field-type/@sticky = 'yes'"> - [STICKY]</xsl:if></xsl:element>
-                </xsl:element>
-              </xsl:element>
-              <xsl:if test="field-desc/field-enum-list">
-              <xsl:element name="bitFieldValues">
-                <xsl:for-each select="field-desc/field-enum-list/field-enum">
-                  <xsl:element name="bitFieldValueGroup">
-                    <xsl:element name="bitFieldValue"><xsl:value-of select="field-enum-value"/></xsl:element>
-                    <xsl:element name="bitFieldValueName"><xsl:value-of select="field-enum-def"/></xsl:element>
-                    <xsl:element name="bitFieldValueDescription"><xsl:value-of select="field-enum-desc"/></xsl:element>                    
-                  </xsl:element>
-                </xsl:for-each>
-              </xsl:element>
+            <xsl:element name="bitField">
+              <xsl:attribute name="id" select="generate-id()"/>
+              <xsl:if test="field-name/@verilog">
+                <xsl:attribute name="otherprops">
+                  <xsl:value-of select="concat('register-verilog=', field-name/@verilog)"/>
+                </xsl:attribute>
               </xsl:if>
+              <xsl:element name="bitFieldName">
+                <xsl:value-of select="field-name"/>
+              </xsl:element>
+              <xsl:element name="bitFieldBriefDescription">
+                <xsl:value-of select="field-desc/p[1]"/>
+              </xsl:element>
+              <xsl:element name="bitFieldBody">
+                <xsl:element name="bitFieldDescription">
+                  <xsl:apply-templates select="field-desc/*" mode="field-desc"/>
+                </xsl:element>
+                <xsl:element name="bitFieldProperties">
+                  <xsl:element name="bitFieldPropset">
+                    <xsl:element name="bitWidth">
+                      <xsl:call-template name="calc-bitwidth"/>
+                    </xsl:element>
+                    <xsl:element name="bitFieldAccess">
+                      <xsl:value-of select="field-type"/>
+                      <xsl:if test="field-type/@sticky = 'yes'"> - [STICKY]</xsl:if>
+                    </xsl:element>
+                    <xsl:element name="bitFieldReset">
+                      <xsl:element name="bitFieldResetValue">
+                        <xsl:value-of select="field-default"/>
+                      </xsl:element>
+                    </xsl:element>
+                  </xsl:element>
+                </xsl:element>
+                <xsl:if test="field-desc/field-enum-list">
+                  <xsl:element name="bitFieldValues">
+                    <xsl:for-each select="field-desc/field-enum-list/field-enum">
+                      <xsl:element name="bitFieldValueGroup">
+                        <xsl:element name="bitFieldValue">
+                          <xsl:value-of select="field-enum-value"/>
+                        </xsl:element>
+                        <xsl:element name="bitFieldValueName">
+                          <xsl:value-of select="field-enum-def"/>
+                        </xsl:element>
+                        <xsl:element name="bitFieldValueDescription">
+                          <xsl:value-of select="field-enum-desc"/>
+                        </xsl:element>
+                      </xsl:element>
+                    </xsl:for-each>
+                  </xsl:element>
+                </xsl:if>
+              </xsl:element>
             </xsl:element>
-          </xsl:element>  
           </xsl:for-each>
         </xsl:element>
       </xsl:result-document>
     </xsl:for-each>
-    
+
     <xsl:for-each select="$document//table[descendant::address-map]">
       <xsl:variable name="ids" select="$document//@id"/>
       <xsl:variable name="reg-file-name" select="concat('/', @id, '_', $topicref-id)"/>
@@ -217,8 +256,12 @@
         <xsl:element name="topic">
           <xsl:attribute name="id">
             <xsl:choose>
-              <xsl:when test="@id"><xsl:value-of select="@id"/></xsl:when>
-              <xsl:otherwise><xsl:value-of select="generate-id()"/></xsl:otherwise>
+              <xsl:when test="@id">
+                <xsl:value-of select="@id"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="generate-id()"/>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
           <xsl:element name="title">ADDRESS-MAP: <xsl:value-of select="title"/></xsl:element>
@@ -236,17 +279,17 @@
     </xsl:for-each>
   </xsl:template>
 
-<xsl:template name="calc-bitwidth">
-  <xsl:choose>
-    <xsl:when test="field-bits/single">1</xsl:when>
-    <xsl:when test="field-bits/double">
-      <xsl:variable name="lsb" select="field-bits/double/lsb"/>
-      <xsl:variable name="msb" select="field-bits/double/msb"/>
-      <xsl:value-of select="number($msb) - number($lsb) + 1"/>     
-    </xsl:when>
-    <xsl:otherwise>InvalidBitValue</xsl:otherwise>
-  </xsl:choose>  
-</xsl:template>
+  <xsl:template name="calc-bitwidth">
+    <xsl:choose>
+      <xsl:when test="field-bits/single">1</xsl:when>
+      <xsl:when test="field-bits/double">
+        <xsl:variable name="lsb" select="field-bits/double/lsb"/>
+        <xsl:variable name="msb" select="field-bits/double/msb"/>
+        <xsl:value-of select="number($msb) - number($lsb) + 1"/>
+      </xsl:when>
+      <xsl:otherwise>InvalidBitValue</xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 
   <xsl:template name="create-topic">
     <xsl:param name="href"/>
@@ -281,8 +324,12 @@
         <xsl:element name="topic">
           <xsl:attribute name="id">
             <xsl:choose>
-              <xsl:when test="@id"><xsl:value-of select="@id"/></xsl:when>
-              <xsl:otherwise><xsl:value-of select="generate-id()"/></xsl:otherwise>
+              <xsl:when test="@id">
+                <xsl:value-of select="@id"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="generate-id()"/>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
           <xsl:element name="title">REG-DEF3: <xsl:value-of select="title"/>
@@ -336,8 +383,12 @@
       <xsl:element name="topic">
         <xsl:attribute name="id">
           <xsl:choose>
-            <xsl:when test="@id"><xsl:value-of select="@id"/></xsl:when>
-            <xsl:otherwise><xsl:value-of select="generate-id()"/></xsl:otherwise>
+            <xsl:when test="@id">
+              <xsl:value-of select="@id"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="generate-id()"/>
+            </xsl:otherwise>
           </xsl:choose>
         </xsl:attribute>
         <xsl:element name="title">
@@ -365,8 +416,12 @@
         <xsl:element name="topic">
           <xsl:attribute name="id">
             <xsl:choose>
-              <xsl:when test="@id"><xsl:value-of select="@id"/></xsl:when>
-              <xsl:otherwise><xsl:value-of select="generate-id()"/></xsl:otherwise>
+              <xsl:when test="@id">
+                <xsl:value-of select="@id"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="generate-id()"/>
+              </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
           <xsl:element name="title">
@@ -374,7 +429,7 @@
           </xsl:element>
         </xsl:element>
       </xsl:result-document>
-    </xsl:for-each>   
+    </xsl:for-each>
   </xsl:template>
 
   <xsl:template name="process-path">
@@ -389,5 +444,144 @@
     </xsl:choose>
   </xsl:template>
 
+  <xsl:template name="calc-reg-size">
+    <xsl:variable name="values1" select="tgroup/reg-def/field/field-bits/single"/>
+    <xsl:variable name="values2" select="tgroup/reg-def/field/field-bits/double/msb"/>
+
+    <!-- It turns out that some engineers were a little lazy about filling in all the necessary bit fields, so instead of being able to check
+  for the exact right width we need to check to make sure that the field is too big to be anything less than the next size up. Make sense? -->
+
+    <xsl:choose>
+      <xsl:when test="max($values2) &gt; 511 or max($values1) &gt; 511">1024</xsl:when>
+      <xsl:when test="max($values2) &gt; 255 or max($values1) &gt; 255">512</xsl:when>
+      <xsl:when test="max($values2) &gt; 127 or max($values1) &gt; 127">256</xsl:when>
+      <xsl:when test="max($values2) &gt; 63 or max($values1) &gt; 63">128</xsl:when>
+      <xsl:when test="max($values2) &gt; 31 or max($values1) &gt; 31">64</xsl:when>
+      <xsl:when test="max($values2) &gt; 15 or max($values1) &gt; 15">32</xsl:when>
+      <xsl:when test="max($values2) &gt; 7 or max($values1) &gt; 7">16</xsl:when>
+      <xsl:when test="max($values2) &gt; 0 or max($values1) &gt;= 0"/>
+      <xsl:otherwise>Something Wrong with Reg Size Calculation:<xsl:value-of select="max($values1)"
+          />::<xsl:value-of select="max($values2)"/></xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template name="find-bitorder">
+    <xsl:variable name="bitwidth">
+      <xsl:variable name="temp">
+        <xsl:call-template name="calc-reg-size"/>
+      </xsl:variable>
+      <xsl:choose>
+        <xsl:when test="not(contains($temp, 'Something'))">
+          <xsl:value-of select="number($temp)"/>
+        </xsl:when>
+        <xsl:otherwise>100000000</xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="values1" select="tgroup/reg-def/field/field-bits/single"/>
+    <xsl:variable name="values2" select="tgroup/reg-def/field/field-bits/double/msb"/>
+    <xsl:choose>
+      <xsl:when
+        test="number($values2[1]) = number($bitwidth - 1) or number($values1[1]) = number($bitwidth - 1)"
+        >decrement</xsl:when>
+      <xsl:when test="number($values2[1]) = 0 or number($values1[1]) = 0">increment</xsl:when>
+      <xsl:otherwise>
+        <xsl:message>Something Wrong With Bitorder Calculation</xsl:message>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template match="desc-title" mode="field-desc">
+    <xsl:element name="p">
+      <xsl:element name="b">
+        <xsl:apply-templates mode="field-desc"/>
+      </xsl:element>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="field-enum-list" mode="field-desc">
+    <xsl:element name="dl">
+      <xsl:apply-templates mode="field-desc"/>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="field-enum" mode="field-desc">
+    <xsl:element name="dlentry">
+      <xsl:apply-templates mode="field-desc"/>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="field-enum-value" mode="field-desc">
+    <xsl:element name="dt">
+      <xsl:apply-templates mode="field-desc"/>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="field-enum-def" mode="field-desc">
+    <xsl:element name="dd">
+      <xsl:value-of select="."/>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="*" mode="field-desc">
+    <xsl:copy copy-namespaces="no">
+      <xsl:if test="@cols">
+        <xsl:attribute name="cols">
+          <xsl:value-of select="@cols"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:apply-templates mode="field-desc"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- RDA tables?? Really?? What the heck!! Ah, well, convert, convert, convert... -->
+
+  <xsl:template match="table_info" mode="field-desc">
+    <xsl:element name="table">
+      <xsl:apply-templates mode="field-desc"/>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="table_name" mode="field-desc">
+    <xsl:element name="title">
+      <xsl:apply-templates mode="field-desc"/>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="table[parent::table-info]" mode="field-desc">
+    <xsl:element name="tgroup">
+      <xsl:attribute name="cols">
+        <xsl:choose>
+          <xsl:when test="child::two_col_table">2</xsl:when>
+          <xsl:when test="child::three_col_table">3</xsl:when>
+          <xsl:when test="child::four_col_table">4</xsl:when>
+          <xsl:when test="child::five_col_table">5</xsl:when>
+          <xsl:when test="child::six_col_table">6</xsl:when>
+          <xsl:when test="child::seven_col_table">7</xsl:when>
+          <xsl:when test="child::eight_col_table">8</xsl:when>
+          <xsl:when test="child::nine_col_table">9</xsl:when>
+          <xsl:when test="child::ten_col_table">10</xsl:when>
+          <xsl:when test="child::eleven_col_table">11</xsl:when>
+          <xsl:when test="child::twelve_col_table">12</xsl:when>
+        </xsl:choose>
+      </xsl:attribute>
+      <xsl:element name="tbody">
+        <xsl:apply-templates mode="field-desc"/>
+      </xsl:element>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="two_col_row | three_col_row | four_col_row | five_col_row | six_col_row | seven_col_row | eight_col_row | nine_col_row | ten_col_row | eleven_col_row | twelve_col_row " mode="field-desc">
+    <xsl:element name="row">
+      <xsl:apply-templates mode="field-desc"/>
+    </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="td" mode="field-desc">
+    <xsl:element name="entry">
+      <xsl:apply-templates mode="field-desc"/>
+    </xsl:element>
+  </xsl:template>
+  
 
 </xsl:stylesheet>

@@ -56,8 +56,12 @@
 
   <xsl:param name="FILENAME"/>
 
+  <!-- <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
+    doctype-public="-//OASIS//DTD DITA 1.2 Map//EN" doctype-system="map.dtd"/> -->
+
   <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
-    doctype-public="-//OASIS//DTD DITA 1.2 Map//EN" doctype-system="map.dtd"/>
+    doctype-public="-//Atmel//DTD DITA Map//EN" doctype-system="map.dtd"/>
+
 
   <xsl:template match="/">
     <xsl:result-document href="{concat($OUTPUT-DIR-VAR, $FILENAME)}">
@@ -82,7 +86,7 @@
     <xsl:apply-templates mode="registers"/>
   </xsl:template>
 
-  <xsl:template match="title"/>
+  <xsl:template match="title" mode="#all"/>
 
   <xsl:template match="*" mode="addresses">   
     <xsl:apply-templates mode="addresses"/>

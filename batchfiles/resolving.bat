@@ -1,4 +1,4 @@
-set PATHTOPROJECT=\Source\firmwarecomplete
+set PATHTOPROJECT=\Source\firmware
 set OUTPUTPATH=\Out
 set FILENAME=firmware.ditamap
 set DITAMAPNAME=Polarfire.ditamap
@@ -28,7 +28,7 @@ net.sf.saxon.Transform ^
 -o:%WORKINGDIR%\in\test.xml ^
 -s:%WORKINGDIR%\%PATHTOPROJECT%\%FILENAME% ^
 -xsl:%WORKINGDIR%\depend\custom\traverse_ditamaps.xsl ^
-STARTING-DIR="%WORKINGDIR%%PATHTOPROJECT%/" OUTPUT-DIR="%WORKINGDIR%%OUTPUTPATH%/" FILENAME="%FILENAME%.ditamap" 
+STARTING-DIR="%WORKINGDIR%%PATHTOPROJECT%/" OUTPUT-DIR="%WORKINGDIR%%OUTPUTPATH%/" FILENAME="Temp-%FILENAME%" 
 
 cd %WORKINGDIR%\batchfiles
 
@@ -54,7 +54,7 @@ net.sf.saxon.Transform ^
 -o:%WORKINGDIR%\in\test.xml ^
 -s:%WORKINGDIR%\%PATHTOPROJECT%\%FILENAME% ^
 -xsl:%WORKINGDIR%\depend\custom\generate_memory-maps.xsl ^
-STARTING-DIR="%WORKINGDIR%%PATHTOPROJECT%/" OUTPUT-DIR="%WORKINGDIR%%OUTPUTPATH%/" FILENAME="%FILENAME%" 
+STARTING-DIR="%WORKINGDIR%%PATHTOPROJECT%/" OUTPUT-DIR="%WORKINGDIR%%OUTPUTPATH%/" FILENAME="Temp-%FILENAME%" 
 
 cd %WORKINGDIR%\batchfiles
 
@@ -65,8 +65,10 @@ net.sf.saxon.Transform ^
 -x:org.apache.xml.resolver.tools.ResolvingXMLReader ^
 -y:org.apache.xml.resolver.tools.ResolvingXMLReader ^
 -o:%WORKINGDIR%\%PATHTOPROJECT%\%FILENAME% ^
--s:%WORKINGDIR%%OUTPUTPATH%/%FILENAME%.ditamap ^
+-s:%WORKINGDIR%%OUTPUTPATH%/Temp-%FILENAME% ^
 -xsl:%WORKINGDIR%\depend\custom\reform_ditamaps.xsl ^
 STARTING-DIR="%WORKINGDIR%%PATHTOPROJECT%/" OUTPUT-DIR="%WORKINGDIR%%OUTPUTPATH%/" FILENAME="%FILENAME%" 
+
+del %WORKINGDIR%\out\Temp-%FILENAME%
 
 cd %WORKINGDIR%\batchfiles
