@@ -242,7 +242,7 @@
               </xsl:element>
               <xsl:element name="body">
                 <xsl:element name="table">
-                  <xsl:attribute name="otherprops">register=ADDRESS_TABLE</xsl:attribute>
+                  <xsl:attribute name="outputclass">register-ADDRESS_TABLE</xsl:attribute>
                   <xsl:element name="title">
                     <xsl:value-of select="title"/>
                   </xsl:element>
@@ -278,13 +278,13 @@
                               <xsl:choose>
                                 <xsl:when test="addr-element/address-prefix"> Prefix: <xsl:element
                                     name="ph">
-                                    <xsl:attribute name="otherprops"> register=PREFIX </xsl:attribute>
+                                    <xsl:attribute name="outputclass"> register-PREFIX </xsl:attribute>
                                     <xsl:value-of select="addr-element/address-prefix"/>
                                   </xsl:element>
                                 </xsl:when>
                                 <xsl:when test="addr-element/addr-mnemonic"> Mnemonic: <xsl:element
                                     name="ph">
-                                  <xsl:attribute name="otherprops"> register=MNEMONIC </xsl:attribute>
+                                  <xsl:attribute name="outputclass"> register-MNEMONIC </xsl:attribute>
                                     <xsl:value-of select="addr-element/addr-mnemonic"/>
                                   </xsl:element>
                                 </xsl:when>
@@ -293,12 +293,12 @@
 
                             <xsl:for-each select="addr-element/instances/instance">
                               <xsl:element name="p">START: <xsl:element name="ph">
-                                <xsl:attribute name="otherprops"> register=START </xsl:attribute>
+                                <xsl:attribute name="outputclass"> register-START </xsl:attribute>
                                   <xsl:value-of select="instance-start"/>
                                 </xsl:element>
                               </xsl:element>
                               <xsl:element name="p">STOP: <xsl:element name="ph">
-                                <xsl:attribute name="otherprops"> register=STOP </xsl:attribute>
+                                <xsl:attribute name="outputclass"> register-STOP </xsl:attribute>
                                   <xsl:value-of select="instance-stop"/>
                                 </xsl:element>
                               </xsl:element>

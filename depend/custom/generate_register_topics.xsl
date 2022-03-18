@@ -154,8 +154,8 @@
         <xsl:element name="register">
           <xsl:attribute name="id" select="@id"/>
           <xsl:if test="title/reg-name-main/@verilog">
-            <xsl:attribute name="otherprops">
-              <xsl:value-of select="concat('register-verilog=', title/reg-name-main/@verilog)"/>
+            <xsl:attribute name="outputclass">
+              <xsl:value-of select="concat('register-verilog-', title/reg-name-main/@verilog)"/>
             </xsl:attribute>
           </xsl:if>
           <xsl:element name="registerName">
@@ -193,8 +193,8 @@
             <xsl:element name="bitField">
               <xsl:attribute name="id" select="generate-id()"/>
               <xsl:if test="field-name/@verilog">
-                <xsl:attribute name="otherprops">
-                  <xsl:value-of select="concat('register-verilog=', field-name/@verilog)"/>
+                <xsl:attribute name="outputclass">
+                  <xsl:value-of select="concat('register-verilog-', field-name/@verilog)"/>
                 </xsl:attribute>
               </xsl:if>
               <xsl:element name="bitFieldName">
@@ -211,6 +211,9 @@
                   <xsl:element name="bitFieldPropset">
                     <xsl:element name="bitWidth">
                       <xsl:call-template name="calc-bitwidth"/>
+                    </xsl:element>
+                    <xsl:element name="bitOffset">
+                      <xsl:call-template name="calc-bitoffset"/>
                     </xsl:element>
                     <xsl:element name="bitFieldAccess">
                       <xsl:value-of select="field-type"/>
@@ -287,6 +290,14 @@
         <xsl:variable name="msb" select="field-bits/double/msb"/>
         <xsl:value-of select="number($msb) - number($lsb) + 1"/>
       </xsl:when>
+      <xsl:otherwise>InvalidBitValue</xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template name="calc-bitoffset">
+    <xsl:choose>
+      <xsl:when test="field-bits/single"><xsl:value-of select="field-bits/single"/></xsl:when>
+      <xsl:when test="field-bits/double"><xsl:value-of select="field-bits/double/lsb"/></xsl:when>
       <xsl:otherwise>InvalidBitValue</xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -548,7 +559,7 @@
     </xsl:element>
   </xsl:template>
 
-  <xsl:template match="table[parent::table-info]" mode="field-desc">
+  <xsl:template match="table[parent::table_info]" mode="field-desc">
     <xsl:element name="tgroup">
       <xsl:attribute name="cols">
         <xsl:choose>
@@ -569,6 +580,10 @@
         <xsl:apply-templates mode="field-desc"/>
       </xsl:element>
     </xsl:element>
+  </xsl:template>
+
+  <xsl:template match="two_col_table | three_col_table | four_col_table | five_col_table | six_col_table | seven_col_table | eight_col_table | nine_col_table | ten_col_table | eleven_col_table | twelve_col_table " mode="field-desc">   
+      <xsl:apply-templates mode="field-desc"/>    
   </xsl:template>
 
   <xsl:template match="two_col_row | three_col_row | four_col_row | five_col_row | six_col_row | seven_col_row | eight_col_row | nine_col_row | ten_col_row | eleven_col_row | twelve_col_row " mode="field-desc">

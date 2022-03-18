@@ -118,7 +118,7 @@
                                 <xsl:call-template name="id_processing"/>
                             </xsl:attribute>
                         </xsl:if>
-                        <xsl:attribute name="otherprops">
+                        <xsl:attribute name="outputclass">
                             <xsl:number format="1" level="any"/>
                         </xsl:attribute>
                         <xsl:call-template name="topic_title"/>
@@ -1062,7 +1062,7 @@
                     </xsl:attribute>
                 </xsl:when>
                 <xsl:when test="name(.) = 'role'">
-                    <xsl:attribute name="otherprops">
+                    <xsl:attribute name="outputclass">
                         <xsl:value-of select="translate(., ';', ' ')"/>
                     </xsl:attribute>
                 </xsl:when>
@@ -1096,7 +1096,7 @@
                     </xsl:attribute>
                 </xsl:when>
                 <xsl:when test="name(.) = 'role'">
-                    <xsl:attribute name="otherprops">
+                    <xsl:attribute name="outputclass">
                         <xsl:value-of select="translate(., ';', ' ')"/>
                     </xsl:attribute>
                 </xsl:when>

@@ -1,5 +1,5 @@
 set PATHTOPROJECT=\Source\firmware
-set OUTPUTPATH=\Out
+set OUTPUTPATH=\out
 set FILENAME=firmware.ditamap
 set DITAMAPNAME=Polarfire.ditamap
 
