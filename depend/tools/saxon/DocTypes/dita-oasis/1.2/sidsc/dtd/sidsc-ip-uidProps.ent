@@ -1,0 +1,13 @@
+<!--  
+SIDSC IP UID
+Copyright OASIS 2009
+Author: Seth Park
+ 
+Delivered as file "sidsc-ip-uidProps.ent"
+-->
+<!ENTITY % sidsc-ip-uid-props-d-attribute 
+  "ip-uid CDATA  #IMPLIED">
+  
+<!ENTITY sidsc-ip-uid-props-d-att
+   "a(props  ip-uid)" >
+<!-- end sidsc-ip-uidProps.ent -->

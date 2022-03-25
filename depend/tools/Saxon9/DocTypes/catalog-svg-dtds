@@ -1,0 +1,14 @@
+-- ...................................................................... --
+-- IN THIS OASIS TEXT CATALOG:                                            --
+--   TEXT Catalog data for SVG 1.0                                        --
+--   TEXT Catalog data for SVG 1.1                                        --
+--   TEXT Catalog data for SVG 1.1 Tiny                                   --
+--   TEXT Catalog data for SVG 1.1 Basic                                  --
+-- GENERAL NOTES:                                                         --
+--   1. Source SVG 1.0: http://www.w3.org/TR/SVG10/svgdtd.html            --
+--   2. SVG 1.1 Tiny and SVG 1.1 Basic use the flattened dtd              --
+-- ...................................................................... --
+PUBLIC "-//W3C//DTD SVG 1.0//EN" "svg-w3c/1.0/dtd/svg10.dtd"
+PUBLIC "-//W3C//DTD SVG 1.1//EN" "svg-w3c/1.1/dtd/svg11.dtd"
+PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "svg-w3c/1.1/dtd/svg11-tiny.dtd"
+PUBLIC "-//W3C//DTD SVG 1.1 Basic//EN" "svg-w3c/1.1/dtd/svg11-basic.dtd"

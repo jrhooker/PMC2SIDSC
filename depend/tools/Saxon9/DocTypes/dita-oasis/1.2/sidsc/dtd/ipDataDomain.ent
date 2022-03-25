@@ -1,0 +1,13 @@
+<!--  
+SIDSC ip data domain entities
+Copyright 2009
+Author: Seth Park
+ 
+Delivered as file "sidsc-addressBlock.mod"
+-->
+<!ENTITY % ipDataDomain-d-data 
+"ip-data | ip-name | ip-system-name | ip-system-uid | technology | ip-version">
+
+<!ENTITY ipDataDomain-d-att 
+"(topic ipDataDomain-d)"   >
+<!-- end ipDataDomain.ent -->

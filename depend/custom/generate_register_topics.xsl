@@ -165,9 +165,7 @@
             <xsl:element name="registerNameFull">
               <xsl:value-of select="title/reg-name-main"/>
             </xsl:element>
-            <xsl:element name="registerBriefDescription">
-              <xsl:value-of select="title/reg-desc"/>
-            </xsl:element>
+            <xsl:element name="registerBriefDescription"></xsl:element>
           </xsl:element>
           <xsl:element name="registerBody">
             <xsl:element name="registerDescription">
@@ -200,9 +198,7 @@
               <xsl:element name="bitFieldName">
                 <xsl:value-of select="field-name"/>
               </xsl:element>
-              <xsl:element name="bitFieldBriefDescription">
-                <xsl:value-of select="field-desc/p[1]"/>
-              </xsl:element>
+              <xsl:element name="bitFieldBriefDescription"></xsl:element>
               <xsl:element name="bitFieldBody">
                 <xsl:element name="bitFieldDescription">
                   <xsl:apply-templates select="field-desc/*" mode="field-desc"/>

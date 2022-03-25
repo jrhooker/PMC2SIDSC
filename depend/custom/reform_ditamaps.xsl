@@ -56,12 +56,11 @@
 
   <xsl:param name="FILENAME"/>
 
+  <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
+    doctype-public="-//Atmel//DTD DITA Map//EN" doctype-system= "file:///D:/InfoShare/Web/Author/ASP/DocTypes/dita-atmel/1.3/dtd/technicalContent/dtd/atmelMap.dtd"/>
+
   <!-- <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
     doctype-public="-//OASIS//DTD DITA 1.2 Map//EN" doctype-system="map.dtd"/> -->
-
-  <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
-    doctype-public="-//Atmel//DTD DITA Map//EN" doctype-system="map.dtd"/>
-
 
   <xsl:template match="/">
     <xsl:result-document href="{concat($OUTPUT-DIR-VAR, $FILENAME)}">

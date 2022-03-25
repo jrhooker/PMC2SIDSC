@@ -1,0 +1,13 @@
+<!--  
+SIDSC Design Map Type
+Copyright OASIS 2009
+Author: Seth Park
+ 
+Delivered as file "sidsc-design.ent"
+-->
+<!ENTITY % sidsc-design-d-topicref  
+"component-ref">
+
+<!ENTITY sidsc-design-d-att 
+"(map sidsc-design-d)" >
+<!-- end sidsc-design.ent -->

@@ -1,0 +1,19 @@
+<!--  
+SIDSC dataTableDomain entities
+Copyright 2009
+Author: Seth Park
+ 
+Delivered as file "dataTableDomain.ent"
+-->
+<!--  element extension entity declarations -->
+<!ENTITY % dataTableDomain-d-simpletable   "dataTable"   >
+<!ENTITY % dataTableDomain-d-strow  "dataRow"   >
+<!ENTITY % dataTableDomain-d-stentry  "dataEntry"   >
+<!ENTITY % dataTableDomain-d-dl  "dataGroup"   >
+<!ENTITY % dataTableDomain-d-dlentry  "dataInstance"   >
+<!ENTITY % dataTableDomain-d-dt  "dataInstanceValue"   >
+<!ENTITY % dataTableDomain-d-dd  "dataInstanceMeaning"   >
+
+<!--  domain entity declaration  -->
+<!ENTITY dataTableDomain-d-att   "(topic dataTableDomain-d)"   >
+<!-- end dataTableDomain entities -->

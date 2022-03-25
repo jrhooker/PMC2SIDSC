@@ -1,0 +1,13 @@
+<!--  
+SIDSC nameProps entities
+Copyright 2009
+Author: Seth Park
+ 
+Delivered as file "sidsc-nameProps.ent"
+-->
+<!ENTITY % sidsc-name-props-d-attribute 
+"ip-name CDATA  #IMPLIED">
+
+<!ENTITY sidsc-name-props-d-att 
+"a(props  ip-name)" >
+<!-- end sidsc-nameProps.ent  -->

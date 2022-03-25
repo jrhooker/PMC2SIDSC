@@ -1,0 +1,13 @@
+<!--  
+SIDSC Slot Range
+Copyright OASIS 2009
+Author: Seth Park
+ 
+Delivered as file "sidsc-ip-versionProps.ent"
+-->
+<!ENTITY % sidsc-ip-version-props-d-attribute 
+"ip-version CDATA  #IMPLIED" >
+  
+<!ENTITY sidsc-ip-version-props-d-att 
+"a(props  ip-version)">
+<!-- end sidsc-ip-versionProps.ent -->

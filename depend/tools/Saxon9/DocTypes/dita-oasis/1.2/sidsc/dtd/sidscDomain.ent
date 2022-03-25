@@ -1,0 +1,14 @@
+<!--  
+SIDSC Domain
+Copyright OASIS 2009
+Author: Seth Park
+ 
+Delivered as file "sidscDomain.ent"
+-->
+<!--  element extension entity declarations  -->
+<!ENTITY % sidscDomain-d-ph  
+"active-low | unitQualifier | namePattern | instancesNumber | instanceOffsets" >
+
+<!--  domain entity declaration   -->
+<!ENTITY sidscDomain-d-att "(topic sidscDomain-d)" >
+<!-- end sidscDomain.ent -->

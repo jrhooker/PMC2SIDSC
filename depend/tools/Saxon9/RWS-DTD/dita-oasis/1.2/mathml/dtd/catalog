@@ -1,0 +1,8 @@
+PUBLIC "-//DESSCI//DTD DITA with MathML Composite//EN" "dita_mathml.dtd"
+                       
+PUBLIC "-//W3C//DTD MathML 3.0//EN"
+       "mathml3.dtd"
+
+PUBLIC "-//W3C//ENTITIES MathML 3.0 Qualified Names 1.0//EN"
+
+       "mathml3-qname.mod"

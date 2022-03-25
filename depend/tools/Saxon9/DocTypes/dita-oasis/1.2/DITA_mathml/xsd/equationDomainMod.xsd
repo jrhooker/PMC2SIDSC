@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- =============================================================
+    DITA MathML Domain
+    Defines a specialization of <foreign> that contains
+    MathML markup.
+    DITA 1.3
+    Copyright (c) 2013 OASIS Open
+============================================================= -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified">
+
+ <!-- ============================================================= -->
+ <!--                    DOMAIN ENTITY DECLARATION                  -->
+ <!-- ============================================================= -->
+ <xs:annotation>
+  <xs:appinfo>
+   <dita:domainsModule xmlns:dita="http://dita.oasis-open.org/architecture/2005/">(topic equation-d)</dita:domainsModule>
+  </xs:appinfo>
+  <xs:documentation> 
+   Declaring the elements and specialization attributes for the Equation Domain
+  </xs:documentation>
+ </xs:annotation>
+ 
+ <!-- 20021227 EAS: Use xml:space (preserve) for pre derivs: codeblock, msgblock, screen -->
+ <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="urn:oasis:names:tc:dita:xsd:xml.xsd:1.2"/>
+
+ <!-- ============================================================= -->
+ <!--                    ELEMENT EXTENSION DECLARATIONS             -->
+ <!-- ============================================================= -->
+ <xs:group name="equation-d-ph">
+  <xs:choice>
+   <xs:element ref="equation-inline" />
+  </xs:choice>
+ </xs:group>
+
+ <xs:group name="equation-d-p">
+  <xs:choice>
+   <xs:element ref="equation-block" />
+  </xs:choice>
+ </xs:group>
+
+ <xs:group name="equation-d-fig">
+  <xs:choice>
+   <xs:element ref="equation-display" />
+  </xs:choice>
+ </xs:group>
+ 
+<!-- Equation inline -->
+ <xs:element name="equation-inline">
+  <xs:annotation>
+   <xs:documentation> The Equation equation-inline element </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed="true">
+   <xs:complexContent>
+    <xs:extension base="equation-inline.class">
+     <xs:attribute ref="class" default="+ topic/ph equation-d/equation-inline "/>
+    </xs:extension>
+   </xs:complexContent>
+  </xs:complexType>
+ </xs:element>
+ 
+ <xs:complexType name="equation-inline.class" mixed="true">
+  <xs:sequence>
+   <xs:group ref="equation-inline.content"/>
+  </xs:sequence>
+  <xs:attributeGroup ref="equation-inline.attributes"/>
+ </xs:complexType>
+
+<!--
+"(#PCDATA |
+%basic.ph; |
+%data.elements.incl; |
+%foreign.unknown.incl; |
+%image; |
+%txt.incl;)*
+-->
+ <xs:group name="equation.cnt">
+  <xs:choice>
+   <xs:group ref="basic.ph"/>
+   <xs:group ref="data.elements.incl"/>
+   <xs:group ref="foreign.unknown.incl"/>
+   <xs:group ref="image" />
+   <xs:group ref="txt.incl" />
+  </xs:choice>
+ </xs:group>
+
+ <xs:group name="equation-inline.content">
+  <xs:sequence>
+   <xs:choice minOccurs="0" maxOccurs="unbounded">
+    <xs:group ref="equation.cnt" minOccurs="0"/>
+   </xs:choice>
+  </xs:sequence>
+ </xs:group>
+ 
+ <xs:attributeGroup name="equation-inline.attributes">
+  <xs:attribute name="keyref" type="xs:string"/>
+  <xs:attribute name="outputclass" type="xs:string"/>
+  <xs:attributeGroup ref="univ-atts"/>
+  <xs:attributeGroup ref="global-atts"/>
+ </xs:attributeGroup>
+
+ <!-- Equation block -->
+ <xs:element name="equation-block">
+  <xs:annotation>
+   <xs:documentation> The Equation equation-block element </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed="true">
+   <xs:complexContent>
+    <xs:extension base="equation-block.class">
+     <xs:attribute ref="class" default="+ topic/p equation-d/equation-block "/>
+    </xs:extension>
+   </xs:complexContent>
+  </xs:complexType>
+ </xs:element>
+ 
+ <xs:complexType name="equation-block.class" mixed="true">
+  <xs:sequence>
+   <xs:group ref="equation-block.content"/>
+  </xs:sequence>
+  <xs:attributeGroup ref="equation-block.attributes"/>
+ </xs:complexType>
+ 
+ <xs:group name="equation-block.content">
+  <xs:sequence>
+   <xs:choice minOccurs="0" maxOccurs="unbounded">
+    <xs:group ref="equation.cnt" minOccurs="0"/>
+   </xs:choice>
+  </xs:sequence>
+ </xs:group>
+ 
+ <xs:attributeGroup name="equation-block.attributes">
+  <xs:attribute name="outputclass" type="xs:string"/>
+  <xs:attributeGroup ref="univ-atts"/>
+  <xs:attributeGroup ref="global-atts"/>
+ </xs:attributeGroup>
+ 
+ <!-- Equation display -->
+ <xs:element name="equation-display">
+  <xs:annotation>
+   <xs:documentation> The Equation equation-display element </xs:documentation>
+  </xs:annotation>
+  <xs:complexType mixed="false">
+   <xs:complexContent>
+    <xs:extension base="equation-display.class">
+     <xs:attribute ref="class" default="+ topic/fig equation-d/equation-display "/>
+    </xs:extension>
+   </xs:complexContent>
+  </xs:complexType>
+ </xs:element>
+ 
+ <xs:complexType name="equation-display.class" mixed="false">
+  <xs:sequence>
+   <xs:group ref="equation-display.content"/>
+  </xs:sequence>
+  <xs:attributeGroup ref="equation-display.attributes"/>
+ </xs:complexType>
+ 
+ <!--
+   "((%title;)?,
+    (%desc;)?,
+    (%figgroup; |
+    %fig.cnt;)* )
+ -->
+ <xs:group name="equation-display.content">
+  <xs:sequence>
+   <xs:choice minOccurs="0" maxOccurs="unbounded">
+    <xs:group ref="title"/>
+    <xs:group ref="desc"/>
+    <xs:group ref="figgroup"/>
+    <xs:group ref="fig.cnt" />
+   </xs:choice>
+  </xs:sequence>
+ </xs:group>
+ 
+ <xs:attributeGroup name="equation-display.attributes">
+  <xs:attribute name="outputclass" type="xs:string"/>
+  <xs:attributeGroup ref="univ-atts"/>
+  <xs:attributeGroup ref="global-atts"/>
+ </xs:attributeGroup>
+ 
+ 
+</xs:schema>

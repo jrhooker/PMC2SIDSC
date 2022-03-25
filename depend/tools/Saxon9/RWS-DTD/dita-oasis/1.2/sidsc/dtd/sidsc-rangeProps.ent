@@ -1,0 +1,13 @@
+<!--  
+SIDSC Slot Range
+Copyright OASIS 2009
+Author: Seth Park
+ 
+Delivered as file "sidsc-rangeProps.ent"
+-->
+<!ENTITY % sidsc-range-props-d-attribute 
+  "slot-range CDATA  #IMPLIED">
+  
+<!ENTITY sidsc-range-props-d-att
+   "a(props  slot-range)">
+   <!-- end sidsc-rangeProps.ent -->

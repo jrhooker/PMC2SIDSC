@@ -1,0 +1,13 @@
+<!--  
+SIDSC CPU Type
+Copyright OASIS 2009
+Author: Seth Park
+ 
+Delivered as file "sidsc-cputypeProps.ent"
+-->
+<!ENTITY % sidsc-cputype-props-d-attribute 
+  "cputype CDATA #IMPLIED ">
+  
+<!ENTITY sidsc-cputype-props-d-att
+   "a(props  cputype)" >
+   <!-- end sidsc-cputypeProps.ent -->

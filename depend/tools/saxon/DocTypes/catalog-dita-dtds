@@ -1,0 +1,482 @@
+-- ...................................................................... --
+-- IN THIS OASIS TEXT CATALOG:                                             --
+--   [A] TEXT Catalog data for IBM DITA V1.3.2 [compatibility,depricated]  --
+--   [B] TEXT Catalog data for OASIS DITA V1.0 [compatibility,depricated]  --
+--   [C] TEXT Catalog data for OASIS DITA V1.1                             --
+--   [D] TEXT Catalog data for OASIS DITA V1.2                             --    
+--   [E] TEXT Catalog data for OASIS DITA V1.X                             --      
+--   [F] TEXT Catalog data for OASIS version-less DITA pointing to latest  --
+--   [G] XML Catalog data for MATHML specializations                      --
+-- GENERAL NOTES:                                                         --
+--   1. IBM DITA should be replaced with OASIS DITA as much as possible   --
+--   2. OASIS DITA 1.2 is stated to be fully backward compatible with     --
+--      OASIS DITA 1.1 & 1.0. All version-less public identifiers are     --
+--      redirected to this latest version system file path. Note that     --
+--      the regular publicId doesn't contain a version number.            --
+--   3. OASIS DITA 1.0, 1.1 and 1.2 public identifiers containing a       --
+--      version are added to allow explicit DTD usage.                    --
+--   4. DITA Composite is disabled since it makes no sense from Trisoft   --
+--      InfoShare perspective to group topics into one object/file.       --
+--      20081201/DDM Activated for FI and Adobe FrameMaker 8.0 IAB        --
+-- HISTORY:                                                               --
+--   20070521/DDM Creation and case-sensitive verification of all         --
+--     publicIds present in this catalog file.                            --
+--   20070521/DDM Disabled composite ditabase and IBM BookMap.            --
+--   20070807/DDM Rearranged the OASIS section into version 1.0, version  --
+--     1.1 and version-less section.                                      --
+--   20081201/DDM Activated ditabase OASIS DITA 1.1 PublicId              --
+--   20090723/EL Added OASIS DITA 1.2 PublicId                            --
+-- ...................................................................... --
+  
+-- ...................................................................... --
+-- [A] TEXT Catalog data for IBM DITA V1.3.2  ............................ --
+-- Base DITA --
+-- 20070521/DDM                                                           --
+-- Disabled DTD because writing multiple subjects into one file should    --
+-- always be avoided in InfoShare                                         --
+-- PUBLIC "-//IBM//DTD DITA Composite//EN" "dita-ibm/1.3.2/ditabase.dtd"  --
+PUBLIC "-//IBM//DTD DITA Concept//EN" "dita-ibm/1.3.2/concept.dtd"
+PUBLIC "-//IBM//ELEMENTS DITA Concept//EN" "dita-ibm/1.3.2/concept.mod"
+PUBLIC "-//IBM//DTD DITA Map//EN" "dita-ibm/1.3.2/map.dtd"
+PUBLIC "-//IBM//ELEMENTS DITA Map//EN" "dita-ibm/1.3.2/map.mod"
+PUBLIC "-//IBM//ENTITIES DITA Map Group Domain//EN" "dita-ibm/1.3.2/mapgroup.ent"
+PUBLIC "-//IBM//ELEMENTS DITA Map Group Domain//EN" "dita-ibm/1.3.2/mapgroup.mod"
+PUBLIC "-//IBM//DTD DITA Topic//EN" "dita-ibm/1.3.2/topic.dtd"
+PUBLIC "-//IBM//ELEMENTS DITA Topic//EN" "dita-ibm/1.3.2/topic.mod"
+PUBLIC "-//IBM//DTD DITA Reference//EN" "dita-ibm/1.3.2/reference.dtd"
+PUBLIC "-//IBM//ELEMENTS DITA Reference//EN" "dita-ibm/1.3.2/reference.mod"
+PUBLIC "-//IBM//DTD DITA Task//EN" "dita-ibm/1.3.2/task.dtd"
+PUBLIC "-//IBM//ELEMENTS DITA Task//EN" "dita-ibm/1.3.2/task.mod"
+PUBLIC "-//IBM//ENTITIES DITA Topic Class//EN" "dita-ibm/1.3.2/topic_class.ent"
+PUBLIC "-//IBM//ENTITIES DITA Topic Definitions//EN" "dita-ibm/1.3.2/topic_defn.ent"
+-- DITA Domains --
+PUBLIC "-//IBM//ELEMENTS DITA Highlight Domain//EN" "dita-ibm/1.3.2/highlight-domain.mod"
+PUBLIC "-//IBM//ENTITIES DITA Highlight Domain//EN" "dita-ibm/1.3.2/highlight-domain.ent"
+PUBLIC "-//IBM//ELEMENTS DITA Programming Domain//EN" "dita-ibm/1.3.2/programming-domain.mod"
+PUBLIC "-//IBM//ENTITIES DITA Programming Domain//EN" "dita-ibm/1.3.2/programming-domain.ent"
+PUBLIC "-//IBM//ELEMENTS DITA Software Domain//EN" "dita-ibm/1.3.2/software-domain.mod"
+PUBLIC "-//IBM//ENTITIES DITA Software Domain//EN" "dita-ibm/1.3.2/software-domain.ent"
+PUBLIC "-//IBM//ELEMENTS DITA User Interface Domain//EN" "dita-ibm/1.3.2/ui-domain.mod"
+PUBLIC "-//IBM//ENTITIES DITA User Interface Domain//EN" "dita-ibm/1.3.2/ui-domain.ent"
+PUBLIC "-//IBM//ELEMENTS DITA Utilities Domain//EN" "dita-ibm/1.3.2/utilities-domain.mod"
+PUBLIC "-//IBM//ENTITIES DITA Utilities Domain//EN" "dita-ibm/1.3.2/utilities-domain.ent"
+-- DITA Common --
+PUBLIC "-//IBM//ELEMENTS DITA Metadata//EN" "dita-ibm/1.3.2/meta_xml.mod"
+PUBLIC "-//IBM//ELEMENTS DITA CALS Tables//EN" "dita-ibm/1.3.2/tbl_xml.mod"
+-- DITA Specializations --
+-- 20070521/DDM                                                           --
+-- Disabled DTDs because it is the IBM Bookmap and the standard will      --
+-- BECOME OASIS                                                           --
+-- PUBLIC "-//IBM//DTD DITA BookMap//EN" "dita-ibm/1.3.2/bookmap.dtd"              --
+-- PUBLIC "-//IBM//ELEMENTS DITA BookMap//EN" "dita-ibm/1.3.2/bookmap.mod"         --
+-- PUBLIC "-//IBM//DTD DITA Book Information//EN" "dita-ibm/1.3.2/bkinfo.dtd"      --
+-- PUBLIC "-//IBM//ELEMENTS DITA Book Information//EN" "dita-ibm/1.3.2/bkinfo.mod" --
+-- End of TEXT Catalog data for DITA V1.3.2  ............................. --
+-- ...................................................................... --
+  
+-- ...................................................................... --
+-- [B] TEXT Catalog data for OASIS DITA V1.0  ............................ --
+-- Base DITA --
+PUBLIC "-//OASIS//DTD DITA 1.0 Composite//EN" "dita-oasis/1.0/ditabase.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.0 Concept//EN" "dita-oasis/1.0/concept.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.0 Reference//EN" "dita-oasis/1.0/reference.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.0 Task//EN" "dita-oasis/1.0/task.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.0 Topic//EN" "dita-oasis/1.0/topic.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.0 Map//EN" "dita-oasis/1.0/map.dtd"
+-- topicAttr.mod is only used in DITA 1.0 --
+PUBLIC "-//OASIS//ENTITIES DITA Topic Class//EN" "dita-oasis/1.0/topicAttr.mod"
+-- DITA Specializations --
+PUBLIC "-//Trisoft//DTD DITA 1.0 Apiref//EN" "dita-oasis/1.0/apiref.dtd"
+-- End of TEXT Catalog data for OASIS DITA V1.0 .......................... --
+-- ...................................................................... --
+  
+-- ...................................................................... --
+-- [C] TEXT Catalog data for OASIS DITA V1.1  ............................ --
+PUBLIC "-//OASIS//DTD DITA 1.1 Composite//EN" "dita-oasis/1.1/ditabase.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.1 Topic//EN" "dita-oasis/1.1/topic.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.1 Task//EN" "dita-oasis/1.1/task.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.1 Reference//EN" "dita-oasis/1.1/reference.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.1 Map//EN" "dita-oasis/1.1/map.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.1 Glossary//EN" "dita-oasis/1.1/glossary.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.1 Concept//EN" "dita-oasis/1.1/concept.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.1 BookMap//EN" "dita-oasis/1.1/bookmap.dtd"
+-- DITA Specializations --
+PUBLIC "-//Trisoft//DTD DITA 1.1 Apiref//EN" "dita-oasis/1.1/apiref.dtd"
+-- End of TEXT Catalog data for OASIS DITA V1.1 .......................... --
+-- ...................................................................... --
+      
+-- ...................................................................... --  
+--  [D] TEXT Catalog data for OASIS DITA V1.2                              --
+-- ...................................................................... --    
+-- Topics --
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Topic//EN" "dita-oasis/1.2/base/dtd/topic.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Topic Definitions//EN" "dita-oasis/1.2/base/dtd/topicDefn.ent"
+-- Maps --
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Map//EN" "dita-oasis/1.2/base/dtd/map.mod"
+-- Base topic DTD (no tech-comm domains --    
+PUBLIC "-//OASIS//DTD DITA 1.2 Base Topic//EN" "dita-oasis/1.2/base/dtd/basetopic.dtd"
+-- Base map DTD (no tech-comm domains --  
+PUBLIC "-//OASIS//DTD DITA 1.2 Base Map//EN" "dita-oasis/1.2/base/dtd/basemap.dtd"
+-- Common files for topics and maps --
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Common Elements//EN" "dita-oasis/1.2/base/dtd/commonElements.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Common Elements//EN" "dita-oasis/1.2/base/dtd/commonElements.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Metadata//EN" "dita-oasis/1.2/base/dtd/metaDecl.mod"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Exchange Table Model//EN" "dita-oasis/1.2/base/dtd/tblDecl.mod"
+-- base domains --
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Delayed Resolution Domain//EN" "dita-oasis/1.2/base/dtd/delayResolutionDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Delayed Resolution Domain//EN" "dita-oasis/1.2/base/dtd/delayResolutionDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Highlight Domain//EN" "dita-oasis/1.2/base/dtd/highlightDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Highlight Domain//EN" "dita-oasis/1.2/base/dtd/highlightDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Indexing Domain//EN" "dita-oasis/1.2/base/dtd/indexingDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Indexing Domain//EN" "dita-oasis/1.2/base/dtd/indexingDomain.ent"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Map Group Domain//EN" "dita-oasis/1.2/base/dtd/mapGroup.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Map Group Domain//EN" "dita-oasis/1.2/base/dtd/mapGroup.mod"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Utilities Domain//EN" "dita-oasis/1.2/base/dtd/utilitiesDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Utilities Domain//EN" "dita-oasis/1.2/base/dtd/utilitiesDomain.ent"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Hazard Statement Domain//EN" "dita-oasis/1.2/base/dtd/hazardstatementDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Hazard Statement Domain//EN" "dita-oasis/1.2/base/dtd/hazardstatementDomain.mod"
+-- Ditaval --
+PUBLIC "-//OASIS//DTD DITA 1.2 DITAVAL//EN" "dita-oasis/1.2/ditaval/dtd/ditaval.dtd"
+-- Document types and modules used by the Technical Content package --
+PUBLIC "-//OASIS//DTD DITA 1.2 Concept//EN" "dita-oasis/1.2/technicalContent/dtd/concept.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Concept//EN" "dita-oasis/1.2/technicalContent/dtd/concept.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Concept//EN" "dita-oasis/1.2/technicalContent/dtd/concept.ent"
+PUBLIC "-//OASIS//DTD DITA 1.2 Composite//EN" "dita-oasis/1.2/technicalContent/dtd/ditabase.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.2 Glossary Entry//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Glossary Entry//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Glossary Entry//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.ent"
+PUBLIC "-//OASIS//DTD DITA 1.2 Glossary//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Glossary//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Glossary//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.ent"
+PUBLIC "-//OASIS//DTD DITA 1.2 Glossary Group//EN" "dita-oasis/1.2/technicalContent/dtd/glossgroup.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Glossary Group//EN" "dita-oasis/1.2/technicalContent/dtd/glossgroup.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Glossary Group//EN" "dita-oasis/1.2/technicalContent/dtd/glossgroup.ent"
+PUBLIC "-//OASIS//DTD DITA 1.2 Reference//EN" "dita-oasis/1.2/technicalContent/dtd/reference.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Reference//EN" "dita-oasis/1.2/technicalContent/dtd/reference.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Reference//EN" "dita-oasis/1.2/technicalContent/dtd/reference.ent"
+PUBLIC "-//OASIS//DTD DITA 1.2 Task//EN" "dita-oasis/1.2/technicalContent/dtd/task.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.2 General Task//EN" "dita-oasis/1.2/technicalContent/dtd/generalTask.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Task//EN" "dita-oasis/1.2/technicalContent/dtd/task.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Task//EN" "dita-oasis/1.2/technicalContent/dtd/task.ent"
+-- Topic for use in the technical content package --
+PUBLIC "-//OASIS//DTD DITA 1.2 Topic//EN" "dita-oasis/1.2/technicalContent/dtd/topic.dtd"
+-- Map for use in the technical content package --
+PUBLIC "-//OASIS//DTD DITA 1.2 Map//EN" "dita-oasis/1.2/technicalContent/dtd/map.dtd"
+-- Domains for the technical content package --
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Abbreviated Form Domain//EN" "dita-oasis/1.2/technicalContent/dtd/abbreviateDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Abbreviated Form Domain//EN" "dita-oasis/1.2/technicalContent/dtd/abbreviateDomain.mod"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Programming Domain//EN" "dita-oasis/1.2/technicalContent/dtd/programmingDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Programming Domain//EN" "dita-oasis/1.2/technicalContent/dtd/programmingDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Software Domain//EN" "dita-oasis/1.2/technicalContent/dtd/softwareDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Software Domain//EN" "dita-oasis/1.2/technicalContent/dtd/softwareDomain.ent"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Task Requirements Domain//EN" "dita-oasis/1.2/technicalContent/dtd/taskreqDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Task Requirements Domain//EN" "dita-oasis/1.2/technicalContent/dtd/taskreqDomain.mod"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 User Interface Domain//EN" "dita-oasis/1.2/technicalContent/dtd/uiDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 User Interface Domain//EN" "dita-oasis/1.2/technicalContent/dtd/uiDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Glossary Reference Domain//EN" "dita-oasis/1.2/technicalContent/dtd/glossrefDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Glossary Reference Domain//EN" "dita-oasis/1.2/technicalContent/dtd/glossrefDomain.ent"
+-- Constraints in the technical content package --
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Strict Taskbody Constraint//EN"  "dita-oasis/1.2/technicalContent/dtd/strictTaskbodyConstraint.mod"
+-- Bookmap document type and module --
+PUBLIC "-//OASIS//DTD DITA 1.2 BookMap//EN" "dita-oasis/1.2/bookmap/dtd/bookmap.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 BookMap//EN" "dita-oasis/1.2/bookmap/dtd/bookmap.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 BookMap//EN" "dita-oasis/1.2/bookmap/dtd/bookmap.ent"
+-- Subject scheme package for controlled vocabularies --
+PUBLIC "-//OASIS//DTD DITA 1.2 Subject Scheme Map//EN" "dita-oasis/1.2/subjectScheme/dtd/subjectScheme.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Subject Scheme Map//EN" "dita-oasis/1.2/subjectScheme/dtd/subjectScheme.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Subject Scheme Map//EN" "dita-oasis/1.2/subjectScheme/dtd/subjectScheme.ent"
+PUBLIC "-//OASIS//DTD DITA 1.2 Classification Map//EN" "dita-oasis/1.2/subjectScheme/dtd/classifyMap.dtd"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Map Subject Classification Domain//EN" "dita-oasis/1.2/subjectScheme/dtd/classifyDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Map Subject Classification Domain//EN" "dita-oasis/1.2/subjectScheme/dtd/classifyDomain.mod"
+-- Domain for representing XNAL address information --
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 XNAL Domain//EN" "dita-oasis/1.2/xnal/dtd/xnalDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 XNAL Domain//EN" "dita-oasis/1.2/xnal/dtd/xnalDomain.ent"
+-- Modules and document types from the OASIS DITA Learning Subcommittee --
+PUBLIC "-//OASIS//DTD DITA 1.2 Learning Assessment//EN" "dita-oasis/1.2/learning/dtd/learningAssessment.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.2 Learning BookMap//EN" "dita-oasis/1.2/learning/dtd/learningBookmap.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.2 Learning Content//EN" "dita-oasis/1.2/learning/dtd/learningContent.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.2 Learning Map//EN" "dita-oasis/1.2/learning/dtd/learningMap.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.2 Learning Overview//EN" "dita-oasis/1.2/learning/dtd/learningOverview.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.2 Learning Plan//EN" "dita-oasis/1.2/learning/dtd/learningPlan.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.2 Learning Summary//EN" "dita-oasis/1.2/learning/dtd/learningSummary.dtd"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Interaction Base Domain//EN" "dita-oasis/1.2/learning/dtd/learningInteractionBaseDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Interaction Base Domain//EN" "dita-oasis/1.2/learning/dtd/learningInteractionBaseDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Assessment//EN" "dita-oasis/1.2/learning/dtd/learningAssessment.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Assessment//EN" "dita-oasis/1.2/learning/dtd/learningAssessment.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Base//EN" "dita-oasis/1.2/learning/dtd/learningBase.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Base//EN" "dita-oasis/1.2/learning/dtd/learningBase.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Content//EN" "dita-oasis/1.2/learning/dtd/learningContent.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Content//EN" "dita-oasis/1.2/learning/dtd/learningContent.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Overview//EN" "dita-oasis/1.2/learning/dtd/learningOverview.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Overview//EN" "dita-oasis/1.2/learning/dtd/learningOverview.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Plan//EN" "dita-oasis/1.2/learning/dtd/learningPlan.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Plan//EN" "dita-oasis/1.2/learning/dtd/learningPlan.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Summary//EN" "dita-oasis/1.2/learning/dtd/learningSummary.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Summary//EN" "dita-oasis/1.2/learning/dtd/learningSummary.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Domain//EN" "dita-oasis/1.2/learning/dtd/learningDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Domain//EN" "dita-oasis/1.2/learning/dtd/learningDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Metadata Domain//EN" "dita-oasis/1.2/learning/dtd/learningMetadataDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Metadata Domain//EN" "dita-oasis/1.2/learning/dtd/learningMetadataDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.2 Learning Map Domain//EN" "dita-oasis/1.2/learning/dtd/learningMapDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Learning Map Domain//EN" "dita-oasis/1.2/learning/dtd/learningMapDomain.mod"
+-- Modules and document types from the OASIS DITA Machine Industry Subcommittee --
+PUBLIC "-//OASIS//DTD DITA 1.2 Machinery Task//EN" "dita-oasis/1.2/machineryIndustry/dtd/machineryTask.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.2 Machinery Taskbody Constraint//EN"  "dita-oasis/1.2/machineryIndustry/dtd/machineryTaskbodyConstraint.mod"
+-- ...................................................................... --
+-- End of TEXT Catalog data for OASIS DITA V1.2 .......................... --
+-- ...................................................................... --
+  
+-- ...................................................................... --  
+--  [E] TEXT Catalog data for OASIS DITA V1.X                              --
+-- ...................................................................... --    
+-- Topics --
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Topic//EN" "dita-oasis/1.2/base/dtd/topic.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Topic Definitions//EN" "dita-oasis/1.2/base/dtd/topicDefn.ent"
+-- Maps --
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Map//EN" "dita-oasis/1.2/base/dtd/map.mod"
+-- Common files for topics and maps --
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Common Elements//EN" "dita-oasis/1.2/base/dtd/commonElements.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Common Elements//EN" "dita-oasis/1.2/base/dtd/commonElements.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Metadata//EN" "dita-oasis/1.2/base/dtd/metaDecl.mod"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Exchange Table Model//EN" "dita-oasis/1.2/base/dtd/tblDecl.mod"
+-- base domains --
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Delayed Resolution Domain//EN" "dita-oasis/1.2/base/dtd/delayResolutionDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Delayed Resolution Domain//EN" "dita-oasis/1.2/base/dtd/delayResolutionDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Highlight Domain//EN" "dita-oasis/1.2/base/dtd/highlightDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Highlight Domain//EN" "dita-oasis/1.2/base/dtd/highlightDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Indexing Domain//EN" "dita-oasis/1.2/base/dtd/indexingDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Indexing Domain//EN" "dita-oasis/1.2/base/dtd/indexingDomain.ent"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Map Group Domain//EN" "dita-oasis/1.2/base/dtd/mapGroup.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Map Group Domain//EN" "dita-oasis/1.2/base/dtd/mapGroup.mod"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Utilities Domain//EN" "dita-oasis/1.2/base/dtd/utilitiesDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Utilities Domain//EN" "dita-oasis/1.2/base/dtd/utilitiesDomain.ent"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Hazard Statement Domain//EN" "dita-oasis/1.2/base/dtd/hazardstatementDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Hazard Statement Domain//EN" "dita-oasis/1.2/base/dtd/hazardstatementDomain.mod"
+-- Base topic DTD (no tech-comm domains --    
+PUBLIC "-//OASIS//DTD DITA 1.x Base Topic//EN" "dita-oasis/1.2/base/dtd/basetopic.dtd"
+-- Base map DTD (no tech-comm domains --  
+PUBLIC "-//OASIS//DTD DITA 1.x Base Map//EN" "dita-oasis/1.2/base/dtd/basemap.dtd"
+-- Ditaval --
+PUBLIC "-//OASIS//DTD DITA 1.x DITAVAL//EN" "dita-oasis/1.2/ditaval/dtd/ditaval.dtd"
+-- Document types and modules used by the Technical Content package --
+PUBLIC "-//OASIS//DTD DITA 1.x Concept//EN" "dita-oasis/1.2/technicalContent/dtd/concept.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Concept//EN" "dita-oasis/1.2/technicalContent/dtd/concept.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Concept//EN" "dita-oasis/1.2/technicalContent/dtd/concept.ent"
+PUBLIC "-//OASIS//DTD DITA 1.x Composite//EN" "dita-oasis/1.2/technicalContent/dtd/ditabase.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.x Glossary Entry//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Glossary Entry//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Glossary Entry//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.ent"
+PUBLIC "-//OASIS//DTD DITA 1.x Glossary//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Glossary//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Glossary//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.ent"
+PUBLIC "-//OASIS//DTD DITA 1.x Glossary Group//EN" "dita-oasis/1.2/technicalContent/dtd/glossgroup.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Glossary Group//EN" "dita-oasis/1.2/technicalContent/dtd/glossgroup.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Glossary Group//EN" "dita-oasis/1.2/technicalContent/dtd/glossgroup.ent"
+PUBLIC "-//OASIS//DTD DITA 1.x Reference//EN" "dita-oasis/1.2/technicalContent/dtd/reference.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Reference//EN" "dita-oasis/1.2/technicalContent/dtd/reference.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Reference//EN" "dita-oasis/1.2/technicalContent/dtd/reference.ent"
+PUBLIC "-//OASIS//DTD DITA 1.x Task//EN" "dita-oasis/1.2/technicalContent/dtd/task.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.x General Task//EN" "dita-oasis/1.2/technicalContent/dtd/generalTask.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Task//EN" "dita-oasis/1.2/technicalContent/dtd/task.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Task//EN" "dita-oasis/1.2/technicalContent/dtd/task.ent"
+-- Topic for use in the technical content package --
+PUBLIC "-//OASIS//DTD DITA 1.x Topic//EN" "dita-oasis/1.2/technicalContent/dtd/topic.dtd"
+-- Map for use in the technical content package --
+PUBLIC "-//OASIS//DTD DITA 1.x Map//EN" "dita-oasis/1.2/technicalContent/dtd/map.dtd"
+-- Domains for the technical content package --
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Abbreviated Form Domain//EN" "dita-oasis/1.2/technicalContent/dtd/abbreviateDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Abbreviated Form Domain//EN" "dita-oasis/1.2/technicalContent/dtd/abbreviateDomain.mod"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Programming Domain//EN" "dita-oasis/1.2/technicalContent/dtd/programmingDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Programming Domain//EN" "dita-oasis/1.2/technicalContent/dtd/programmingDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Software Domain//EN" "dita-oasis/1.2/technicalContent/dtd/softwareDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Software Domain//EN" "dita-oasis/1.2/technicalContent/dtd/softwareDomain.ent"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Task Requirements Domain//EN" "dita-oasis/1.2/technicalContent/dtd/taskreqDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Task Requirements Domain//EN" "dita-oasis/1.2/technicalContent/dtd/taskreqDomain.mod"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x User Interface Domain//EN" "dita-oasis/1.2/technicalContent/dtd/uiDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x User Interface Domain//EN" "dita-oasis/1.2/technicalContent/dtd/uiDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Glossary Reference Domain//EN" "dita-oasis/1.2/technicalContent/dtd/glossrefDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Glossary Reference Domain//EN" "dita-oasis/1.2/technicalContent/dtd/glossrefDomain.ent"
+-- Constraints in the technical content package --
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Strict Taskbody Constraint//EN"  "dita-oasis/1.2/technicalContent/dtd/strictTaskbodyConstraint.mod"
+-- Bookmap document type and module --
+PUBLIC "-//OASIS//DTD DITA 1.x BookMap//EN" "dita-oasis/1.2/bookmap/dtd/bookmap.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x BookMap//EN" "dita-oasis/1.2/bookmap/dtd/bookmap.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x BookMap//EN" "dita-oasis/1.2/bookmap/dtd/bookmap.ent"
+-- Subject scheme package for controlled vocabularies --
+PUBLIC "-//OASIS//DTD DITA 1.x Subject Scheme Map//EN" "dita-oasis/1.2/subjectScheme/dtd/subjectScheme.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Subject Scheme Map//EN" "dita-oasis/1.2/subjectScheme/dtd/subjectScheme.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Subject Scheme Map//EN" "dita-oasis/1.2/subjectScheme/dtd/subjectScheme.ent"
+PUBLIC "-//OASIS//DTD DITA 1.x Classification Map//EN" "dita-oasis/1.2/subjectScheme/dtd/classifyMap.dtd"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Map Subject Classification Domain//EN" "dita-oasis/1.2/subjectScheme/dtd/classifyDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Map Subject Classification Domain//EN" "dita-oasis/1.2/subjectScheme/dtd/classifyDomain.mod"
+-- Domain for representing XNAL address information --
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x XNAL Domain//EN" "dita-oasis/1.2/xnal/dtd/xnalDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x XNAL Domain//EN" "dita-oasis/1.2/xnal/dtd/xnalDomain.ent"
+-- Modules and document types from the OASIS DITA Learning Subcommittee --
+PUBLIC "-//OASIS//DTD DITA 1.x Learning Assessment//EN" "dita-oasis/1.2/learning/dtd/learningAssessment.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.x Learning BookMap//EN" "dita-oasis/1.2/learning/dtd/learningBookmap.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.x Learning Content//EN" "dita-oasis/1.2/learning/dtd/learningContent.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.x Learning Map//EN" "dita-oasis/1.2/learning/dtd/learningMap.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.x Learning Overview//EN" "dita-oasis/1.2/learning/dtd/learningOverview.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.x Learning Plan//EN" "dita-oasis/1.2/learning/dtd/learningPlan.dtd"
+PUBLIC "-//OASIS//DTD DITA 1.x Learning Summary//EN" "dita-oasis/1.2/learning/dtd/learningSummary.dtd"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Learning Interaction Base Domain//EN" "dita-oasis/1.2/learning/dtd/learningInteractionBaseDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Learning Interaction Base Domain//EN" "dita-oasis/1.2/learning/dtd/learningInteractionBaseDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Learning Assessment//EN" "dita-oasis/1.2/learning/dtd/learningAssessment.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Learning Assessment//EN" "dita-oasis/1.2/learning/dtd/learningAssessment.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Learning Base//EN" "dita-oasis/1.2/learning/dtd/learningBase.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Learning Base//EN" "dita-oasis/1.2/learning/dtd/learningBase.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Learning Content//EN" "dita-oasis/1.2/learning/dtd/learningContent.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Learning Content//EN" "dita-oasis/1.2/learning/dtd/learningContent.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Learning Overview//EN" "dita-oasis/1.2/learning/dtd/learningOverview.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Learning Overview//EN" "dita-oasis/1.2/learning/dtd/learningOverview.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Learning Plan//EN" "dita-oasis/1.2/learning/dtd/learningPlan.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Learning Plan//EN" "dita-oasis/1.2/learning/dtd/learningPlan.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Learning Summary//EN" "dita-oasis/1.2/learning/dtd/learningSummary.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Learning Summary//EN" "dita-oasis/1.2/learning/dtd/learningSummary.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Learning Domain//EN" "dita-oasis/1.2/learning/dtd/learningDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Learning Domain//EN" "dita-oasis/1.2/learning/dtd/learningDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Learning Metadata Domain//EN" "dita-oasis/1.2/learning/dtd/learningMetadataDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Learning Metadata Domain//EN" "dita-oasis/1.2/learning/dtd/learningMetadataDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA 1.x Learning Map Domain//EN" "dita-oasis/1.2/learning/dtd/learningMapDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Learning Map Domain//EN" "dita-oasis/1.2/learning/dtd/learningMapDomain.mod"
+-- Modules and document types from the OASIS DITA Machine Industry Subcommittee --
+PUBLIC "-//OASIS//DTD DITA 1.x Machinery Task//EN" "dita-oasis/1.2/machineryIndustry/dtd/machineryTask.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA 1.x Machinery Taskbody Constraint//EN"  "dita-oasis/1.2/machineryIndustry/dtd/machineryTaskbodyConstraint.mod"
+-- ...................................................................... --
+-- End of TEXT Catalog data for OASIS DITA V1.X .......................... --
+-- ...................................................................... --
+      
+-- ...................................................................... --
+-- [F] TEXT Catalog data for OASIS version-less DITA pointing to latest .. -- 
+-- ...................................................................... --    
+-- Topics --
+PUBLIC "-//OASIS//ELEMENTS DITA Topic//EN" "dita-oasis/1.2/base/dtd/topic.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Topic Definitions//EN" "dita-oasis/1.2/base/dtd/topicDefn.ent"
+-- Maps --
+PUBLIC "-//OASIS//ELEMENTS DITA Map//EN" "dita-oasis/1.2/base/dtd/map.mod"
+-- Common files for topics and maps --
+PUBLIC "-//OASIS//ELEMENTS DITA Common Elements//EN" "dita-oasis/1.2/base/dtd/commonElements.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Common Elements//EN" "dita-oasis/1.2/base/dtd/commonElements.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Metadata//EN" "dita-oasis/1.2/base/dtd/metaDecl.mod"
+PUBLIC "-//OASIS//ELEMENTS DITA Exchange Table Model//EN" "dita-oasis/1.2/base/dtd/tblDecl.mod"
+-- base domains --
+PUBLIC "-//OASIS//ELEMENTS DITA Delayed Resolution Domain//EN" "dita-oasis/1.2/base/dtd/delayResolutionDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Delayed Resolution Domain//EN" "dita-oasis/1.2/base/dtd/delayResolutionDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN" "dita-oasis/1.2/base/dtd/highlightDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Highlight Domain//EN" "dita-oasis/1.2/base/dtd/highlightDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Indexing Domain//EN" "dita-oasis/1.2/base/dtd/indexingDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Indexing Domain//EN" "dita-oasis/1.2/base/dtd/indexingDomain.ent"
+PUBLIC "-//OASIS//ENTITIES DITA Map Group Domain//EN" "dita-oasis/1.2/base/dtd/mapGroup.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Map Group Domain//EN" "dita-oasis/1.2/base/dtd/mapGroup.mod"
+PUBLIC "-//OASIS//ELEMENTS DITA Utilities Domain//EN" "dita-oasis/1.2/base/dtd/utilitiesDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Utilities Domain//EN" "dita-oasis/1.2/base/dtd/utilitiesDomain.ent"
+PUBLIC "-//OASIS//ENTITIES DITA Hazard Statement Domain//EN" "dita-oasis/1.2/base/dtd/hazardstatementDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Hazard Statement Domain//EN" "dita-oasis/1.2/base/dtd/hazardstatementDomain.mod"
+-- Base topic DTD (no tech-comm domains --    
+PUBLIC "-//OASIS//DTD DITA Base Topic//EN" "dita-oasis/1.2/base/dtd/basetopic.dtd"
+-- Base map DTD (no tech-comm domains --  
+PUBLIC "-//OASIS//DTD DITA Base Map//EN" "dita-oasis/1.2/base/dtd/basemap.dtd"
+-- Ditaval --
+PUBLIC "-//OASIS//DTD DITA DITAVAL//EN" "dita-oasis/1.2/ditaval/dtd/ditaval.dtd"
+-- Document types and modules used by the Technical Content package --
+PUBLIC "-//OASIS//DTD DITA Concept//EN" "dita-oasis/1.2/technicalContent/dtd/concept.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA Concept//EN" "dita-oasis/1.2/technicalContent/dtd/concept.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Concept//EN" "dita-oasis/1.2/technicalContent/dtd/concept.ent"
+PUBLIC "-//OASIS//DTD DITA Composite//EN" "dita-oasis/1.2/technicalContent/dtd/ditabase.dtd"
+PUBLIC "-//OASIS//DTD DITA Glossary Entry//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA Glossary Entry//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Glossary Entry//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.ent"
+PUBLIC "-//OASIS//DTD DITA Glossary//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA Glossary//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Glossary//EN" "dita-oasis/1.2/technicalContent/dtd/glossentry.ent"
+PUBLIC "-//OASIS//DTD DITA Glossary Group//EN" "dita-oasis/1.2/technicalContent/dtd/glossgroup.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA Glossary Group//EN" "dita-oasis/1.2/technicalContent/dtd/glossgroup.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Glossary Group//EN" "dita-oasis/1.2/technicalContent/dtd/glossgroup.ent"
+PUBLIC "-//OASIS//DTD DITA Reference//EN" "dita-oasis/1.2/technicalContent/dtd/reference.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA Reference//EN" "dita-oasis/1.2/technicalContent/dtd/reference.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Reference//EN" "dita-oasis/1.2/technicalContent/dtd/reference.ent"
+PUBLIC "-//OASIS//DTD DITA Task//EN" "dita-oasis/1.2/technicalContent/dtd/task.dtd"
+PUBLIC "-//OASIS//DTD DITA General Task//EN" "dita-oasis/1.2/technicalContent/dtd/generalTask.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA Task//EN" "dita-oasis/1.2/technicalContent/dtd/task.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Task//EN" "dita-oasis/1.2/technicalContent/dtd/task.ent"
+-- Topic for use in the technical content package --
+PUBLIC "-//OASIS//DTD DITA Topic//EN" "dita-oasis/1.2/technicalContent/dtd/topic.dtd"
+-- Map for use in the technical content package --
+PUBLIC "-//OASIS//DTD DITA Map//EN" "dita-oasis/1.2/technicalContent/dtd/map.dtd"
+-- Domains for the technical content package --
+PUBLIC "-//OASIS//ENTITIES DITA Abbreviated Form Domain//EN" "dita-oasis/1.2/technicalContent/dtd/abbreviateDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Abbreviated Form Domain//EN" "dita-oasis/1.2/technicalContent/dtd/abbreviateDomain.mod"
+PUBLIC "-//OASIS//ELEMENTS DITA Programming Domain//EN" "dita-oasis/1.2/technicalContent/dtd/programmingDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Programming Domain//EN" "dita-oasis/1.2/technicalContent/dtd/programmingDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Software Domain//EN" "dita-oasis/1.2/technicalContent/dtd/softwareDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Software Domain//EN" "dita-oasis/1.2/technicalContent/dtd/softwareDomain.ent"
+PUBLIC "-//OASIS//ENTITIES DITA Task Requirements Domain//EN" "dita-oasis/1.2/technicalContent/dtd/taskreqDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Task Requirements Domain//EN" "dita-oasis/1.2/technicalContent/dtd/taskreqDomain.mod"
+PUBLIC "-//OASIS//ELEMENTS DITA User Interface Domain//EN" "dita-oasis/1.2/technicalContent/dtd/uiDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA User Interface Domain//EN" "dita-oasis/1.2/technicalContent/dtd/uiDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Glossary Reference Domain//EN" "dita-oasis/1.2/technicalContent/dtd/glossrefDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Glossary Reference Domain//EN" "dita-oasis/1.2/technicalContent/dtd/glossrefDomain.ent"
+-- Constraints in the technical content package --
+PUBLIC "-//OASIS//ELEMENTS DITA Strict Taskbody Constraint//EN"  "dita-oasis/1.2/technicalContent/dtd/strictTaskbodyConstraint.mod"
+-- Bookmap document type and module --
+PUBLIC "-//OASIS//DTD DITA BookMap//EN" "dita-oasis/1.2/bookmap/dtd/bookmap.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA BookMap//EN" "dita-oasis/1.2/bookmap/dtd/bookmap.mod"
+PUBLIC "-//OASIS//ENTITIES DITA BookMap//EN" "dita-oasis/1.2/bookmap/dtd/bookmap.ent"
+-- Subject scheme package for controlled vocabularies --
+PUBLIC "-//OASIS//DTD DITA Subject Scheme Map//EN" "dita-oasis/1.2/subjectScheme/dtd/subjectScheme.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA Subject Scheme Map//EN" "dita-oasis/1.2/subjectScheme/dtd/subjectScheme.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Subject Scheme Map//EN" "dita-oasis/1.2/subjectScheme/dtd/subjectScheme.ent"  
+PUBLIC "-//OASIS//DTD DITA Classification Map//EN" "dita-oasis/1.2/subjectScheme/dtd/classifyMap.dtd"
+PUBLIC "-//OASIS//ENTITIES DITA Map Subject Classification Domain//EN" "dita-oasis/1.2/subjectScheme/dtd/classifyDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Map Subject Classification Domain//EN" "dita-oasis/1.2/subjectScheme/dtd/classifyDomain.mod"
+-- Domain for representing XNAL address information --
+PUBLIC "-//OASIS//ELEMENTS DITA XNAL Domain//EN" "dita-oasis/1.2/xnal/dtd/xnalDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA XNAL Domain//EN" "dita-oasis/1.2/xnal/dtd/xnalDomain.ent"
+-- Modules and document types from the OASIS DITA Learning Subcommittee --
+PUBLIC "-//OASIS//DTD DITA Learning Assessment//EN" "dita-oasis/1.2/learning/dtd/learningAssessment.dtd"
+PUBLIC "-//OASIS//DTD DITA Learning BookMap//EN" "dita-oasis/1.2/learning/dtd/learningBookmap.dtd"
+PUBLIC "-//OASIS//DTD DITA Learning Content//EN" "dita-oasis/1.2/learning/dtd/learningContent.dtd"
+PUBLIC "-//OASIS//DTD DITA Learning Map//EN" "dita-oasis/1.2/learning/dtd/learningMap.dtd"
+PUBLIC "-//OASIS//DTD DITA Learning Overview//EN" "dita-oasis/1.2/learning/dtd/learningOverview.dtd"
+PUBLIC "-//OASIS//DTD DITA Learning Plan//EN" "dita-oasis/1.2/learning/dtd/learningPlan.dtd"
+PUBLIC "-//OASIS//DTD DITA Learning Summary//EN" "dita-oasis/1.2/learning/dtd/learningSummary.dtd"
+PUBLIC "-//OASIS//ENTITIES DITA Learning Interaction Base Domain//EN" "dita-oasis/1.2/learning/dtd/learningInteractionBaseDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Learning Interaction Base Domain//EN" "dita-oasis/1.2/learning/dtd/learningInteractionBaseDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Learning Assessment//EN" "dita-oasis/1.2/learning/dtd/learningAssessment.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Learning Assessment//EN" "dita-oasis/1.2/learning/dtd/learningAssessment.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Learning Base//EN" "dita-oasis/1.2/learning/dtd/learningBase.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Learning Base//EN" "dita-oasis/1.2/learning/dtd/learningBase.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Learning Content//EN" "dita-oasis/1.2/learning/dtd/learningContent.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Learning Content//EN" "dita-oasis/1.2/learning/dtd/learningContent.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Learning Overview//EN" "dita-oasis/1.2/learning/dtd/learningOverview.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Learning Overview//EN" "dita-oasis/1.2/learning/dtd/learningOverview.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Learning Plan//EN" "dita-oasis/1.2/learning/dtd/learningPlan.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Learning Plan//EN" "dita-oasis/1.2/learning/dtd/learningPlan.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Learning Summary//EN" "dita-oasis/1.2/learning/dtd/learningSummary.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Learning Summary//EN" "dita-oasis/1.2/learning/dtd/learningSummary.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Learning Domain//EN" "dita-oasis/1.2/learning/dtd/learningDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Learning Domain//EN" "dita-oasis/1.2/learning/dtd/learningDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Learning Metadata Domain//EN" "dita-oasis/1.2/learning/dtd/learningMetadataDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Learning Metadata Domain//EN" "dita-oasis/1.2/learning/dtd/learningMetadataDomain.mod"
+PUBLIC "-//OASIS//ENTITIES DITA Learning Map Domain//EN" "dita-oasis/1.2/learning/dtd/learningMapDomain.ent"
+PUBLIC "-//OASIS//ELEMENTS DITA Learning Map Domain//EN" "dita-oasis/1.2/learning/dtd/learningMapDomain.mod"
+-- Modules and document types from the OASIS DITA Machine Industry Subcommittee --
+PUBLIC "-//OASIS//DTD DITA Machinery Task//EN" "dita-oasis/1.2/machineryIndustry/dtd/machineryTask.dtd"
+PUBLIC "-//OASIS//ELEMENTS DITA Machinery Taskbody Constraint//EN"  "dita-oasis/1.2/machineryIndustry/dtd/machineryTaskbodyConstraint.mod"
+-- DITA Specializations: since there is no apiref 1.2 dtd yet, point latest to version 1.1 --
+PUBLIC "-//Trisoft//DTD DITA Apiref//EN" "dita-oasis/1.1/apiref.dtd"
+PUBLIC "-//Trisoft//ELEMENTS DITA Apiref//EN" "dita-oasis/1.1/apiref.mod"
+-- ...................................................................... --
+-- End of TEXT Catalog data for OASIS version-less DITA pointing to latest -- 
+-- ...................................................................... --
+-- ...................................................................... --
+-- .. [G] MATHML DTD DEFINITIONS ....................................... --
+-- ...................................................................... --
+
+PUBLIC "-//W3C//DTD MathML 3.0//EN" "dita-oasis/1.2/mathml/dtd/mathml3.dtd"
+PUBLIC "-//W3C//ENTITIES MathML 3.0 Qualified Names 1.0//EN" "dita-oasis/1.2/mathml/dtd/mathml3-qname.mod"
+
+-- ...................................................................... --
+-- .. End of MATHML DTD DEFINITIONS .................................... --
+-- ...................................................................... --

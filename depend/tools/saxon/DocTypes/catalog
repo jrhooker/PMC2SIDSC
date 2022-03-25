@@ -1,0 +1,6 @@
+-- SDL Trisoft, 2009-2010 --
+-- TEXT Catalogs --
+
+CATALOG "catalog-dita-dtds"
+CATALOG "catalog-extensions"
+CATALOG "catalog-svg-dtds"

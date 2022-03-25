@@ -1,0 +1,13 @@
+<!--  
+SIDSC Register Increment
+Copyright OASIS 2009
+Author: Seth Park
+ 
+Delivered as file "sidsc-registerIncrementProps.ent"
+-->
+<!ENTITY % sidsc-register-increment-props-d-attribute 
+  "registerIncrement CDATA  #IMPLIED">
+  
+<!ENTITY sidsc-register-increment-props-d-att
+   "a(props  registerIncrement)">
+ <!-- end sidsc-registerIncrementProps.ent -->

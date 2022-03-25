@@ -1,0 +1,9 @@
+<!ENTITY % sidsc-name-props-d-attribute 
+  "name   
+  CDATA  
+  #IMPLIED
+  "
+>
+<!ENTITY sidsc-name-props-d-att
+   "a(props  name)"
+>

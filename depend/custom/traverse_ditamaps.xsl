@@ -57,6 +57,9 @@
   <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
     doctype-public="-//OASIS//DTD DITA 1.2 Map//EN" doctype-system="map.dtd"/>
 
+  <!-- <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
+    doctype-public="-//Atmel//DTD DITA Map//EN" doctype-system="dtd/atmelMap.dtd"/> -->
+
   <xsl:template match="/">
    
     <!-- now process the current map itself --> 

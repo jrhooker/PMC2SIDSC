@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE topic PUBLIC "-//OASIS//DTD DITA Topic//EN" "http://docs.oasis-open.org/dita/v1.1/OS/dtd/topic.dtd">
+<topic id="oasis.sidsc.dtd.1-1">
+    <title>Status</title>
+    <body>
+        <section>
+            <title>Clean up activities (checklist)</title>
+        </section>
+        <ul>
+            <li>ensure all public ids in shells match the public ids as defined in the catalog. the
+                catalog is the authority</li>
+            <li>ensure arch version attributes are on all MOD files.</li>
+        </ul>
+        <section>
+            <title>Known issues</title>
+            <ul>
+                <li>The use of domain elements in the topic-type content models is imprecise.
+                    Domains are implemented as vocabulary extensions. Where domain elements are
+                    needed, the base type is allowed.</li>
+            </ul>
+        </section>
+        <section>
+            <title>Wishlist for 1.2</title>
+            <ul>
+                <li>Use 1.2 features (constraints or otherwise) to allow only the desired domain
+                    elements.</li>
+            </ul>
+        </section>
+    </body>
+</topic>

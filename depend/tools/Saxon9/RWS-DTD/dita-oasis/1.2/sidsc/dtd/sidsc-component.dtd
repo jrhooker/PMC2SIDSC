@@ -1,0 +1,92 @@
+<!--  
+SIDSC Component
+Copyright OASIS 2009
+Author: Seth Park
+ 
+PUBLIC "-//OASIS//DTD DITA SIDSC Component//EN"
+Delivered as file "sidsc-component.dtd"
+-->
+<!--   domain entity declarations  -->
+<!ENTITY % dataTableDomain-d-dec  PUBLIC "-//OASIS//ENTITIES DITA SIDSC Data Table Domain//EN" "dataTableDomain.ent" >
+%dataTableDomain-d-dec;
+
+<!ENTITY % hi-d-dec PUBLIC  "-//OASIS//ENTITIES DITA Highlight Domain//EN" "../../base/dtd/highlightDomain.ent" >
+%hi-d-dec;
+
+<!ENTITY % pr-d-dec PUBLIC "-//OASIS//ENTITIES DITA Programming Domain//EN" "../../technicalContent/dtd/programmingDomain.ent" >
+%pr-d-dec;
+
+<!ENTITY % sidscDomain-d-dec  PUBLIC "-//OASIS//ENTITIES DITA SIDSC Domain//EN" "sidscDomain.ent">
+%sidscDomain-d-dec;
+
+<!ENTITY % ipDataDomain-d-dec  PUBLIC "-//OASIS//ENTITIES DITA SIDSC IP Data Domain//EN" "ipDataDomain.ent">
+%ipDataDomain-d-dec;
+
+<!--domain attribute declarations -->
+<!ENTITY % feature-props-d-dec PUBLIC "-//OASIS//ENTITIES DITA SIDSC Feature Attribute Domain//EN" "featurePropsDomain.ent">
+%feature-props-d-dec;
+
+<!-- domain extensions-->
+<!ENTITY % ph  "ph |  %hi-d-ph; | %sidscDomain-d-ph; | %pr-d-ph;" >
+<!ENTITY % pre "pre | %pr-d-pre; " >
+<!ENTITY % data   "data | %ipDataDomain-d-data;"   >
+
+<!--  domain attribute extensions  -->
+<!ENTITY % props-attribute-extensions  "%feature-props-d-attribute;" >
+<!ENTITY % base-attribute-extensions   "" >
+
+<!-- topic nesting override
+Redefine the infotype entity to exclude other topic types and disallow nesting  -->
+<!ENTITY % sidsc-component-info-types  "memoryMap"   >
+
+<!--  domains attribute override 
+Must be declared ahead of the DTDs, which puts @domains first in order-->
+<!ENTITY included-domains 
+"&dataTableDomain-d-att; 
+&hi-d-att; 
+&pr-d-att; 
+&sidscDomain-d-att;
+&ipDataDomain-d-att;
+&feature-props-d-att;">
+
+<!-- topic element integration   -->
+<!--  embed topic to get generic elements  -->
+<!ENTITY % topic-type   PUBLIC "-//OASIS//ELEMENTS DITA Topic//EN" "../../base/dtd/topic.mod">
+%topic-type;
+
+<!--  embed reference to get specific elements  -->
+<!ENTITY % reference-typemod PUBLIC "-//OASIS//ELEMENTS DITA Reference//EN" "../../technicalContent/dtd/reference.mod">
+%reference-typemod;
+
+<!--  embed sidsc-component types to get specific elements     -->
+<!ENTITY % sidsc-component-typemod PUBLIC "-//OASIS//ELEMENTS DITA SIDSC Component//EN" "sidsc-component.mod" >
+%sidsc-component-typemod;
+
+<!ENTITY % sidsc-memoryMap-typemod PUBLIC "-//OASIS//ELEMENTS DITA SIDSC Memory Map//EN" "sidsc-memoryMap.mod"  > 
+%sidsc-memoryMap-typemod;
+
+<!ENTITY % sidsc-addressBlock-typemod PUBLIC "-//OASIS//ELEMENTS DITA SIDSC Address Block//EN" "sidsc-addressBlock.mod" > 
+%sidsc-addressBlock-typemod;
+
+<!ENTITY % sidsc-register-typemod PUBLIC "-//OASIS//ELEMENTS DITA SIDSC Register//EN" "sidsc-register.mod" > 
+%sidsc-register-typemod;
+
+<!ENTITY % sidsc-bitField-typemod PUBLIC "-//OASIS//ELEMENTS DITA SIDSC Bit Field//EN" "sidsc-bitField.mod"  > 
+%sidsc-bitField-typemod;
+
+<!--domain element integration -->
+<!ENTITY % dataTableDomain-d-def  PUBLIC "-//OASIS//ELEMENTS DITA SIDSC Data Table Domain//EN" "dataTableDomain.mod"  >
+%dataTableDomain-d-def;
+
+<!ENTITY % hi-d-def PUBLIC "-//OASIS//ELEMENTS DITA Highlight Domain//EN" "../../base/dtd/highlightDomain.mod"  >
+%hi-d-def;
+
+<!ENTITY % pr-d-def PUBLIC "-//OASIS//ELEMENTS DITA Programming Domain//EN" "../../technicalContent/dtd/programmingDomain.mod" >
+%pr-d-def;
+
+<!ENTITY % sidscDomain-d-def  PUBLIC "-//OASIS//ELEMENTS DITA SIDSC Domain//EN" "sidscDomain.mod" >
+%sidscDomain-d-def;
+
+<!ENTITY % ipDataDomain-d-def PUBLIC "-//OASIS//ELEMENTS DITA SIDSC IP Data Domain//EN" "ipDataDomain.mod"  >
+%ipDataDomain-d-def;
+<!-- end sidsc-component.dtd -->

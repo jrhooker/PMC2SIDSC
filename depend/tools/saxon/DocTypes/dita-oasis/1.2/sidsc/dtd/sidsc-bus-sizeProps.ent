@@ -1,0 +1,13 @@
+<!--  
+SIDSC Memory Mapped Width
+Copyright OASIS 2009
+Author: Seth Park
+ 
+Delivered as file "sidsc-bus-sizeProps.ent"
+-->
+<!ENTITY % sidsc-bus-size-props-d-attribute 
+  "memoryMapWidth CDATA  #IMPLIED">
+  
+<!ENTITY sidsc-bus-size-props-d-att
+   "a(props  memoryMapWidth-size)">
+ <!-- end sidsc-bus-sizeProps.ent -->

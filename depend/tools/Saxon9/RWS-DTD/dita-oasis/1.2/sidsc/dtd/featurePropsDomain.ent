@@ -1,0 +1,13 @@
+<!--  
+SIDSC Feature Attribute
+Copyright OASIS 2009
+Author: Seth Park
+ 
+Delivered as file "featurePropsDomain.ent"
+-->
+<!ENTITY % feature-props-d-attribute 
+"feature CDATA  #IMPLIED">
+
+<!ENTITY feature-props-d-att
+"a(props  feature)">
+<!-- end featurePropsDomain.ent -->

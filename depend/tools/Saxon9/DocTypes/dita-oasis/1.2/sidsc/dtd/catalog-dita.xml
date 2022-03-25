@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!--  
+     SIDSC component specialization catalog
+     Copyright OASIS 2009
+     Author: Seth Park
+-->
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+     <!--group xml:base="plugins/sidsc/dtd/" prefer="public" id="oasis.dita.sidsc.dtd"-->         
+          <!-- topic/map type shells -->
+          <public publicId="-//OASIS//DTD DITA SIDSC Design//EN" uri="sidsc-design.dtd"/>
+          <public publicId="-//OASIS//DTD DITA SIDSC Component//EN" uri="sidsc-component.dtd"/>
+          <public publicId="-//OASIS//DTD DITA SIDSC Memory Map//EN" uri="sidsc-memoryMap.dtd"/>
+          <public publicId="-//OASIS//DTD DITA SIDSC Address Block//EN" uri="sidsc-addressBlock.dtd"/>
+          <public publicId="-//OASIS//DTD DITA SIDSC Register//EN" uri="sidsc-register.dtd"/>
+          <public publicId="-//OASIS//DTD DITA SIDSC Bit Field//EN" uri="sidsc-bitField.dtd"/>
+          <!-- topic/map type elements -->
+          <public publicId="-//OASIS//ELEMENTS DITA SIDSC Design//EN" uri="sidsc-design.mod"/>
+          <public publicId="-//OASIS//ELEMENTS DITA SIDSC Component//EN" uri="sidsc-component.mod"/>
+          <public publicId="-//OASIS//ELEMENTS DITA SIDSC Memory Map//EN" uri="sidsc-memoryMap.mod"/>
+          <public publicId="-//OASIS//ELEMENTS DITA SIDSC Address Block//EN" uri="sidsc-addressBlock.mod"/>
+          <public publicId="-//OASIS//ELEMENTS DITA SIDSC Register//EN" uri="sidsc-register.mod"/>
+          <public publicId="-//OASIS//ELEMENTS DITA SIDSC Bit Field//EN" uri="sidsc-bitField.mod"/>
+          <!-- domain entities-->
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC Data Table Domain//EN" uri="dataTableDomain.ent"/>
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC Domain//EN" uri="sidscDomain.ent"/>
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC Feature Attribute Domain//EN" uri="featurePropsDomain.ent"/>
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC IP Data Domain//EN" uri="ipDataDomain.ent"/>
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC IP Name//EN" uri="sidsc-nameProps.ent"/>
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC Base Address//EN" uri="sidsc-valueProps.ent"/>
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC CPU Type//EN" uri="sidsc-cputypeProps.ent"/>
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC Memory-Mapped Width//EN" uri="sidsc-bus-sizeProps.ent"/>
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC IP UID//EN" uri="sidsc-ip-uidProps.ent"/>
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC IP Version" uri="sidsc-ip-versionProps.ent"/>
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC Slot Number" uri="sidsc-slotProps.ent"/>
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC Slot Range" uri="sidsc-rangeProps.ent"/>
+          <public publicId="-//OASIS//ENTITIES DITA SIDSC Register Increment" uri="sidsc-registerIncrementProps.ent"/>
+          <!-- domain elements -->
+          <public publicId="-//OASIS//ELEMENTS DITA SIDSC Data Table Domain//EN" uri="dataTableDomain.mod"/>
+          <public publicId="-//OASIS//ELEMENTS DITA SIDSC IP Data Domain//EN" uri="ipDataDomain.mod"/>
+     <!--/group-->
+</catalog>

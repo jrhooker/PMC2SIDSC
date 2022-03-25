@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  <!-- ...................................................................... -->
+  <!-- IN THIS OASIS XML CATALOG:                                             -->
+  <!--   XML Catalog data for SVG 1.0                                         -->
+  <!--   XML Catalog data for SVG 1.1                                         -->
+  <!--   XML Catalog data for SVG 1.1 Tiny                                    -->
+  <!--   XML Catalog data for SVG 1.1 Basic                                   -->
+  <!-- GENERAL NOTES:                                                         -->
+  <!--   1. Source SVG 1.0: http://www.w3.org/TR/SVG10/svgdtd.html            -->
+  <!--   2. SVG 1.1 Tiny and SVG 1.1 Basic use the flattened dtd              -->
+  <!-- ...................................................................... -->	
+   <public publicId="-//W3C//DTD SVG 1.0//EN" uri="svg-w3c/1.0/dtd/svg10.dtd"/>
+   <public publicId="-//W3C//DTD SVG 1.1//EN" uri="svg-w3c/1.1/dtd/svg11.dtd"/>
+   <public publicId="-//W3C//DTD SVG 1.1 Tiny//EN" uri="svg-w3c/1.1/dtd/svg11-tiny.dtd"/>
+   <public publicId="-//W3C//DTD SVG 1.1 Basic//EN" uri="svg-w3c/1.1/dtd/svg11-basic.dtd"/>
+  <!-- ...................................................................... -->
+</catalog>   

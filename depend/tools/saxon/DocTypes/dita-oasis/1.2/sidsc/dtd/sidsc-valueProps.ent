@@ -1,0 +1,13 @@
+<!--  
+SIDSC Base Address
+Copyright OASIS 2009
+Author: Seth Park
+ 
+Delivered as file "sidsc-valueProps.ent"
+-->
+<!ENTITY % sidsc-value-props-d-attribute 
+  "base-address CDATA  #IMPLIED">
+  
+<!ENTITY sidsc-value-props-d-att
+   "a(props  base-address)">
+   <!-- end sidsc-valueProps.ent -->

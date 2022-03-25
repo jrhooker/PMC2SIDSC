@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+<!-- SDL Trisoft, 2009-2013   -->
+<!-- XML Catalogs Extensions -->
+
+<!-- XML Catalog data used by Arbortext Editor only (Document Type Configuration Files (.dcf)) .. -->
+<public publicId="-//SDL Trisoft//InfoShare DCF Module//EN"   uri="../dcfmodules/infoShare.dcf"/>
+
+<!-- .................................................................................. -->
+    
+<!-- Custom public identifiers -->
+<public publicId="-//OASIS//ELEMENTS DITA Equation Domain//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/equationDomain.mod"/>
+<public publicId="-//OASIS//ELEMENTS DITA MathML Domain//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/mathmlDomain.mod"/>
+<public publicId="-//OASIS//ENTITIES DITA Equation Domain//EN"  uri="dita-oasis/1.2/DITA_mathml/dtd/equationDomain.ent"/>
+<public publicId="-//OASIS//ENTITIES DITA MathML Domain//EN"  uri="dita-oasis/1.2/DITA_mathml/dtd/mathmlDomain.ent"/>
+
+    
+    <public publicId="-//OASIS//DTD DITA Mathml Topic//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlTopic.dtd"/>
+    <public publicId="-//OASIS//DTD DITA Mathml 1.2 Topic//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlTopic.dtd"/>
+    
+    <public publicId="-//OASIS//DTD DITA Mathml Concept//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlConcept.dtd"/>
+    <public publicId="-//OASIS//DTD DITA Mathml 1.2 Concept//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlConcept.dtd"/>
+    
+    <public publicId="-//OASIS//DTD DITA Mathml Task//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlTask.dtd"/>
+    <public publicId="-//OASIS//DTD DITA Mathml 1.2 Task//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlTask.dtd"/>
+
+    <public publicId="-//OASIS//DTD DITA Mathml Machinery Task//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DITAMathmlMachineryTask.dtd"/>
+    <public publicId="-//OASIS//DTD DITA Mathml 1.2 Machinery Task//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DITAMathmlMachineryTask.dtd"/>
+    
+    <public publicId="-//OASIS//DTD DITA Mathml General Task//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlGeneralTask.dtd"/>
+    <public publicId="-//OASIS//DTD DITA Mathml 1.2 General Task//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlGeneralTask.dtd"/>
+    
+    <public publicId="-//OASIS//DTD DITA Mathml Reference//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlReference.dtd"/>
+    <public publicId="-//OASIS//DTD DITA Mathml 1.2 Reference//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlReference.dtd"/>
+
+    <public publicId="-//OASIS//DTD DITA Mathml Learning Assessment//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlLearningAssessment.dtd"/>
+    <public publicId="-//OASIS//DTD DITA Mathml 1.2 Learning Assessment//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlLearningAssessment.dtd"/>
+    
+    <public publicId="-//OASIS//DTD DITA Mathml Learning Content//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlLearningContent.dtd"/>
+    <public publicId="-//OASIS//DTD DITA Mathml 1.2 Learning Content//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlLearningContent.dtd"/>
+    
+    <public publicId="-//OASIS//DTD DITA Mathml Learning Overview//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlLearningOverview.dtd"/>
+    <public publicId="-//OASIS//DTD DITA Mathml 1.2 Learning Overview//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlLearningOverview.dtd"/>
+    
+    <public publicId="-//OASIS//DTD DITA Mathml Learning Plan//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlLearningPlan.dtd"/>
+    <public publicId="-//OASIS//DTD DITA Mathml 1.2 Learning Plan//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlLearningPlan.dtd"/>
+    
+    <public publicId="-//OASIS//DTD DITA Mathml Learning Summary//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlLearningSummary.dtd"/>
+    <public publicId="-//OASIS//DTD DITA Mathml 1.2 Learning Summary//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlLearningSummary.dtd"/>
+
+    <public publicId="-//OASIS//DTD DITA Mathml Composite//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlDitabase.dtd"/>
+    <public publicId="-//OASIS//DTD DITA Mathml Composite 1.2//EN" uri="dita-oasis/1.2/DITA_mathml/dtd/DitaMathmlDitabase.dtd"/>
+
+		
+	<!--nextCatalog catalog="dita-oasis/1.2/sidsc/dtd/catalog-dita.xml" /-->
+     <!--group xml:base="plugins/sidsc/dtd/" prefer="public" id="oasis.dita.sidsc.dtd"-->         
+          <!-- topic/map type shells -->
+    <public publicId="-//OASIS//DTD DITA SIDSC Design//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-design.dtd"/>
+    <public publicId="-//OASIS//DTD DITA SIDSC Component//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-component.dtd"/>
+    <public publicId="-//OASIS//DTD DITA SIDSC Memory Map//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-memoryMap.dtd"/>
+    <public publicId="-//OASIS//DTD DITA SIDSC Address Block//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-addressBlock.dtd"/>
+    <public publicId="-//OASIS//DTD DITA SIDSC Register//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-register.dtd"/>
+    <public publicId="-//OASIS//DTD DITA SIDSC Bit Field//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-bitField.dtd"/>
+
+    <!-- topic/map type elements -->
+    <public publicId="-//OASIS//ELEMENTS DITA SIDSC Design//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-design.mod"/>
+    <public publicId="-//OASIS//ELEMENTS DITA SIDSC Component//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-component.mod"/>
+    <public publicId="-//OASIS//ELEMENTS DITA SIDSC Memory Map//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-memoryMap.mod"/>
+    <public publicId="-//OASIS//ELEMENTS DITA SIDSC Address Block//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-addressBlock.mod"/>
+    <public publicId="-//OASIS//ELEMENTS DITA SIDSC Register//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-register.mod"/>
+    <public publicId="-//OASIS//ELEMENTS DITA SIDSC Bit Field//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-bitField.mod"/>
+    
+    <!-- topic/map type entities -->
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC Design//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-design.ent"/>
+    <!--public publicId="-//OASIS//ENTITIES DITA SIDSC Component//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-component.ent"/-->
+    <!--public publicId="-//OASIS//ENTITIES DITA SIDSC Memory Map//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-memoryMap.ent"/-->
+    <!--public publicId="-//OASIS//ENTITIES DITA SIDSC Address Block//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-addressBlock.ent"/-->
+    <!--public publicId="-//OASIS//ENTITIES DITA SIDSC Register//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-register.ent"/-->
+    <!--public publicId="-//OASIS//ENTITIES DITA SIDSC Bit Field//EN" uri="dita-oasis/1.2/sidsc/dtd/sidsc-bitField.ent"/-->
+    
+    <!-- domain entities-->
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC Data Table Domain//EN"                    uri="dita-oasis/1.2/sidsc/dtd/dataTableDomain.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC Feature Attribute Domain//EN"             uri="dita-oasis/1.2/sidsc/dtd/featurePropsDomain.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC IP Data Domain//EN"                       uri="dita-oasis/1.2/sidsc/dtd/ipDataDomain.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC Memory-Mapped Width//EN"                  uri="dita-oasis/1.2/sidsc/dtd/sidsc-bus-sizeProps.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC CPU Type//EN"                             uri="dita-oasis/1.2/sidsc/dtd/sidsc-cputypeProps.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC Name Attribute Domain//EN"                uri="dita-oasis/1.2/sidsc/dtd/sidsc-designPropsDomain.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC Domain//EN"                               uri="dita-oasis/1.2/sidsc/dtd/sidscDomain.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC IP UID//EN"                               uri="dita-oasis/1.2/sidsc/dtd/sidsc-ip-uidProps.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC IP Version"                               uri="dita-oasis/1.2/sidsc/dtd/sidsc-ip-versionProps.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC IP Name//EN"                              uri="dita-oasis/1.2/sidsc/dtd/sidsc-nameProps.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC Slot Range"                               uri="dita-oasis/1.2/sidsc/dtd/sidsc-rangeProps.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC Register Increment"                       uri="dita-oasis/1.2/sidsc/dtd/sidsc-registerIncrementProps.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC Register Increment Attribute Domain//EN"  uri="dita-oasis/1.2/sidsc/dtd/sidsc-registerIncrementProps.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC Base Address//EN"                         uri="dita-oasis/1.2/sidsc/dtd/sidsc-valueProps.ent"/>
+    <public publicId="-//OASIS//ENTITIES DITA SIDSC Slot Number"                              uri="dita-oasis/1.2/sidsc/dtd/sidsc-slotProps.ent"/>
+    
+    <!-- domain elements -->
+    <public publicId="-//OASIS//ELEMENTS DITA SIDSC Data Table Domain//EN" uri="dita-oasis/1.2/sidsc/dtd/dataTableDomain.mod"/>
+    <public publicId="-//OASIS//ELEMENTS DITA SIDSC IP Data Domain//EN" uri="dita-oasis/1.2/sidsc/dtd/ipDataDomain.mod"/>
+    <public publicId="-//OASIS//ELEMENTS DITA SIDSC Domain//EN" uri="dita-oasis/1.2/sidsc/dtd/sidscDomain.mod"/>
+
+    <!--/group-->
+    <public publicId="-//OASIS//DTD DITA SIDSC Concept//EN" uri="dita-oasis/1.2/sidsc/dtd/sidscConcept.dtd"/>
+    <public publicId="-//OASIS//DTD DITA SIDSC 1.2 Concept//EN" uri="dita-oasis/1.2/sidsc/dtd/sidscConcept.dtd"/>
+
+    <public publicId="-//OASIS//DTD DITA SIDSC Reference//EN" uri="dita-oasis/1.2/sidsc/dtd/sidscReference.dtd"/>
+    <public publicId="-//OASIS//DTD DITA SIDSC 1.2 Reference//EN" uri="dita-oasis/1.2/sidsc/dtd/sidscReference.dtd"/>
+
+    
+    <!-- Atmel customised DTD shells -->
+    <public publicId="-//Atmel//DTD DITA Mathml Topic//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelTopic.dtd"/>
+    <public publicId="-//Atmel//DTD DITA Mathml 1.2 Topic//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelTopic.dtd"/>
+    
+    <public publicId="-//Atmel//DTD DITA Mathml Concept//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelConcept.dtd"/>
+    <public publicId="-//Atmel//DTD DITA Mathml 1.2 Concept//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelConcept.dtd"/>
+    
+    <public publicId="-//Atmel//DTD DITA Mathml Task//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelTask.dtd"/>
+    <public publicId="-//Atmel//DTD DITA Mathml 1.2 Task//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelTask.dtd"/>
+    
+    <public publicId="-//Atmel//DTD DITA Mathml Machinery Task//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelMachineryTask.dtd"/>
+    <public publicId="-//Atmel//DTD DITA Mathml 1.2 Machinery Task//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelMachineryTask.dtd"/>
+    
+    <public publicId="-//Atmel//DTD DITA Mathml General Task//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelGeneralTask.dtd"/>
+    <public publicId="-//Atmel//DTD DITA Mathml 1.2 General Task//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelGeneralTask.dtd"/>
+    
+    <public publicId="-//Atmel//DTD DITA Mathml Reference//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelReference.dtd"/>
+    <public publicId="-//Atmel//DTD DITA Mathml 1.2 Reference//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelReference.dtd"/>
+    
+    <public publicId="-//Atmel//DTD DITA Mathml Learning Assessment//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelLearningAssessment.dtd"/>
+    <public publicId="-//Atmel//DTD DITA Mathml 1.2 Learning Assessment//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelLearningAssessment.dtd"/>
+    
+    <public publicId="-//Atmel//DTD DITA Mathml Learning Content//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelLearningContent.dtd"/>
+    <public publicId="-//Atmel//DTD DITA Mathml 1.2 Learning Content//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelLearningContent.dtd"/>
+    
+    <public publicId="-//Atmel//DTD DITA Mathml Learning Overview//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelLearningOverview.dtd"/>
+    <public publicId="-//Atmel//DTD DITA Mathml 1.2 Learning Overview//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelLearningOverview.dtd"/>
+    
+    <public publicId="-//Atmel//DTD DITA Mathml Learning Plan//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelLearningPlan.dtd"/>
+    <public publicId="-//Atmel//DTD DITA Mathml 1.2 Learning Plan//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelLearningPlan.dtd"/>
+    
+    <public publicId="-//Atmel//DTD DITA Mathml Learning Summary//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelLearningSummary.dtd"/>
+    <public publicId="-//Atmel//DTD DITA Mathml 1.2 Learning Summary//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelLearningSummary.dtd"/>
+    
+    <public publicId="-//Atmel//DTD DITA Mathml Composite//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelDitabase.dtd"/>
+    <public publicId="-//Atmel//DTD DITA Mathml Composite 1.2//EN" uri="dita-oasis/1.2/atmel/dtd/AtmelDitabase.dtd"/>
+    
+    
+    
+    <public publicId="-//Atmel//DTD DITA SIDSC Component//EN" uri="dita-oasis/1.2/atmel/dtd/atmel-sidsc-component.dtd"/>    
+    <public publicId="-//Atmel//DTD DITA SIDSC Memory Map//EN" uri="dita-oasis/1.2/atmel/dtd/atmel-sidsc-memoryMap.dtd"/>    
+    <public publicId="-//Atmel//DTD DITA SIDSC Address Block//EN" uri="dita-oasis/1.2/atmel/dtd/atmel-sidsc-addressBlock.dtd"/>    
+    <public publicId="-//Atmel//DTD DITA SIDSC Register//EN" uri="dita-oasis/1.2/atmel/dtd/atmel-sidsc-register.dtd"/>    
+    <public publicId="-//Atmel//DTD DITA SIDSC Bit Field//EN" uri="dita-oasis/1.2/atmel/dtd/atmel-sidsc-bitField.dtd"/>    
+    
+
+</catalog>

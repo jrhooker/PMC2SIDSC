@@ -1,0 +1,78 @@
+<!--  
+SIDSC Design Map Type
+Copyright OASIS 2009
+Author: Seth Park
+
+PUBLIC "-//OASIS//DTD DITA SIDSC Design//EN"
+Delivered as file "sidsc-design.dtd"
+-->
+<!--domain entity declarations  -->
+<!ENTITY % mapgroup-d-dec PUBLIC "-//OASIS//ENTITIES DITA Map Group Domain//EN" "../../base/dtd/mapGroup.ent">
+%mapgroup-d-dec;
+
+<!ENTITY % sidsc-design-d-dec PUBLIC "-//OASIS//ENTITIES DITA SIDSC Design//EN" "sidsc-design.ent">
+%sidsc-design-d-dec;
+
+<!--domain attribute declarations -->
+<!ENTITY % name-props-d-dec PUBLIC "-//OASIS//ENTITIES DITA SIDSC IP Name//EN" "sidsc-nameProps.ent">
+%name-props-d-dec;
+
+<!ENTITY % value-props-d-dec PUBLIC "-//OASIS//ENTITIES DITA SIDSC Base Address//EN" "sidsc-valueProps.ent">
+%value-props-d-dec;
+
+<!ENTITY % cputype-props-d-dec PUBLIC "-//OASIS//ENTITIES DITA SIDSC CPU Type//EN" "sidsc-cputypeProps.ent">
+%cputype-props-d-dec;
+
+<!ENTITY % sidsc-bus-size-props-d-dec PUBLIC "-//OASIS//ENTITIES DITA SIDSC Memory-Mapped Width//EN" "sidsc-bus-sizeProps.ent">
+%sidsc-bus-size-props-d-dec;
+
+<!ENTITY % sidsc-ip-uid-props-d-dec PUBLIC "-//OASIS//ENTITIES DITA SIDSC IP UID//EN" "sidsc-ip-uidProps.ent">
+%sidsc-ip-uid-props-d-dec;
+
+<!ENTITY % sidsc-ip-version-props-d-dec PUBLIC "-//OASIS//ENTITIES DITA SIDSC IP Version" "sidsc-ip-versionProps.ent">
+%sidsc-ip-version-props-d-dec;
+
+<!ENTITY % sidsc-slot-props-d-dec PUBLIC "-//OASIS//ENTITIES DITA SIDSC Slot Number" "sidsc-slotProps.ent">
+%sidsc-slot-props-d-dec;
+
+<!ENTITY % sidsc-range-props-d-dec PUBLIC "-//OASIS//ENTITIES DITA SIDSC Slot Range" "sidsc-rangeProps.ent">
+%sidsc-range-props-d-dec;
+
+<!ENTITY % sidsc-register-increment-props-d-dec PUBLIC "-//OASIS//ENTITIES DITA SIDSC Register Increment" "sidsc-registerIncrementProps.ent">
+%sidsc-register-increment-props-d-dec;
+
+<!--domain extensions:  -->
+<!ENTITY % topicref     "topicref | %mapgroup-d-topicref; | %sidsc-design-d-topicref;">
+
+<!--  domain attribute extensions  -->
+<!ENTITY % props-attribute-extensions  
+"%sidsc-name-props-d-attribute; 
+%sidsc-value-props-d-attribute; 
+%sidsc-cputype-props-d-attribute; 
+%sidsc-bus-size-props-d-attribute; 
+%sidsc-ip-uid-props-d-attribute; 
+%sidsc-ip-version-props-d-attribute; 
+%sidsc-slot-props-d-attribute; 
+%sidsc-range-props-d-attribute;
+%sidsc-register-increment-props-d-attribute;">
+
+<!ENTITY % base-attribute-extensions   "">
+
+<!-- nesting override -->
+<!ENTITY included-domains 
+"&mapgroup-d-att; 
+&sidsc-name-props-d-att; 
+&sidsc-value-props-d-att; 
+&sidsc-cputype-props-d-att; ">
+
+<!--map element integration   -->
+<!ENTITY % map-type PUBLIC "-//OASIS//ELEMENTS DITA Map//EN" "../../base/dtd/map.mod">
+%map-type;
+
+<!ENTITY % sidsc-design-typemod PUBLIC "-//OASIS//ELEMENTS DITA SIDSC Design//EN" "sidsc-design.mod">
+%sidsc-design-typemod;
+
+<!--domain element integration -->
+<!ENTITY % mapgroup-d-def  PUBLIC "-//OASIS//ELEMENTS DITA Map Group Domain//EN" "../../base/dtd/mapGroup.mod">
+%mapgroup-d-def;
+<!-- end sidsc-design.dtd -->
