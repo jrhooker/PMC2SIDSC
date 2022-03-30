@@ -62,18 +62,18 @@
 
   <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
     doctype-public="-//Atmel//DTD DITA SIDSC Register//EN" doctype-system="atmel-sidsc-register.dtd"/>
-
+  
   <!--  <xsl:output method="xml" media-type="text/xml" indent="no" encoding="UTF-8"
-    doctype-public="-//OASIS//DTD DITA 1.2 Topic//EN" doctype-system="topic.dtd"/> -->
-
+    doctype-public="-//OASIS//DTD DITA 1.2 Topic//EN" doctype-system="topic.dtd"/>  -->
 
   <xsl:template match="/">
 
     <!-- now process the current map itself -->
+
     <xsl:message>Path to project: <xsl:value-of select="$STARTING-DIR-VAR"/></xsl:message>
     <xsl:message>Path to output: <xsl:value-of select="$OUTPUT-DIR-VAR"/></xsl:message>
     <xsl:message>FILENAME: <xsl:value-of select="$FILENAME"/></xsl:message>
-
+ 
     <xsl:apply-templates/>
 
   </xsl:template>

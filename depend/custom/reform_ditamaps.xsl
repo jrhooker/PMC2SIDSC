@@ -57,7 +57,9 @@
   <xsl:param name="FILENAME"/>
 
   <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
-    doctype-public="-//Atmel//DTD DITA Map//EN" doctype-system= "file:///D:/InfoShare/Web/Author/ASP/DocTypes/dita-atmel/1.3/dtd/technicalContent/dtd/atmelMap.dtd"/>
+    doctype-public="-//Atmel//DTD DITA Map//EN" doctype-system= "atmelMap.dtd"/>
+
+  <!-- file:///D:/InfoShare/Web/Author/ASP/DocTypes/dita-atmel/1.3/dtd/technicalContent/dtd/ -->
 
   <!-- <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
     doctype-public="-//OASIS//DTD DITA 1.2 Map//EN" doctype-system="map.dtd"/> -->
@@ -65,6 +67,9 @@
   <xsl:template match="/">
     <xsl:result-document href="{concat($OUTPUT-DIR-VAR, $FILENAME)}">
       <xsl:element name="map">
+        <xsl:element name="title">
+          <xsl:value-of select="map/title"/>
+        </xsl:element>
         <xsl:element name="topichead">
           <xsl:attribute name="navtitle">Address Maps</xsl:attribute>
           <xsl:apply-templates mode="addresses"/>
@@ -85,7 +90,7 @@
     <xsl:apply-templates mode="registers"/>
   </xsl:template>
 
-  <xsl:template match="title" mode="#all"/>
+  <xsl:template match="title" mode="#all"></xsl:template>
 
   <xsl:template match="*" mode="addresses">   
     <xsl:apply-templates mode="addresses"/>
@@ -97,7 +102,13 @@
   
 
   <xsl:template match="topicref | chapter | appendix | topichead" mode="addresses">
-    <xsl:if test="document(@href)//table">
+    <!--<xsl:if test="document(@href)//table">
+      <xsl:message>Found an address-map</xsl:message>
+      <xsl:element name="topicref">
+        <xsl:attribute name="href" select="@href"/>
+      </xsl:element>
+    </xsl:if>-->
+    <xsl:if test="contains(@otherprops, 'address')">
       <xsl:message>Found an address-map</xsl:message>
       <xsl:element name="topicref">
         <xsl:attribute name="href" select="@href"/>
@@ -106,8 +117,14 @@
   </xsl:template>
   
   <xsl:template match="topicref | chapter | appendix | topichead" mode="registers">
-    <xsl:if test="document(@href)//register">
+    <!-- <xsl:if test="document(@href)//register">
       <xsl:message>Found a register</xsl:message>
+      <xsl:element name="topicref">
+        <xsl:attribute name="href" select="@href"/>
+      </xsl:element>
+    </xsl:if>-->
+    <xsl:if test="contains(@otherprops, 'register')">
+      <xsl:message>Found an address-map</xsl:message>
       <xsl:element name="topicref">
         <xsl:attribute name="href" select="@href"/>
       </xsl:element>
