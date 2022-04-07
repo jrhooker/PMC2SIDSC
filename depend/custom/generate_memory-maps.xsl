@@ -153,7 +153,9 @@
           <xsl:variable name="href-values" select="tokenize($href, '/')"/>
           <xsl:value-of select="$href-values[last()]"/>
         </xsl:when>
-        <xsl:otherwise/>
+        <xsl:otherwise>
+          <xsl:value-of select="$href"/>
+        </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:for-each select="$document//table[descendant::address-map]">
@@ -242,7 +244,7 @@
               </xsl:element>
               <xsl:element name="body">
                 <xsl:element name="table">
-                  <xsl:attribute name="outputclass">register-ADDRESS_TABLE</xsl:attribute>
+                  <xsl:attribute name="outputclass"> xdocsreg-ADDRESS_TABLE </xsl:attribute>
                   <xsl:element name="title">
                     <xsl:value-of select="title"/>
                   </xsl:element>
@@ -270,6 +272,7 @@
                     <xsl:element name="tbody">
                       <xsl:for-each select="tgroup/address-map/register-reference">
                         <xsl:element name="row">
+                          <xsl:attribute name="outputclass">rowbreak</xsl:attribute>
                           <xsl:element name="entry">
                             <xsl:value-of select="address"/>
                           </xsl:element>
@@ -278,13 +281,13 @@
                               <xsl:choose>
                                 <xsl:when test="addr-element/address-prefix"> Prefix: <xsl:element
                                     name="ph">
-                                    <xsl:attribute name="outputclass"> register-PREFIX </xsl:attribute>
+                                    <xsl:attribute name="outputclass"> xdocsreg-PREFIX </xsl:attribute>
                                     <xsl:value-of select="addr-element/address-prefix"/>
                                   </xsl:element>
                                 </xsl:when>
                                 <xsl:when test="addr-element/addr-mnemonic"> Mnemonic: <xsl:element
                                     name="ph">
-                                  <xsl:attribute name="outputclass"> register-MNEMONIC </xsl:attribute>
+                                  <xsl:attribute name="outputclass"> xdocsreg-MNEMONIC </xsl:attribute>
                                     <xsl:value-of select="addr-element/addr-mnemonic"/>
                                   </xsl:element>
                                 </xsl:when>
@@ -293,12 +296,12 @@
 
                             <xsl:for-each select="addr-element/instances/instance">
                               <xsl:element name="p">START: <xsl:element name="ph">
-                                <xsl:attribute name="outputclass"> register-START </xsl:attribute>
+                                <xsl:attribute name="outputclass"> xdocsreg-START </xsl:attribute>
                                   <xsl:value-of select="instance-start"/>
                                 </xsl:element>
                               </xsl:element>
                               <xsl:element name="p">STOP: <xsl:element name="ph">
-                                <xsl:attribute name="outputclass"> register-STOP </xsl:attribute>
+                                <xsl:attribute name="outputclass"> xdocsreg-STOP </xsl:attribute>
                                   <xsl:value-of select="instance-stop"/>
                                 </xsl:element>
                               </xsl:element>

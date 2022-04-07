@@ -138,7 +138,9 @@
           <xsl:variable name="href-values" select="tokenize($href, '/')"/>
           <xsl:value-of select="$href-values[last()]"/>
         </xsl:when>
-        <xsl:otherwise/>
+        <xsl:otherwise>
+          <xsl:value-of select="$href"/>
+        </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:for-each select="$document//table[descendant::address-map]">
@@ -264,7 +266,9 @@
           <xsl:variable name="href-values" select="tokenize($href, '/')"/>
           <xsl:value-of select="$href-values[last()]"/>
         </xsl:when>
-        <xsl:otherwise/>
+        <xsl:otherwise>
+          <xsl:value-of select="$href"/>
+        </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:for-each select="$document//table[descendant::reg-def]">

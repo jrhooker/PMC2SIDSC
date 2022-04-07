@@ -160,9 +160,9 @@
             <xsl:element name="table">
               <xsl:element name="title">
                 <xsl:element name="reg-name-main">
-                  <xsl:if test="contains(@outputclass, 'register-verilog-')">
+                  <xsl:if test="contains(@outputclass, ' xdocsreg-verilog-')">
                     <xsl:attribute name="verilog">
-                      <xsl:value-of select="substring-after(@outputclass, 'register-verilog-')"/>
+                      <xsl:value-of select="normalize-space(substring-after(@outputclass, ' xdocsreg-verilog-'))"/>
                     </xsl:attribute>
                   </xsl:if>
                   <xsl:value-of select="registerName"/>
@@ -183,9 +183,9 @@
                   </xsl:element>
                 </xsl:element>
                 <xsl:element name="reg-def">
-                  <xsl:if test="contains(@outputclass, 'register-verilog-')">
+                  <xsl:if test="contains(@outputclass, ' xdocsreg-verilog-')">
                     <xsl:attribute name="verilog">
-                      <xsl:value-of select="bitFieldName"/>
+                      <xsl:value-of select="normalize-space(substring-after(@outputclass, ' xdocsreg-verilog-'))"/>
                     </xsl:attribute>
                   </xsl:if>
                   <xsl:for-each select="bitField">
@@ -322,7 +322,9 @@
           <xsl:variable name="href-values" select="tokenize($href, '/')"/>
           <xsl:value-of select="$href-values[last()]"/>
         </xsl:when>
-        <xsl:otherwise/>
+        <xsl:otherwise>
+          <xsl:value-of select="$href"/>
+        </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:for-each select="$document//table[descendant::reg-def]">

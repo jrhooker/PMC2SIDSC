@@ -142,7 +142,9 @@
           <xsl:variable name="href-values" select="tokenize($href, '/')"/>
           <xsl:value-of select="$href-values[last()]"/>
         </xsl:when>
-        <xsl:otherwise/>
+        <xsl:otherwise>
+          <xsl:value-of select="$href"/>
+        </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:for-each select="$document//table[descendant::reg-def]">
@@ -155,7 +157,7 @@
           <xsl:attribute name="id" select="@id"/>
           <xsl:if test="title/reg-name-main/@verilog">
             <xsl:attribute name="outputclass">
-              <xsl:value-of select="concat('register-verilog-', title/reg-name-main/@verilog)"/>
+              <xsl:value-of select="concat(' xdocsreg-verilog-', title/reg-name-main/@verilog, ' ')"/>
             </xsl:attribute>
           </xsl:if>
           <xsl:element name="registerName">
@@ -192,7 +194,7 @@
               <xsl:attribute name="id" select="generate-id()"/>
               <xsl:if test="field-name/@verilog">
                 <xsl:attribute name="outputclass">
-                  <xsl:value-of select="concat('register-verilog-', field-name/@verilog)"/>
+                  <xsl:value-of select="concat(' xdocsreg-verilog-', field-name/@verilog, ' ')"/>
                 </xsl:attribute>
               </xsl:if>
               <xsl:element name="bitFieldName">
@@ -230,10 +232,10 @@
                           <xsl:value-of select="field-enum-value"/>
                         </xsl:element>
                         <xsl:element name="bitFieldValueName">
-                          <xsl:value-of select="field-enum-def"/>
+                          <xsl:value-of select="field-enum-def/field-enum-name"/>
                         </xsl:element>
                         <xsl:element name="bitFieldValueDescription">
-                          <xsl:value-of select="field-enum-desc"/>
+                          <xsl:value-of select="field-enum-def/field-enum-desc"/>
                         </xsl:element>
                       </xsl:element>
                     </xsl:for-each>
@@ -319,7 +321,9 @@
           <xsl:variable name="href-values" select="tokenize($href, '/')"/>
           <xsl:value-of select="$href-values[last()]"/>
         </xsl:when>
-        <xsl:otherwise/>
+        <xsl:otherwise>
+          <xsl:value-of select="$href"/>
+        </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:for-each select="$document//table[descendant::reg-def]">
@@ -405,40 +409,6 @@
     </xsl:result-document>
   </xsl:template>
 
-  <xsl:template name="create-files">
-    <xsl:param name="href"/>
-    <xsl:variable name="input-directory" select="concat($STARTING-DIR-VAR, $href)"/>
-    <xsl:message>INPUT DIRECTORY: <xsl:value-of select="$input-directory"/></xsl:message>
-    <xsl:variable name="document" select="document($input-directory)"/>
-    <xsl:variable name="path-out">
-      <xsl:call-template name="process-path">
-        <xsl:with-param name="href" select="$href"/>
-      </xsl:call-template>
-    </xsl:variable>
-    <xsl:for-each select="$document//table[descendant::reg-def]">
-      <xsl:variable name="reg-file-name" select="concat('/', @id, '.xml')"/>
-      <xsl:message>REG-DEF4: <xsl:value-of select="@id"/>
-      </xsl:message>
-      <xsl:result-document href="{concat($OUTPUT-DIR-VAR, $path-out, $reg-file-name)}">
-        <xsl:element name="topic">
-          <xsl:attribute name="id">
-            <xsl:choose>
-              <xsl:when test="@id">
-                <xsl:value-of select="@id"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="generate-id()"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </xsl:attribute>
-          <xsl:element name="title">
-            <xsl:value-of select="title"/>
-          </xsl:element>
-        </xsl:element>
-      </xsl:result-document>
-    </xsl:for-each>
-  </xsl:template>
-
   <xsl:template name="process-path">
     <xsl:param name="href"/>
     <xsl:choose>
@@ -507,9 +477,11 @@
   </xsl:template>
 
   <xsl:template match="field-enum-list" mode="field-desc">
-    <xsl:element name="dl">
+    <!-- removing field enums from the description because they're added as properties.     
+      
+      <xsl:element name="dl">
       <xsl:apply-templates mode="field-desc"/>
-    </xsl:element>
+    </xsl:element>-->
   </xsl:template>
 
   <xsl:template match="field-enum" mode="field-desc">
@@ -578,11 +550,12 @@
     </xsl:element>
   </xsl:template>
 
-  <xsl:template match="two_col_table | three_col_table | four_col_table | five_col_table | six_col_table | seven_col_table | eight_col_table | nine_col_table | ten_col_table | eleven_col_table | twelve_col_table " mode="field-desc">   
-      <xsl:apply-templates mode="field-desc"/>    
+  <xsl:template match="two_col_table | three_col_table | four_col_table | five_col_table | six_col_table | seven_col_table | eight_col_table | nine_col_table | ten_col_table | eleven_col_table | twelve_col_table " mode="field-desc">  
+   
+    <xsl:apply-templates mode="field-desc"/>    
   </xsl:template>
 
-  <xsl:template match="two_col_row | three_col_row | four_col_row | five_col_row | six_col_row | seven_col_row | eight_col_row | nine_col_row | ten_col_row | eleven_col_row | twelve_col_row " mode="field-desc">
+  <xsl:template match="two_col_row | three_col_row | four_col_row | five_col_row | six_col_row | seven_col_row | eight_col_row | nine_col_row | ten_col_row | eleven_col_row | twelve_col_row | two_col_head | three_col_head | four_col_head | five_col_head | six_col_head | seven_col_head | eight_col_head | nine_col_head | ten_col_head | eleven_col_head | twelve_col_head  " mode="field-desc">
     <xsl:element name="row">
       <xsl:apply-templates mode="field-desc"/>
     </xsl:element>

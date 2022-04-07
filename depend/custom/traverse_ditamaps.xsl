@@ -54,11 +54,11 @@
   
   <xsl:param name="FILENAME"/>  
   
-  <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
-    doctype-public="-//OASIS//DTD DITA 1.2 Map//EN" doctype-system="map.dtd"/>
-  
   <!-- <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
-    doctype-public="-//Atmel//DTD DITA Map//EN" doctype-system="dtd/atmelMap.dtd"/> -->
+    doctype-public="-//OASIS//DTD DITA 1.2 Map//EN" doctype-system="map.dtd"/> -->
+  
+ <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
+    doctype-public="-//Atmel//DTD DITA Map//EN" doctype-system="dtd/atmelMap.dtd"/>
   
   <xsl:template match="/">
     
@@ -93,9 +93,23 @@
   
   <xsl:template match="bookmeta | frontmatter"></xsl:template>
   
-  <xsl:template match="topicref | chapter | appendix | topichead" name="topicref">
+  <xsl:template match="topichead">
+    <xsl:element name="topichead">
+      <xsl:attribute name="navtitle"><xsl:value-of select="@navtitle"/></xsl:attribute>
+      <xsl:apply-templates/>
+    </xsl:element>
+  </xsl:template>
+  
+  <xsl:template match="topicref[@navtitle][not(@href)] | chapter[@navtitle][not(@href)] | appendix[@navtitle][not(@href)] ">
+    <xsl:element name="topichead">
+      <xsl:attribute name="navtitle"><xsl:value-of select="@navtitle"/></xsl:attribute>
+      <xsl:apply-templates/>
+    </xsl:element>
+  </xsl:template>
+  
+  <xsl:template match="topicref | chapter | appendix" name="topicref">
     <xsl:param name="href-prefix"></xsl:param>    
-    <xsl:choose>
+    <xsl:choose>     
       <xsl:when test="contains(@href, '.ditamap')">
         <xsl:message>Found a ditamap</xsl:message>
         <xsl:call-template name="process-ditamap">
@@ -103,19 +117,39 @@
           <xsl:with-param name="href-prefix"><xsl:value-of select="$href-prefix"/></xsl:with-param>            
         </xsl:call-template>
       </xsl:when>
-      <xsl:when test="document(@href)//reg-def">
+      <xsl:when test="count(document(@href)//reg-def) &gt; 1">
         <xsl:message>Found a reg-def</xsl:message>
-        <xsl:call-template name="create-topicrefs">
+        <xsl:element name="topichead">
+          <xsl:attribute name="navtitle"><xsl:value-of select="document(@href)/*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]"/></xsl:attribute>
+          <xsl:call-template name="create-topicrefs">
           <xsl:with-param name="href"><xsl:value-of select="@href"/></xsl:with-param>
           <xsl:with-param name="href-prefix"><xsl:value-of select="$href-prefix"/></xsl:with-param>            
         </xsl:call-template>
+        </xsl:element>
       </xsl:when>  
-      <xsl:when test="document(@href)//address-map">
+      <xsl:when test="count(document(@href)//reg-def) = 1">
+        <xsl:message>Found a reg-def</xsl:message>      
+          <xsl:call-template name="create-topicrefs">
+            <xsl:with-param name="href"><xsl:value-of select="@href"/></xsl:with-param>
+            <xsl:with-param name="href-prefix"><xsl:value-of select="$href-prefix"/></xsl:with-param>            
+          </xsl:call-template>
+      </xsl:when>  
+      <xsl:when test="count(document(@href)//address-map) &gt; 1">
         <xsl:message>Found an address-map</xsl:message>
+        <xsl:element name="topichead">
+          <xsl:attribute name="navtitle"><xsl:value-of select="document(@href)/*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]"/></xsl:attribute>          
         <xsl:call-template name="create-topicrefs">
           <xsl:with-param name="href"><xsl:value-of select="@href"/></xsl:with-param>
           <xsl:with-param name="href-prefix"><xsl:value-of select="$href-prefix"/></xsl:with-param>            
         </xsl:call-template>
+        </xsl:element>
+      </xsl:when>     
+      <xsl:when test="count(document(@href)//address-map) = 1">
+        <xsl:message>Found an address-map</xsl:message>               
+          <xsl:call-template name="create-topicrefs">
+            <xsl:with-param name="href"><xsl:value-of select="@href"/></xsl:with-param>
+            <xsl:with-param name="href-prefix"><xsl:value-of select="$href-prefix"/></xsl:with-param>            
+          </xsl:call-template>
       </xsl:when>     
       <xsl:otherwise>
         <xsl:message>No reg-def  or address-map found</xsl:message>
@@ -145,23 +179,23 @@
           <xsl:variable name="href-values" select="tokenize($href, '/')"/>
           <xsl:value-of select="$href-values[last()]"/>          
         </xsl:when>
-        <xsl:otherwise></xsl:otherwise>   
+        <xsl:otherwise>
+          <xsl:value-of select="$href"/>
+        </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:for-each select="$document//table[descendant::reg-def]">      
-      <xsl:variable name="reg-file-name"  select="concat('/', @id, '_', $topicref-id)"/>  
+      <xsl:variable name="reg-file-name"  select="concat(@id, '_', $topicref-id)"/>  
       <xsl:message>REG-DEF: <xsl:value-of select="@id"/> </xsl:message>      
       <xsl:element name="topicref">
         <xsl:attribute name="href" select="concat($path-out, $reg-file-name)"></xsl:attribute>
-        <xsl:attribute name="otherprops">register</xsl:attribute>
       </xsl:element>     
     </xsl:for-each>  
     <xsl:for-each select="$document//table[descendant::address-map]">      
-      <xsl:variable name="reg-file-name"  select="concat('/', @id, '_', $topicref-id)"/>  
+      <xsl:variable name="reg-file-name"  select="concat(@id, '_', $topicref-id)"/>  
       <xsl:message>ADDRESS-MAP: <xsl:value-of select="@id"/> </xsl:message>
       <xsl:element name="topicref">       
         <xsl:attribute name="href" select="concat($path-out, $reg-file-name)"></xsl:attribute>
-        <xsl:attribute name="otherprops">address</xsl:attribute>
       </xsl:element>     
     </xsl:for-each>  
   </xsl:template>

@@ -102,7 +102,7 @@
     <xsl:element name="topicref">
       <xsl:copy-of select="@*"/>
       <xsl:choose>
-        <xsl:when test="document(@href)//table[contains(@outputclass, 'register-ADDRESS_TABLE')]">
+        <xsl:when test="document(@href)//table[contains(@outputclass, ' xdocsreg-ADDRESS_TABLE ')]">
           <xsl:message>Found an address map</xsl:message>
           <xsl:call-template name="create-address-map-topic">
             <xsl:with-param name="href">
@@ -158,7 +158,7 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:for-each select="$document//table[contains(@outputclass, 'register-ADDRESS_TABLE')]">
+    <xsl:for-each select="$document//table[contains(@outputclass, ' xdocsreg-ADDRESS_TABLE ')]">
       <xsl:variable name="ids" select="@id"/>
       <xsl:variable name="memory-map-name" select="concat('/', $filename)"/>
       <xsl:message>address-block: <xsl:value-of select="@id"/>
@@ -238,7 +238,7 @@
         </xsl:element>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:element name="register-reference">
+        <xsl:element name=" xdocsreg-reference ">
           <xsl:apply-templates/>
         </xsl:element>
       </xsl:otherwise>
@@ -281,25 +281,25 @@
   </xsl:template>
 
   <xsl:template name="addr-element">
-    <xsl:if test="descendant::ph[contains(@outputclass, 'register-MNEMONIC')]">
+    <xsl:if test="descendant::ph[contains(@outputclass, ' xdocsreg-MNEMONIC ')]">
       <xsl:element name="addr-mnemonic">
-        <xsl:value-of select="descendant::ph[contains(@outputclass, 'register-MNEMONIC')]"/>
+        <xsl:value-of select="descendant::ph[contains(@outputclass, ' xdocsreg-MNEMONIC ')]"/>
       </xsl:element>
     </xsl:if>
 
-    <xsl:if test="descendant::ph[contains(@outputclass, 'register-PREFIX')]">
+    <xsl:if test="descendant::ph[contains(@outputclass, ' xdocsreg-PREFIX ')]">
       <xsl:element name="address-prefix">
-        <xsl:value-of select="descendant::ph[contains(@outputclass, 'register-PREFIX')]"/>
+        <xsl:value-of select="descendant::ph[contains(@outputclass, ' xdocsreg-PREFIX ')]"/>
       </xsl:element>
     </xsl:if>
 
-    <xsl:if test="descendant::ph[contains(@outputclass, 'register-START')]">
+    <xsl:if test="descendant::ph[contains(@outputclass, ' xdocsreg-START ')]">
       <xsl:element name="instances">
         <xsl:element name="instance-start">
-          <xsl:value-of select="descendant::ph[contains(@outputclass, 'register-START')]"/>
+          <xsl:value-of select="descendant::ph[contains(@outputclass, ' xdocsreg-START ')]"/>
         </xsl:element>
         <xsl:element name="instance-stop">
-          <xsl:value-of select="descendant::ph[contains(@outputclass, 'register-STOP')]"/>
+          <xsl:value-of select="descendant::ph[contains(@outputclass, ' xdocsreg-STOP ')]"/>
         </xsl:element>
       </xsl:element>
     </xsl:if>

@@ -63,7 +63,9 @@
                     <xsl:variable name="href-values" select="tokenize($href, '/')"/>
                     <xsl:value-of select="$href-values[last()]"/>
                 </xsl:when>
-                <xsl:otherwise/>
+                <xsl:otherwise>
+                    <xsl:value-of select="$href"/>
+                </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
         <xsl:value-of select="concat($path-to-file, $topicref-id, '_', $filename, '.xml')"/>

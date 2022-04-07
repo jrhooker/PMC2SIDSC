@@ -28,7 +28,6 @@
 
     <xsl:template name="generate-target">
         <xsl:param name="href"/>
-
         <xsl:variable name="path-to-file">
             <xsl:variable name="temp_1" select="substring-before($href, '.xml#')"/>
             <xsl:choose>
@@ -63,10 +62,12 @@
                     <xsl:variable name="href-values" select="tokenize($href, '/')"/>
                     <xsl:value-of select="$href-values[last()]"/>
                 </xsl:when>
-                <xsl:otherwise/>
+                <xsl:otherwise>
+                    <xsl:value-of select="$href"/>
+                </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
-        <xsl:value-of select="concat($path-to-file, $topicref-id, '_', $filename, '.xml')"/>
+        <xsl:value-of select="concat($topicref-id, '_', $filename, '.xml')"/>
     </xsl:template>
 
 </xsl:stylesheet>
