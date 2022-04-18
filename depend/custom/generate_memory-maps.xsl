@@ -10,6 +10,9 @@
 
   <xsl:import href="process-address-maps.xsl"/>
 
+<!-- The following parameter controls whether the address tables are flipped into full-on sidsc device tables for just cals tables. Getting the device tables enabled in Tridion
+  is going to be a whole new dev project, so for now we're just flipping them into cals.-->
+
   <xsl:param name="memoryMapTable" select="false()"/>
 
   <xsl:param name="STARTING-DIR"/>
@@ -22,7 +25,7 @@
     </xsl:variable>
     <xsl:element name="xref">
       <xsl:attribute name="href" select="$filename"/>
-      <xsl:apply-templates/>
+      <xsl:apply-templates />
     </xsl:element>
   </xsl:template>
 
@@ -240,7 +243,15 @@
                 </xsl:choose>
               </xsl:attribute>
               <xsl:element name="title">
-                <xsl:value-of select="title"/>
+                <xsl:choose>
+                  <xsl:when test="count(preceding-sibling::table[descendant::address-map]) = 0 and count(following-sibling::table[descendant::address-map]) = 0 
+                    and string-length(ancestor::*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]) &gt; 0">
+                    <xsl:value-of select="ancestor::*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]"/>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:value-of select="title"/>
+                  </xsl:otherwise>
+                </xsl:choose>
               </xsl:element>
               <xsl:element name="body">
                 <xsl:element name="table">

@@ -108,7 +108,11 @@
   </xsl:template>
   
   <xsl:template match="topicref | chapter | appendix" name="topicref">
-    <xsl:param name="href-prefix"></xsl:param>    
+    <xsl:variable name="href-prefix">
+      <xsl:call-template name="create-href-prefix">
+        <xsl:with-param name="href-in" select="@href"/>
+      </xsl:call-template>
+    </xsl:variable>
     <xsl:choose>     
       <xsl:when test="contains(@href, '.ditamap')">
         <xsl:message>Found a ditamap</xsl:message>
@@ -252,5 +256,90 @@
     </xsl:choose>
   </xsl:template>
   
+  <!-- this template is designed to take the path to an embedded ditamap and turn it into a parameter so that when the ditamap itself is 
+    processed, this path can be concatenated onto the local paths -->
+  
+  <xsl:template name="create-href-prefix">
+    <xsl:param name="href-in"/>
+    <xsl:param name="href-out"/>
+    <xsl:param name="count" select="1"/>
+    
+    <xsl:message>Creating an href-prefix: <xsl:value-of select="$href-in"/></xsl:message>
+    
+    <xsl:variable name="translate" select="translate($href-in, '\', '/')"/>
+    <xsl:variable name="tokenized" select="tokenize($translate, '/')"/>
+    <xsl:choose>
+      <xsl:when test="$count &lt; count($tokenized)">
+        <xsl:message>token1: <xsl:value-of select="$tokenized[$count]"/></xsl:message>
+        <xsl:call-template name="create-href-prefix">
+          <xsl:with-param name="href-out">
+            <xsl:value-of
+              select="concat(normalize-space($href-out), normalize-space($tokenized[$count]), '/')"
+            />
+          </xsl:with-param>
+          <xsl:with-param name="href-in" select="$href-in"/>
+          <xsl:with-param name="count" select="$count + 1"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$href-out"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+  
+  <!-- This template is designed to strip the ../ from any resoruce paths in the topicref href elements. This is because while the 
+    parsers are in general fine with this, they break the XSLT document() function which we need for reading the contents of the 
+    topic. Therefore, when we're building the path we always look one token ahead for a ../ and if we find it we skip that token and the next one. -->
+  
+  <xsl:template name="correct-href-levels">
+    <xsl:param name="href-in"/>
+    <xsl:param name="href-out"/>
+    <xsl:param name="count" select="1"/>
+    
+    <xsl:message>Correcting href levels: <xsl:value-of select="$href-in"/></xsl:message>
+    
+    <xsl:variable name="translate" select="translate($href-in, '\', '/')"/>
+    <xsl:variable name="tokenized" select="tokenize($translate, '/')"/>
+    
+    <xsl:choose>
+      <xsl:when test="$count &lt; count($tokenized)">
+        <xsl:choose>
+          <xsl:when
+            test="contains($tokenized[$count + 1], '..')">
+            <xsl:call-template name="correct-href-levels">
+              <xsl:with-param name="href-in" select="$href-in"/>
+              <xsl:with-param name="href-out" select="$href-out"/>
+              <xsl:with-param name="count" select="$count + 1"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:when test="contains($tokenized[$count], '..')">
+            <xsl:call-template name="correct-href-levels">
+              <xsl:with-param name="href-in" select="$href-in"/>
+              <xsl:with-param name="href-out" select="$href-out"/>
+              <xsl:with-param name="count" select="$count + 1"/>
+            </xsl:call-template>
+          </xsl:when>                    
+          <xsl:otherwise>
+            <xsl:call-template name="correct-href-levels">
+              <xsl:with-param name="href-in" select="$href-in"/>
+              <xsl:with-param name="href-out" select="concat($href-out, $tokenized[$count], '/')"/>
+              <xsl:with-param name="count" select="$count + 1"/>
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:when test="$count = count($tokenized)">
+        <xsl:call-template name="correct-href-levels">
+          <xsl:with-param name="href-in" select="$href-in"/>
+          <xsl:with-param name="href-out"
+            select="concat($href-out, $tokenized[$count])"/>
+          <xsl:with-param name="count" select="$count + 1"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$href-out"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
   
 </xsl:stylesheet>

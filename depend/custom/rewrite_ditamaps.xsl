@@ -8,6 +8,9 @@
     xmlns:opentopic-func="http://www.idiominc.com/opentopic/exsl/function"
     xmlns:date="http://exslt.org/dates-and-times">
 
+<!-- This stylesheet takes a single top-level ditamap and any sub-ditamaps and turns it into a single resolved ditamap with any ../ in the paths removed.
+    It does its job very well; its mother would be proud. -->
+
     <xsl:param name="STARTING-DIR"/>
 
     <xsl:variable name="STARTING-DIR-VAR">
@@ -159,6 +162,9 @@
         </xsl:for-each>
     </xsl:template>
 
+<!-- this template is designed to take the path to an embedded ditamap and turn it into a parameter so that when the ditamap itself is 
+    processed, this path can be concatenated onto the local paths -->
+
     <xsl:template name="create-href-prefix">
         <xsl:param name="href-in"/>
         <xsl:param name="href-out"/>
@@ -187,6 +193,9 @@
         </xsl:choose>
     </xsl:template>
 
+<!-- This template is designed to strip the ../ from any resoruce paths in the topicref href elements. This is because while the 
+    parsers are in general fine with this, they break the XSLT document() function which we need for reading the contents of the 
+    topic. Therefore, when we're building the path we always look one token ahead for a ../ and if we find it we skip that token and the next one. -->
 
     <xsl:template name="correct-href-levels">
         <xsl:param name="href-in"/>
