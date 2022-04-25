@@ -10,7 +10,7 @@
 
   <xsl:import href="process-address-maps.xsl"/>
 
-<!-- The following parameter controls whether the address tables are flipped into full-on sidsc device tables for just cals tables. Getting the device tables enabled in Tridion
+  <!-- The following parameter controls whether the address tables are flipped into full-on sidsc device tables for just cals tables. Getting the device tables enabled in Tridion
   is going to be a whole new dev project, so for now we're just flipping them into cals.-->
 
   <xsl:param name="memoryMapTable" select="false()"/>
@@ -25,7 +25,7 @@
     </xsl:variable>
     <xsl:element name="xref">
       <xsl:attribute name="href" select="$filename"/>
-      <xsl:apply-templates />
+      <xsl:apply-templates/>
     </xsl:element>
   </xsl:template>
 
@@ -244,9 +244,13 @@
               </xsl:attribute>
               <xsl:element name="title">
                 <xsl:choose>
-                  <xsl:when test="count(preceding-sibling::table[descendant::address-map]) = 0 and count(following-sibling::table[descendant::address-map]) = 0 
-                    and string-length(ancestor::*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]) &gt; 0">
-                    <xsl:value-of select="ancestor::*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]"/>
+                  <xsl:when
+                    test="
+                      count(preceding-sibling::table[descendant::address-map]) = 0 and count(following-sibling::table[descendant::address-map]) = 0
+                      and string-length(ancestor::*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]) &gt; 0">
+                    <xsl:value-of
+                      select="ancestor::*[contains(@class, ' topic/topic ')]/*[contains(@class, ' topic/title ')]"
+                    />
                   </xsl:when>
                   <xsl:otherwise>
                     <xsl:value-of select="title"/>
@@ -275,9 +279,15 @@
                     </xsl:element>
                     <xsl:element name="thead">
                       <xsl:element name="row">
-                        <xsl:element name="entry">Base Address</xsl:element>
-                        <xsl:element name="entry">Functional Unit</xsl:element>
-                        <xsl:element name="entry">Functional Unit Description</xsl:element>
+                        <xsl:element name="entry">
+                          <xsl:value-of select="tgroup/thead/row/entry[1]"/>
+                        </xsl:element>
+                        <xsl:element name="entry">
+                          <xsl:value-of select="tgroup/thead/row/entry[2]"/>
+                        </xsl:element>
+                        <xsl:element name="entry">
+                          <xsl:value-of select="tgroup/thead/row/entry[3]"/>
+                        </xsl:element>
                       </xsl:element>
                     </xsl:element>
                     <xsl:element name="tbody">
@@ -296,9 +306,9 @@
                                     <xsl:value-of select="addr-element/address-prefix"/>
                                   </xsl:element>
                                 </xsl:when>
-                                <xsl:when test="addr-element/addr-mnemonic"> Mnemonic: <xsl:element
-                                    name="ph">
-                                  <xsl:attribute name="outputclass"> xdocsreg-MNEMONIC </xsl:attribute>
+                                <xsl:when test="addr-element/addr-mnemonic">
+                                  <xsl:element name="ph">
+                                    <xsl:attribute name="outputclass"> xdocsreg-MNEMONIC </xsl:attribute>
                                     <xsl:value-of select="addr-element/addr-mnemonic"/>
                                   </xsl:element>
                                 </xsl:when>
@@ -306,13 +316,11 @@
                             </xsl:element>
 
                             <xsl:for-each select="addr-element/instances/instance">
-                              <xsl:element name="p">START: <xsl:element name="ph">
-                                <xsl:attribute name="outputclass"> xdocsreg-START </xsl:attribute>
+                              <xsl:element name="p"><xsl:element name="ph">
+                                  <xsl:attribute name="outputclass"> xdocsreg-START </xsl:attribute>
                                   <xsl:value-of select="instance-start"/>
-                                </xsl:element>
-                              </xsl:element>
-                              <xsl:element name="p">STOP: <xsl:element name="ph">
-                                <xsl:attribute name="outputclass"> xdocsreg-STOP </xsl:attribute>
+                                </xsl:element>:<xsl:element name="ph">
+                                  <xsl:attribute name="outputclass"> xdocsreg-STOP </xsl:attribute>
                                   <xsl:value-of select="instance-stop"/>
                                 </xsl:element>
                               </xsl:element>
@@ -338,11 +346,11 @@
     <xsl:apply-templates/>
   </xsl:template>
 
-<xsl:template match="p">
-  <xsl:element name="p">
-    <xsl:apply-templates></xsl:apply-templates>
-  </xsl:element>
-</xsl:template>
+  <xsl:template match="p">
+    <xsl:element name="p">
+      <xsl:apply-templates/>
+    </xsl:element>
+  </xsl:template>
 
   <xsl:template name="calc-bitwidth">
     <xsl:choose>
