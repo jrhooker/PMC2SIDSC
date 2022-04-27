@@ -11,7 +11,7 @@
     <xsl:template name="generate-path">
         <xsl:param name="href-values"/>
         <xsl:param name="count" select="1"/>
-        <xsl:param name="path"></xsl:param>
+        <xsl:param name="path"/>
         <xsl:choose>
             <xsl:when test="$count = count($href-values)">
                 <xsl:value-of select="$path"/>
@@ -70,4 +70,26 @@
         <xsl:value-of select="concat($topicref-id, '_', $filename, '.xml')"/>
     </xsl:template>
 
+    <xsl:template name="generate-link-text">
+        <xsl:variable name="file">
+            <xsl:choose>
+                <xsl:when test="contains(@href, '#')">
+                    <xsl:value-of select="concat($STARTING-DIR-VAR, substring-before(@href, '#'))"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="concat($STARTING-DIR-VAR, @href)"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="target">
+            <xsl:choose>
+                <xsl:when test="contains(@href, '/')">
+                    <xsl:variable name="href-values" select="tokenize(@href, '/')"/>
+                    <xsl:value-of select="$href-values[last()]"/>
+                </xsl:when>
+                <xsl:otherwise/>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:value-of select="document($file)//*[@id = $target]/title/reg-name-main"/> - <xsl:value-of select="document($file)//*[@id = $target]/title/reg-desc"/>
+    </xsl:template>
 </xsl:stylesheet>

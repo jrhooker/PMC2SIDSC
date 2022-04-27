@@ -23,9 +23,15 @@
         <xsl:with-param name="href" select="@href"/>
       </xsl:call-template>
     </xsl:variable>
+    <xsl:variable name="link-text">
+      <xsl:call-template name="generate-link-text"/>
+    </xsl:variable>    
     <xsl:element name="xref">
       <xsl:attribute name="href" select="$filename"/>
-      <xsl:apply-templates/>
+      <xsl:choose>
+        <xsl:when test="string-length(normalize-space($link-text)) &gt; 3"><xsl:value-of select="$link-text"/></xsl:when>
+        <xsl:when test="string-length(.) &gt; 0"><xsl:apply-templates/></xsl:when>       
+      </xsl:choose>    
     </xsl:element>
   </xsl:template>
 
