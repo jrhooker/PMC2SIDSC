@@ -1,4 +1,4 @@
 in/
 conversion/
-out/
-Source/
+out/*
+Source/reg_release09

@@ -90,6 +90,6 @@
                 <xsl:otherwise/>
             </xsl:choose>
         </xsl:variable>
-        <xsl:value-of select="document($file)//*[@id = $target]/title/reg-name-main"/> - <xsl:value-of select="document($file)//*[@id = $target]/title/reg-desc"/>
+        <xsl:value-of select="document($file)//*[@id = $target]/title/reg-name-main"/><xsl:if test="string-length(document($file)//*[@id = $target]/title/reg-desc) &gt; 2"> - <xsl:value-of select="document($file)//*[@id = $target]/title/reg-desc"/></xsl:if>
     </xsl:template>
 </xsl:stylesheet>
