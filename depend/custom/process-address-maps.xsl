@@ -29,7 +29,7 @@
     <xsl:template name="generate-target">
         <xsl:param name="href"/>
         <xsl:variable name="path-to-file">
-            <xsl:variable name="temp_1" select="substring-before($href, '.xml#')"/>
+            <xsl:variable name="temp_1" select="substring-before($href, '.xml')"/>
             <xsl:choose>
                 <xsl:when test="contains($temp_1, '/')">
                     <xsl:variable name="href-values" select="tokenize($temp_1, '/')"/>
@@ -45,7 +45,7 @@
         </xsl:variable>
 
         <xsl:variable name="filename">
-            <xsl:variable name="temp_1" select="substring-before($href, '.xml#')"/>
+            <xsl:variable name="temp_1" select="substring-before($href, '.xml')"/>
             <xsl:choose>
                 <xsl:when test="contains($temp_1, '/')">
                     <xsl:variable name="href-values" select="tokenize($temp_1, '/')"/>
@@ -71,6 +71,8 @@
     </xsl:template>
 
     <xsl:template name="generate-link-text">
+        <xsl:param name="href-prefix"/>
+        <xsl:message>generate-link-text: <xsl:value-of select="$href-prefix"/></xsl:message>
         <xsl:variable name="file">
             <xsl:choose>
                 <xsl:when test="contains(@href, '#')">
@@ -90,6 +92,15 @@
                 <xsl:otherwise/>
             </xsl:choose>
         </xsl:variable>
-        <xsl:value-of select="document($file)//*[@id = $target]/title/reg-name-main"/><xsl:if test="string-length(document($file)//*[@id = $target]/title/reg-desc) &gt; 2"> - <xsl:value-of select="document($file)//*[@id = $target]/title/reg-desc"/></xsl:if>
+        <xsl:choose>
+            <xsl:when test="string-length($target) &gt; 0">
+                <xsl:message>Href: <xsl:value-of select="@href"/></xsl:message>
+                <xsl:message>Href prefix: <xsl:value-of select="$href-prefix"/></xsl:message>
+                <xsl:value-of select="document($file)//*[@id = $target]/title/reg-name-main"/><xsl:if test="string-length(document($file)//*[@id = $target]/title/reg-desc) &gt; 2"> - <xsl:value-of select="document($file)//*[@id = $target]/title/reg-desc"/></xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="document($file)//title[1]/reg-name-main"/><xsl:if test="string-length(document($file)//title[1]/reg-desc) &gt; 2"> - <xsl:value-of select="document($file)//title[1]/reg-desc"/></xsl:if>
+            </xsl:otherwise>
+        </xsl:choose>       
     </xsl:template>
 </xsl:stylesheet>

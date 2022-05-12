@@ -96,23 +96,9 @@
           <xsl:call-template name="create-register-topic">
             <xsl:with-param name="href">
               <xsl:value-of select="@href"/>
-            </xsl:with-param>
-            <xsl:with-param name="href-prefix">
-              <xsl:value-of select="$href-prefix"/>
-            </xsl:with-param>
+            </xsl:with-param>           
           </xsl:call-template>
-        </xsl:when>
-        <xsl:when test="contains(@href, '.ditamap')">
-          <xsl:message>Found a ditamap</xsl:message>
-          <xsl:call-template name="process-ditamap">
-            <xsl:with-param name="href">
-              <xsl:value-of select="@href"/>
-            </xsl:with-param>
-            <xsl:with-param name="href-prefix">
-              <xsl:value-of select="$href-prefix"/>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:when>
+        </xsl:when>        
         <xsl:otherwise>
           <xsl:message>No reg-def found</xsl:message>
         </xsl:otherwise>
@@ -122,9 +108,8 @@
   </xsl:template>
 
   <xsl:template name="create-register-topic">
-    <xsl:param name="href"/>
-    <xsl:param name="href-prefix"/>
-    <xsl:variable name="input-directory" select="concat($STARTING-DIR-VAR, $href-prefix, $href)"/>
+    <xsl:param name="href"/>   
+    <xsl:variable name="input-directory" select="concat($STARTING-DIR-VAR, $href)"/>
     <xsl:variable name="document" select="document($input-directory)"/>
     <xsl:variable name="path-out">
       <xsl:choose>

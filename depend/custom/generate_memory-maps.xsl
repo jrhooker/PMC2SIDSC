@@ -17,24 +17,6 @@
 
   <xsl:param name="STARTING-DIR"/>
 
-  <xsl:template match="xref">
-    <xsl:variable name="filename">
-      <xsl:call-template name="generate-target">
-        <xsl:with-param name="href" select="@href"/>
-      </xsl:call-template>
-    </xsl:variable>
-    <xsl:variable name="link-text">
-      <xsl:call-template name="generate-link-text"/>
-    </xsl:variable>    
-    <xsl:element name="xref">
-      <xsl:attribute name="href" select="$filename"/>
-      <xsl:choose>
-        <xsl:when test="string-length(normalize-space($link-text)) &gt; 3"><xsl:value-of select="$link-text"/></xsl:when>
-        <xsl:when test="string-length(.) &gt; 0"><xsl:apply-templates/></xsl:when>       
-      </xsl:choose>    
-    </xsl:element>
-  </xsl:template>
-
   <xsl:variable name="STARTING-DIR-VAR">
     <xsl:choose>
       <xsl:when test="contains($STARTING-DIR, 'c:')">
@@ -104,7 +86,28 @@
       <xsl:apply-templates/>
     </xsl:copy>
   </xsl:template>
-
+  
+  <xsl:template match="xref">
+    <xsl:param name="href-prefix"></xsl:param>
+    <xsl:variable name="filename">
+      <xsl:call-template name="generate-target">
+        <xsl:with-param name="href" select="@href"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:variable name="link-text">
+      <xsl:call-template name="generate-link-text">
+        <xsl:with-param name="href-prefix" select="$href-prefix"></xsl:with-param>
+      </xsl:call-template>
+    </xsl:variable>    
+    <xsl:element name="xref">
+      <xsl:attribute name="href" select="$filename"/>
+      <xsl:choose>
+        <xsl:when test="string-length(normalize-space($link-text)) &gt; 3"><xsl:value-of select="$link-text"/></xsl:when>
+        <xsl:when test="string-length(.) &gt; 0"><xsl:apply-templates/></xsl:when>       
+      </xsl:choose>    
+    </xsl:element>
+  </xsl:template>
+  
   <xsl:template match="topicref" name="topicref">
     <xsl:param name="href-prefix"/>
     <xsl:variable name="topicref-id" select="generate-id()"/>
@@ -113,26 +116,24 @@
       <xsl:choose>
         <xsl:when test="document(@href)//address-map">
           <xsl:message>Found an address map</xsl:message>
+          <xsl:variable name="local-path">
+            <xsl:call-template name="process-path">
+              <xsl:with-param name="href" select="@href"/>
+            </xsl:call-template>
+          </xsl:variable>      
+          <xsl:message>Local path: <xsl:value-of select="$local-path"/></xsl:message>
           <xsl:call-template name="create-address-map-topic">
             <xsl:with-param name="href">
               <xsl:value-of select="@href"/>
             </xsl:with-param>
             <xsl:with-param name="href-prefix">
-              <xsl:value-of select="$href-prefix"/>
-            </xsl:with-param>
+              <xsl:choose>
+                <xsl:when test="string-length($href-prefix) &gt; 0"><xsl:value-of select="concat($href-prefix, '/', $local-path)"/></xsl:when>
+                <xsl:otherwise><xsl:value-of select="$local-path"/></xsl:otherwise>
+              </xsl:choose>              
+              </xsl:with-param>
           </xsl:call-template>
-        </xsl:when>
-        <xsl:when test="contains(@href, '.ditamap')">
-          <xsl:message>Found a ditamap</xsl:message>
-          <xsl:call-template name="process-ditamap">
-            <xsl:with-param name="href">
-              <xsl:value-of select="@href"/>
-            </xsl:with-param>
-            <xsl:with-param name="href-prefix">
-              <xsl:value-of select="$href-prefix"/>
-            </xsl:with-param>
-          </xsl:call-template>
-        </xsl:when>
+        </xsl:when>      
         <xsl:otherwise>
           <xsl:message>No reg-def found</xsl:message>
         </xsl:otherwise>
@@ -144,6 +145,8 @@
   <xsl:template name="create-address-map-topic">
     <xsl:param name="href"/>
     <xsl:param name="href-prefix"/>
+    <xsl:message>create-address-map-topic1: <xsl:value-of select="$href-prefix"/></xsl:message>
+    <xsl:message>create-address-map-topic2: <xsl:value-of select="$href"/></xsl:message>
     <xsl:variable name="input-directory" select="concat($STARTING-DIR-VAR, $href-prefix, $href)"/>
     <xsl:variable name="document" select="document($input-directory)"/>
     <xsl:variable name="path-out">
@@ -333,7 +336,9 @@
                             </xsl:for-each>
                           </xsl:element>
                           <xsl:element name="entry">
-                            <xsl:apply-templates select="address-details"/>
+                            <xsl:apply-templates select="address-details">
+                              <xsl:with-param name="href-prefix" select="$href-prefix"></xsl:with-param>
+                            </xsl:apply-templates>
                           </xsl:element>
                         </xsl:element>
                       </xsl:for-each>

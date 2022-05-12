@@ -16,7 +16,7 @@ rd /s /q %WORKINGDIR%\in\
 
 mkdir %WORKINGDIR%\in\
 
-cd %WORKINGDIR%\batchfiles
+#xcopy %WORKINGDIR%\%PATHTOPROJECT% %WORKINGDIR%\out\ /S /Y
 
 java -cp %WORKINGDIR%/depend/tools/saxon9/saxon9he.jar;%WORKINGDIR%\depend\tools\Saxon9\xml-commons-resolver-1.2\resolver.jar ^
 -Dxml.catalog.files=..\depend\tools\Saxon9\RWS-DTD\catalog.xml ^
@@ -26,10 +26,30 @@ net.sf.saxon.Transform ^
 -y:org.apache.xml.resolver.tools.ResolvingXMLReader ^
 -o:%WORKINGDIR%\in\test.xml ^
 -s:%WORKINGDIR%\%PATHTOPROJECT%\%FILENAME% ^
--xsl:%WORKINGDIR%\depend\custom\traverse_ditamaps.xsl ^
-STARTING-DIR="%WORKINGDIR%%PATHTOPROJECT%/" OUTPUT-DIR="%WORKINGDIR%%OUTPUTPATH%/" FILENAME="%FILENAME%" 
+-xsl:%WORKINGDIR%\depend\custom\consolidate_ditamaps.xsl ^
+STARTING-DIR="%WORKINGDIR%%PATHTOPROJECT%/" OUTPUT-DIR="%WORKINGDIR%%PATHTOPROJECT%/" FILENAME="Temp1-%FILENAME%" 
 
-cd %WORKINGDIR%\batchfiles
+java -cp %WORKINGDIR%/depend/tools/saxon9/saxon9he.jar;%WORKINGDIR%\depend\tools\Saxon9\xml-commons-resolver-1.2\resolver.jar ^
+-Dxml.catalog.files=..\depend\tools\Saxon9\RWS-DTD\catalog.xml ^
+net.sf.saxon.Transform ^
+-r:org.apache.xml.resolver.tools.CatalogResolver ^
+-x:org.apache.xml.resolver.tools.ResolvingXMLReader ^
+-y:org.apache.xml.resolver.tools.ResolvingXMLReader ^
+-o:%WORKINGDIR%\in\test.xml ^
+-s:%WORKINGDIR%\%PATHTOPROJECT%\Temp1-%FILENAME% ^
+-xsl:%WORKINGDIR%\depend\custom\generate_topic_list.xsl ^
+STARTING-DIR="%WORKINGDIR%%PATHTOPROJECT%/" OUTPUT-DIR="%WORKINGDIR%%PATHTOPROJECT%/" FILENAME="Temp-%FILENAME%" 
+
+java -cp %WORKINGDIR%/depend/tools/saxon9/saxon9he.jar;%WORKINGDIR%\depend\tools\Saxon9\xml-commons-resolver-1.2\resolver.jar ^
+-Dxml.catalog.files=..\depend\tools\Saxon9\RWS-DTD\catalog.xml ^
+net.sf.saxon.Transform ^
+-r:org.apache.xml.resolver.tools.CatalogResolver ^
+-x:org.apache.xml.resolver.tools.ResolvingXMLReader ^
+-y:org.apache.xml.resolver.tools.ResolvingXMLReader ^
+-o:%WORKINGDIR%\in\test.xml ^
+-s:%WORKINGDIR%\%PATHTOPROJECT%\Temp1-%FILENAME% ^
+-xsl:%WORKINGDIR%\depend\custom\create_final_ditamap.xsl ^
+STARTING-DIR="%WORKINGDIR%%PATHTOPROJECT%/" OUTPUT-DIR="%WORKINGDIR%%OUTPUTPATH%/" FILENAME="%FILENAME%" 
 
 java -cp %WORKINGDIR%/depend/tools/saxon9/saxon9he.jar;%WORKINGDIR%\depend\tools\Saxon9\xml-commons-resolver-1.2\resolver.jar ^
 -Dxml.catalog.files=..\depend\tools\Saxon9\RWS-DTD\catalog.xml ^
@@ -42,8 +62,6 @@ net.sf.saxon.Transform ^
 -xsl:%WORKINGDIR%\depend\custom\generate_register_topics.xsl ^
 STARTING-DIR="%WORKINGDIR%%PATHTOPROJECT%/" OUTPUT-DIR="%WORKINGDIR%%OUTPUTPATH%/" FILENAME="Temp-%FILENAME%" 
 
-cd %WORKINGDIR%\batchfiles
-
 java -cp %WORKINGDIR%/depend/tools/saxon9/saxon9he.jar;%WORKINGDIR%\depend\tools\Saxon9\xml-commons-resolver-1.2\resolver.jar ^
 -Dxml.catalog.files=..\depend\tools\Saxon9\RWS-DTD\catalog.xml ^
 net.sf.saxon.Transform ^
@@ -55,8 +73,7 @@ net.sf.saxon.Transform ^
 -xsl:%WORKINGDIR%\depend\custom\generate_memory-maps.xsl ^
 STARTING-DIR="%WORKINGDIR%%PATHTOPROJECT%/" OUTPUT-DIR="%WORKINGDIR%%OUTPUTPATH%/" FILENAME="Temp-%FILENAME%" 
 
-cd %WORKINGDIR%\batchfiles
-
-del %WORKINGDIR%\out\Temp-%FILENAME%
+del %WORKINGDIR%%PATHTOPROJECT%\Temp1-%FILENAME%
+del %WORKINGDIR%%PATHTOPROJECT%\Temp-%FILENAME%
 
 cd %WORKINGDIR%\batchfiles
