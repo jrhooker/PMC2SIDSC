@@ -8,6 +8,8 @@
   xmlns:opentopic-func="http://www.idiominc.com/opentopic/exsl/function"
   xmlns:date="http://exslt.org/dates-and-times">
 
+  <xsl:import href="filtering-attribute-resolver.xsl"/>
+
   <xsl:import href="process-address-maps.xsl"/>
 
   <xsl:import href="conversionFunctions.xsl"/>
@@ -176,6 +178,7 @@
           </xsl:element>
           <xsl:for-each select="tgroup/reg-def/field">
             <xsl:element name="bitField">
+              <xsl:call-template name="filtering-attribute-management"/>
               <xsl:attribute name="id" select="generate-id()"/>
               <xsl:if test="field-name/@verilog">
                 <xsl:attribute name="outputclass">
@@ -471,6 +474,7 @@
 
   <xsl:template match="field-enum" mode="field-desc">
     <xsl:element name="dlentry">
+      <xsl:call-template name="filtering-attribute-management"/>
       <xsl:apply-templates mode="field-desc"/>
     </xsl:element>
   </xsl:template>
@@ -502,6 +506,7 @@
 
   <xsl:template match="table_info" mode="field-desc">
     <xsl:element name="table">
+      <xsl:call-template name="filtering-attribute-management"/>
       <xsl:apply-templates mode="field-desc"/>
     </xsl:element>
   </xsl:template>
@@ -535,13 +540,13 @@
     </xsl:element>
   </xsl:template>
 
-  <xsl:template match="two_col_table | three_col_table | four_col_table | five_col_table | six_col_table | seven_col_table | eight_col_table | nine_col_table | ten_col_table | eleven_col_table | twelve_col_table " mode="field-desc">  
-   
+  <xsl:template match="two_col_table | three_col_table | four_col_table | five_col_table | six_col_table | seven_col_table | eight_col_table | nine_col_table | ten_col_table | eleven_col_table | twelve_col_table " mode="field-desc">     
     <xsl:apply-templates mode="field-desc"/>    
   </xsl:template>
 
   <xsl:template match="two_col_row | three_col_row | four_col_row | five_col_row | six_col_row | seven_col_row | eight_col_row | nine_col_row | ten_col_row | eleven_col_row | twelve_col_row | two_col_head | three_col_head | four_col_head | five_col_head | six_col_head | seven_col_head | eight_col_head | nine_col_head | ten_col_head | eleven_col_head | twelve_col_head  " mode="field-desc">
     <xsl:element name="row">
+      <xsl:call-template name="filtering-attribute-management"/>
       <xsl:apply-templates mode="field-desc"/>
     </xsl:element>
   </xsl:template>

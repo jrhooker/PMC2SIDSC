@@ -70,6 +70,14 @@
         <xsl:value-of select="concat($topicref-id, '_', $filename, '.xml')"/>
     </xsl:template>
 
+    <xsl:template name="generate-target-without-id">
+        <xsl:param name="href"/>                
+        <xsl:variable name="filename">
+            <xsl:value-of select="document($href)//table[descendant::address-map]/@id"/>
+        </xsl:variable>
+       <xsl:value-of select="concat($filename, '_', $href)"/>
+    </xsl:template>
+
     <xsl:template name="generate-link-text">
         <xsl:param name="href-prefix"/>
         <xsl:message>generate-link-text: <xsl:value-of select="$href-prefix"/></xsl:message>

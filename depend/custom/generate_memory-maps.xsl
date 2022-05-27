@@ -7,6 +7,8 @@
   xmlns:opentopic="http://www.idiominc.com/opentopic"
   xmlns:opentopic-func="http://www.idiominc.com/opentopic/exsl/function"
   xmlns:date="http://exslt.org/dates-and-times">
+  
+  <xsl:import href="filtering-attribute-resolver.xsl"/>
 
   <xsl:import href="process-address-maps.xsl"/>
 
@@ -90,9 +92,19 @@
   <xsl:template match="xref">
     <xsl:param name="href-prefix"></xsl:param>
     <xsl:variable name="filename">
-      <xsl:call-template name="generate-target">
-        <xsl:with-param name="href" select="@href"/>
-      </xsl:call-template>
+      <xsl:choose>
+        <xsl:when test="contains(@href, '#')">
+          <xsl:call-template name="generate-target">
+            <xsl:with-param name="href" select="@href"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="generate-target-without-id">
+            <xsl:with-param name="href" select="@href"/>
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>
+     
     </xsl:variable>
     <xsl:variable name="link-text">
       <xsl:call-template name="generate-link-text">
@@ -147,7 +159,7 @@
     <xsl:param name="href-prefix"/>
     <xsl:message>create-address-map-topic1: <xsl:value-of select="$href-prefix"/></xsl:message>
     <xsl:message>create-address-map-topic2: <xsl:value-of select="$href"/></xsl:message>
-    <xsl:variable name="input-directory" select="concat($STARTING-DIR-VAR, $href-prefix, $href)"/>
+    <xsl:variable name="input-directory" select="concat($STARTING-DIR-VAR, $href)"/>
     <xsl:variable name="document" select="document($input-directory)"/>
     <xsl:variable name="path-out">
       <xsl:choose>
@@ -188,6 +200,7 @@
               </xsl:element>
               <xsl:for-each select="tgroup/address-map/register-reference">
                 <xsl:element name="addressBlock">
+                  <xsl:call-template name="filtering-attribute-management"/>
                   <xsl:element name="addressBlockName">
                     <xsl:value-of select="addr-element/addr-mnemonic"/>
                     <xsl:value-of select="addr-element/addr-prefix"/>
@@ -303,6 +316,7 @@
                       <xsl:for-each select="tgroup/address-map/register-reference">
                         <xsl:element name="row">
                           <xsl:attribute name="outputclass">rowbreak</xsl:attribute>
+                          <xsl:call-template name="filtering-attribute-management"/>
                           <xsl:element name="entry">
                             <xsl:value-of select="address"/>
                           </xsl:element>
@@ -359,6 +373,7 @@
 
   <xsl:template match="p">
     <xsl:element name="p">
+      <xsl:call-template name="filtering-attribute-management"/>
       <xsl:apply-templates/>
     </xsl:element>
   </xsl:template>
@@ -378,6 +393,7 @@
   <xsl:template match="*" mode="copy">
     <xsl:copy>
       <xsl:copy-of select="@*"/>
+      <xsl:call-template name="filtering-attribute-management"/>
       <xsl:apply-templates mode="copy"/>
     </xsl:copy>
   </xsl:template>
@@ -385,6 +401,7 @@
   <xsl:template match="*" mode="copy-address-table">
     <xsl:copy>
       <xsl:copy-of select="@*"/>
+      <xsl:call-template name="filtering-attribute-management"/>
       <xsl:apply-templates mode="copy-address-table"/>
     </xsl:copy>
   </xsl:template>
