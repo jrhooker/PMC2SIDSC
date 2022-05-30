@@ -8,6 +8,8 @@
   xmlns:opentopic-func="http://www.idiominc.com/opentopic/exsl/function"
   xmlns:date="http://exslt.org/dates-and-times">
   
+  <xsl:import href="filtering-attribute-resolver.xsl"/>
+  
   <!-- This script takes the considated ditamap created earlier and expands it to create links to all of the newly generated topics. -->
   
   <xsl:param name="STARTING-DIR"/>
@@ -56,11 +58,11 @@
   
   <xsl:param name="FILENAME"/>  
   
-  <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
-    doctype-public="-//OASIS//DTD DITA 1.2 Map//EN" doctype-system="map.dtd"/>
+ <!-- <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
+    doctype-public="-//OASIS//DTD DITA 1.2 Map//EN" doctype-system="map.dtd"/>-->
   
-  <!-- <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
-    doctype-public="-//Atmel//DTD DITA Map//EN" doctype-system="dtd/atmelMap.dtd"/> -->
+  <xsl:output method="xml" media-type="text/xml" indent="yes" encoding="UTF-8"
+    doctype-public="-//Atmel//DTD DITA Map//EN" doctype-system="dtd/atmelMap.dtd"/>
   
   <xsl:template match="/">
     
@@ -179,7 +181,8 @@
     <xsl:for-each select="$document//table[descendant::reg-def]">      
       <xsl:variable name="reg-file-name"  select="concat(@id, '_', $topicref-id)"/>  
       <xsl:message>REG-DEF: <xsl:value-of select="@id"/></xsl:message>      
-      <xsl:element name="topicref">     
+      <xsl:element name="topicref">   
+        <xsl:call-template name="filtering-attribute-management"/>    
         <xsl:if test="@ishcondition"><xsl:attribute name="ishcondition"><xsl:value-of select="@ishcondition"/></xsl:attribute></xsl:if>
         <xsl:choose>
           <xsl:when test="string-length($path-out) &gt; 0"><xsl:attribute name="href" select="concat($path-out,'/', $reg-file-name)"/></xsl:when>
@@ -191,6 +194,7 @@
       <xsl:variable name="reg-file-name"  select="concat(@id, '_', $topicref-id)"/>  
       <xsl:message>ADDRESS-MAP: <xsl:value-of select="@id"/> </xsl:message>
       <xsl:element name="topicref">
+        <xsl:call-template name="filtering-attribute-management"/>    
         <xsl:if test="@ishcondition"><xsl:attribute name="ishcondition"><xsl:value-of select="@ishcondition"/></xsl:attribute></xsl:if>
         <xsl:choose>
           <xsl:when test="string-length($path-out) &gt; 0"><xsl:attribute name="href" select="concat($path-out, '/', $reg-file-name)"/></xsl:when>
